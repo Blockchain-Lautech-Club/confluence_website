@@ -68,7 +68,7 @@ export default function Home() {
             {/* Large CONFLUENCE Logo */}
             <div className="mb-12">
               <h1 className="text-6xl sm:text-8xl lg:text-9xl font-black text-white mb-4 tracking-tight">
-                CON<span className="text-cyan-400">/</span>LUENCE
+                CON<span className="text-cyan-400">F</span>LUENCE
               </h1>
             </div>
 
@@ -133,27 +133,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Bottom Contact Info */}
-        <div className="absolute bottom-8 left-8 right-8 flex justify-between items-end">
-          <div className="bg-green-400/20 px-4 py-2 rounded-lg">
-            <p className="text-green-400 text-sm font-medium">For Enquires Contact:</p>
-            <p className="text-white">+234...</p>
-            <p className="text-cyan-400">@BlockchainLaut1</p>
-          </div>
-          <div className="text-right">
-            <p className="text-gray-400 text-sm mb-2">Powered by:</p>
-            <div className="flex items-center gap-2">
-              <Image src="/blclogo.jpg"
-               alt="Confluence Logo" 
-               width={40} height={40} 
-               className="rounded-full" />
-              <div>
-                <p className="text-white font-bold text-sm">BLOCKCHAIN</p>
-                <p className="text-gray-400 text-xs">LADOKE AKINTOLA UNIVERSITY OF TECHNOLOGY</p>
-              </div>
-            </div>
-          </div>
-        </div>
+       
       </section>
 
       {/* About Section */}
