@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, MapPin, Users, Globe, Target, Rocket, Heart, Code, GitCommit as Community, Mail, Phone, Twitter, Instagram, Linkedin, ExternalLink, Zap, Award, Network, Star, ArrowRight } from 'lucide-react';
-
+import Image from 'next/image';
 export default function Home() {
   const [activeTrack, setActiveTrack] = useState<'community' | 'developer'>('community');
 
@@ -39,9 +39,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center">
-                <Network className="w-6 h-6 text-black" />
-              </div>
+              <Image src="/logo.jpg"
+               alt="Confluence Logo" 
+               width={40} height={40} 
+               className="rounded-full" />
               <span className="font-bold text-xl text-white">CONFLUENCE</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
@@ -105,11 +106,11 @@ export default function Home() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-black px-8 py-4 text-lg font-bold rounded-lg shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 transform hover:scale-105">
-                Register for Community Track
+                Register for Event
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
               <Button size="lg" variant="outline" className="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black px-8 py-4 text-lg font-bold rounded-lg transition-all duration-300 transform hover:scale-105">
-                Apply for Dev Track
+                Apply To be a Speaker
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </div>
@@ -142,9 +143,10 @@ export default function Home() {
           <div className="text-right">
             <p className="text-gray-400 text-sm mb-2">Powered by:</p>
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                <Network className="w-5 h-5 text-black" />
-              </div>
+              <Image src="/blclogo.jpg"
+               alt="Confluence Logo" 
+               width={40} height={40} 
+               className="rounded-full" />
               <div>
                 <p className="text-white font-bold text-sm">BLOCKCHAIN</p>
                 <p className="text-gray-400 text-xs">LADOKE AKINTOLA UNIVERSITY OF TECHNOLOGY</p>
@@ -244,9 +246,9 @@ export default function Home() {
                     <span className="font-medium text-gray-200">Prize Distribution</span>
                   </div>
                 </div>
-                <div className="mt-8 p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
-                  <p className="text-sm text-yellow-300 font-medium">
-                    Registration via separate application process
+                <div className="mt-8 p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
+                  <p className="text-sm text-green-300 font-medium">
+                    Open registration for all Developers
                   </p>
                 </div>
               </CardContent>
@@ -620,9 +622,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center">
-                <Network className="w-5 h-5 text-black" />
-              </div>
+              <Image src="/logo.jpg"
+               alt="Confluence Logo" 
+               width={40} height={40} 
+               className="rounded-full" />
               <span className="font-bold text-xl">CONFLUENCE 2025</span>
             </div>
             <p className="text-gray-400 mb-4">Ogbomoso, Nigeria</p>
