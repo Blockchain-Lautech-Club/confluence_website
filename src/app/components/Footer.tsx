@@ -23,8 +23,13 @@ const Footer = () => {
             </div>
 
             <div className="flex gap-5">
+                <span className='text-white py-2'>Contact Us</span>
                 
-
+                <a href="mailto:blockchainlautech@gmail.com">
+                    <div className="p-2 cursor-pointer bg-white rounded-lg w-10 h-10 text-xl flex justify-center items-center">
+                        <i className="bi bi-envelope"></i>
+                    </div>
+                </a>
                 <a href="https://x.com/ConfluenceEvent/">
                     <div className='p-2 cursor-pointer bg-white rounded-lg w-10 h-10 text-xl flex justify-center items-center'>
                     <i className="bi bi-twitter-x"></i>
@@ -42,18 +47,19 @@ const Footer = () => {
                 </a>
             </div>
             
-            <div className="flex text-white gap-5 text-center lg:text-start">
+            {/* <div className="flex text-white gap-5 text-center lg:text-start">
                 <p className='cursor-pointer text-xs'>Privacy Policy</p>
                 <p className='cursor-pointer text-xs'>Terms of Service</p>
                 <p className='cursor-pointer text-xs'>Code of Conduct</p>
-            </div>
+            </div> */}
         </div>
 
         <hr className='text-white my-7' />
 
-        <div className="flex justify-between text-white max-sm:flex-col gap-5 text-sm max-sm:items-center text-center lg:text-start">
-            <p>© 2025 Blockchain Lautech. All rights reserved.</p>
-            <p>Powered by innovation. Driven by community.</p>
+        <div className="flex justify-center items-center min-h-[35px]">
+            <div className="text-white text-sm text-center">
+                <p>© 2025 Blockchain Lautech. All rights reserved.</p>
+            </div>
         </div>
     </div>
   )
