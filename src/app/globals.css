@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@import "aos/dist/aos.css";
+
+
+:root {
+  font-family: var(--font-inter), sans-serif;
+}
+
+code {
+  font-family: var(--font-geist-mono), monospace;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#AB8C95] via-[#000000] to-[#8E97C5];
+}
+
+.bg-conblue{
+  @apply bg-[#286cfd];
+}
+.bg-conblack{
+  @apply bg-[#0c1246];
+}
+.text-conblue{
+  @apply text-[#286cfd];
+}
+.border-conblue{
+  @apply border-[#286cfd];
+}
