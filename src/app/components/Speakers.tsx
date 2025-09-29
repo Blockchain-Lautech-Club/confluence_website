@@ -41,7 +41,7 @@ const Speakers = () => {
 
         <div className="text-center mt-[8%]" data-aos="fade-up">
           <div className='md:text-2xl text-xs font-semibold bg-white py-2 px-7 rounded-full w-fit text-nowrap mx-auto shadow'>
-            <h2 className='text-gradient uppercase'>Event ponsors</h2>
+            <h2 className='text-gradient uppercase'>Event Sponsors</h2>
           </div>
           <div className=" mt-10">
             <div className="flex justify-center items-center">
@@ -67,7 +67,7 @@ const Speakers = () => {
                 src={'/Asset 1.png'}
                 width={200}
                 height={10}
-                alt="Facucet Drops"
+                alt="The Assembly"
                 className=''
               />
             </div>
