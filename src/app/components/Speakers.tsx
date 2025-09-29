@@ -41,10 +41,8 @@ const Speakers = () => {
 
         <div className="text-center mt-[8%]" data-aos="fade-up">
           <div className='md:text-2xl text-xs font-semibold bg-white py-2 px-7 rounded-full w-fit text-nowrap mx-auto shadow'>
-            <h2 className='text-gradient uppercase'>Sponsors</h2>
+            <h2 className='text-gradient uppercase'>Event ponsors</h2>
           </div>
-          <p className='text-center text-gradient pt-3 text-2xl md:text-4xl lg:text-5xl font-semibold'>Event Partners</p>
-
           <div className=" mt-10">
             <div className="flex justify-center items-center">
               <Image
@@ -61,10 +59,8 @@ const Speakers = () => {
         </div>
         <div className="text-center mt-[8%]" data-aos="fade-up">
           <div className='md:text-2xl text-xs font-semibold bg-white py-2 px-7 rounded-full w-fit text-nowrap mx-auto shadow'>
-            <h2 className='text-gradient uppercase'>Partners</h2>
+            <h2 className='text-gradient uppercase'>Event Partners</h2>
           </div>
-          <p className='text-center text-gradient pt-3 text-2xl md:text-4xl lg:text-5xl font-semibold'>Event Partners</p>
-
           <div className=" mt-10">
             <div className="flex justify-center items-center">
               <Image
