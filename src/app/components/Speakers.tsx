@@ -1,5 +1,7 @@
-import { Users } from 'lucide-react'
+import { HeartHandshake, Users } from 'lucide-react'
 import React from 'react'
+import Image from 'next/image'
+
 
 
 const phoneNumber = "+2349162706257"
@@ -18,7 +20,7 @@ const Speakers = () => {
       </p>
 
       <div className='pt-10'>
-        <div className="bg-white p-10 rounded-3xl shadow text-center" data-aos="fade-up">
+        <div className="bg-white p-10 mb-10 rounded-3xl shadow text-center" data-aos="fade-up">
           <div className="p-5 rounded-lg mx-auto w-fit text-white bg-conblue mb-5">
             <Users size={30}/>
           </div>
@@ -36,6 +38,48 @@ const Speakers = () => {
             </button>
             </a>
         </div>
+
+        <div className="text-center mt-[8%]" data-aos="fade-up">
+          <div className='md:text-2xl text-xs font-semibold bg-white py-2 px-7 rounded-full w-fit text-nowrap mx-auto shadow'>
+            <h2 className='text-gradient uppercase'>Sponsors</h2>
+          </div>
+          <p className='text-center text-gradient pt-3 text-2xl md:text-4xl lg:text-5xl font-semibold'>Event Partners</p>
+
+          <div className=" mt-10">
+            <div className="flex justify-center items-center">
+              <Image
+                src={'/20250520_191329.png'}
+                width={200}
+                height={10}
+                alt="Facucet Drops"
+                className=''
+              />
+            </div>
+
+          </div>
+
+        </div>
+        <div className="text-center mt-[8%]" data-aos="fade-up">
+          <div className='md:text-2xl text-xs font-semibold bg-white py-2 px-7 rounded-full w-fit text-nowrap mx-auto shadow'>
+            <h2 className='text-gradient uppercase'>Partners</h2>
+          </div>
+          <p className='text-center text-gradient pt-3 text-2xl md:text-4xl lg:text-5xl font-semibold'>Event Partners</p>
+
+          <div className=" mt-10">
+            <div className="flex justify-center items-center">
+              <Image
+                src={'/Asset 1.png'}
+                width={200}
+                height={10}
+                alt="Facucet Drops"
+                className=''
+              />
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
 
       {/* Logo Loop Section */}
