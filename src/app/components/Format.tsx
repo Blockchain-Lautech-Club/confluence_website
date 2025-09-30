@@ -23,8 +23,9 @@ const Format = () => {
                             <li className='flex gap-2'><Network />Developer Networking</li>
                             <li className='flex gap-2'><Cast />Panel Session</li>
                         </ul>
-
-                        <button className='bg-white text-black px-7 py-3 rounded-lg md:text-sm text-xs pointer font-normal mt-15 w-full'>Apply for Dev Track →</button>
+                        <a href="https://forms.gle/L6Px91wxUdZAbuvB8" rel='noreferrer' target='_blank'>
+                           <button className='bg-white text-black px-7 py-3 rounded-lg md:text-sm text-xs pointer font-normal mt-15 w-full'>Apply for Dev Track →</button>
+                        </a>
                     </div>
 
                 </div>
