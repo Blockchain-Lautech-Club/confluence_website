@@ -13,7 +13,7 @@ const Connected = () => {
       <div className="flex gap-10 md:mt-12 my-7 flex-col lg:flex-row lg:items-stretch">
         <div className="basis-1/2" data-aos="fade-right">
           <h2 className='text-4xl max-sm:text-2xl font-medium text-slate-700 max-sm:text-center'>About Blockchain Lautech</h2>
-          <p className='text-lg text-slate-700 mt-5 text-justify'>Blockchain Lautech has been championing blockchain education since 2020. Through workshops, hackathons, and community building, we&apos;ve created a vibrant ecosystem that connects LAUTECH students to the global Web3 movement.
+          <p className='text-slate-700 mt-5 text-justify'>Blockchain Lautech has been championing blockchain education since 2020. Through workshops, hackathons, and community building, we&apos;ve created a vibrant ecosystem that connects LAUTECH students to the global Web3 movement.
           </p>
 
           {/* <div className='bg-white shadow rounded-lg p-5 border-l-3 border-conblue mt-5 font-medium text-slate-700'>

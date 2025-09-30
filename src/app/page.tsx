@@ -10,7 +10,7 @@ import Footer from './components/Footer'
 
 const page = () => {
   return (
-    <div className="bg-[url('/bg-main.svg')] bg-fixed bg-cover pt-10 min-h-screen overflow-x-hidden">
+    <div className="bg-[url('/bg-main.svg')] bg-fixed bg-cover pt-5 min-h-screen overflow-x-hidden">
       <Home />
       <About />
       <Format />
