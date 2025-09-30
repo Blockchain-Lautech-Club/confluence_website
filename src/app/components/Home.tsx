@@ -29,8 +29,8 @@ const Home = () => {
         <Navbar />
         <div className='flex flex-col justify-center items-center gap-7 md:pt-35 pt-28 max-sm:px-5 relative z-10'>
           <div data-aos="fade-up">
-          <div className="bg-[#fef4e2] px-8 py-3 rounded-full shadow">
-            <h2 className='text-gradient font-medium lg:text-2xl uppercase text-center'>
+          <div className="bg-[#0C1246] px-8 py-3 rounded-full shadow">
+            <h2 className='text-[#F5F5F5] font-medium lg:text-2xl uppercase text-center'>
               Welcome to Confluence 2025
 
             </h2>
