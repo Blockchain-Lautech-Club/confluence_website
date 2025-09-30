@@ -67,10 +67,11 @@ const Home = () => {
             </button>
              </a>
             
-
-            <button className='border-[#286cfd] border-2 text-[#286cfd] px-7 py-3 rounded-lg md:text-sm text-xs pointer font-normal cursor-pointer'>
-              Apply for Dev Track
-            </button>
+             <a href="https://forms.gle/L6Px91wxUdZAbuvB8" rel='noreferrer' target='_blank'>  
+                <button className='border-[#286cfd] border-2 text-[#286cfd] px-7 py-3 rounded-lg md:text-sm text-xs pointer font-normal cursor-pointer'>
+                  Apply for Dev Track
+                </button>
+             </a>
           </div>
         </div>
 
