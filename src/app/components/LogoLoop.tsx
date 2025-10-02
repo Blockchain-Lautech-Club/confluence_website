@@ -17,8 +17,8 @@ export interface LogoLoopProps {
   speed?: number;
   direction?: 'left' | 'right';
   width?: number | string;
-  logoHeight?: number;
-  gap?: number;
+  logoHeight?: number | { mobile?: number; tablet?: number; desktop?: number };
+  gap?: number | { mobile?: number; tablet?: number; desktop?: number };
   pauseOnHover?: boolean;
   fadeOut?: boolean;
   fadeOutColor?: string;
@@ -226,12 +226,37 @@ export const LogoLoop = React.memo<LogoLoopProps>(
     useAnimationLoop(trackRef, targetVelocity, seqWidth, isHovered, pauseOnHover);
 
     const cssVariables = useMemo(
-      () =>
-        ({
-          '--logoloop-gap': `${gap}px`,
-          '--logoloop-logoHeight': `${logoHeight}px`,
+      () => {
+        const vars: Record<string, string> = {
           ...(fadeOutColor && { '--logoloop-fadeColor': fadeOutColor })
-        }) as React.CSSProperties,
+        };
+
+        // Handle responsive gap
+        if (typeof gap === 'object') {
+          vars['--logoloop-gap-mobile'] = `${gap.mobile ?? 20}px`;
+          vars['--logoloop-gap-tablet'] = `${gap.tablet ?? 32}px`;
+          vars['--logoloop-gap-desktop'] = `${gap.desktop ?? 40}px`;
+        } else {
+          const gapValue = gap ?? 32;
+          vars['--logoloop-gap-mobile'] = `${gapValue}px`;
+          vars['--logoloop-gap-tablet'] = `${gapValue}px`;
+          vars['--logoloop-gap-desktop'] = `${gapValue}px`;
+        }
+
+        // Handle responsive logoHeight
+        if (typeof logoHeight === 'object') {
+          vars['--logoloop-logoHeight-mobile'] = `${logoHeight.mobile ?? 28}px`;
+          vars['--logoloop-logoHeight-tablet'] = `${logoHeight.tablet ?? 40}px`;
+          vars['--logoloop-logoHeight-desktop'] = `${logoHeight.desktop ?? 60}px`;
+        } else {
+          const heightValue = logoHeight ?? 28;
+          vars['--logoloop-logoHeight-mobile'] = `${heightValue}px`;
+          vars['--logoloop-logoHeight-tablet'] = `${heightValue}px`;
+          vars['--logoloop-logoHeight-desktop'] = `${heightValue}px`;
+        }
+
+        return vars as React.CSSProperties;
+      },
       [gap, logoHeight, fadeOutColor]
     );
 
@@ -239,11 +264,9 @@ export const LogoLoop = React.memo<LogoLoopProps>(
       () =>
         cx(
           'relative overflow-x-hidden group',
-          '[--logoloop-gap:32px]',
-          '[--logoloop-logoHeight:28px]',
           '[--logoloop-fadeColorAuto:#ffffff]',
           'dark:[--logoloop-fadeColorAuto:#0b0b0b]',
-          scaleOnHover && 'py-[calc(var(--logoloop-logoHeight)*0.1)]',
+          scaleOnHover && 'py-[calc(var(--logoloop-logoHeight-mobile)*0.1)] md:py-[calc(var(--logoloop-logoHeight-tablet)*0.1)] lg:py-[calc(var(--logoloop-logoHeight-desktop)*0.1)]',
           className
         ),
       [scaleOnHover, className]
@@ -268,20 +291,18 @@ export const LogoLoop = React.memo<LogoLoopProps>(
         } else if (item.height) {
           imageStyle.height = `${item.height}px`;
           imageStyle.width = 'auto';
-        } else {
-          imageStyle.height = 'var(--logoloop-logoHeight)';
-          imageStyle.width = 'auto';
         }
 
         const content = (
           <img
             className={cx(
               'block object-contain',
+              !item.width && !item.height && 'h-[var(--logoloop-logoHeight-mobile)] md:h-[var(--logoloop-logoHeight-tablet)] lg:h-[var(--logoloop-logoHeight-desktop)] w-auto',
               '[-webkit-user-drag:none] pointer-events-none',
               '[image-rendering:-webkit-optimize-contrast]',
               'motion-reduce:transition-none',
               scaleOnHover &&
-                'transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-120'
+                'transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-110'
             )}
             style={imageStyle}
             src={item.src}
@@ -319,7 +340,8 @@ export const LogoLoop = React.memo<LogoLoopProps>(
         return (
           <li
             className={cx(
-              'flex-none mr-[var(--logoloop-gap)] text-[length:var(--logoloop-logoHeight)] leading-[1]',
+              'flex-none leading-[1]',
+              'mr-[var(--logoloop-gap-mobile)] md:mr-[var(--logoloop-gap-tablet)] lg:mr-[var(--logoloop-gap-desktop)]',
               scaleOnHover && 'overflow-visible group/item'
             )}
             key={key}

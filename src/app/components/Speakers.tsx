@@ -116,8 +116,8 @@ const Speakers = () => {
                 logos={partnerLogos}
                 speed={120}
                 direction="right"
-                logoHeight={60}
-                gap={60}
+                logoHeight={{ mobile: 40, tablet: 50, desktop: 60 }}
+                gap={{ mobile: 30, tablet: 30, desktop: 40 }}
                 pauseOnHover
                 scaleOnHover
                 fadeOut={false}
