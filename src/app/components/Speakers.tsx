@@ -23,22 +23,27 @@ const partnerLogos = [
   { 
     src: '/Asset 1.png', 
     alt: 'The Assembly',
-    width: 200
+    width: 150
   },
   { 
     src: '/partner2.png', 
     alt: 'Unilorin Block Community',
-    width: 200
+    width: 150
   },
   { 
     src: '/partner3.png', 
     alt: 'Google Developer Group on LAUTECH',
-     width: 200
+    width: 150
   },
   { 
     src: '/partner4.png', 
     alt: 'Crypto Asset Buyer',
-     width: 200
+    width: 150
+  },
+  { 
+    src: '/partner5.png', 
+    alt: 'Crypto Asset Buyer',
+    width: 150
   },
   // Add more partner logos here
   // { src: '/partner2.png', alt: 'Partner 2', href: 'https://partner2.com' },
@@ -116,8 +121,8 @@ const Speakers = () => {
                 logos={partnerLogos}
                 speed={120}
                 direction="right"
-                logoHeight={{ mobile: 40, tablet: 50, desktop: 60 }}
-                gap={{ mobile: 30, tablet: 30, desktop: 40 }}
+                logoHeight={{ mobile: 40, tablet: 50, desktop: 40 }}
+                gap={{ mobile: 30, tablet: 30, desktop: 50 }}
                 pauseOnHover
                 scaleOnHover
                 fadeOut={false}
