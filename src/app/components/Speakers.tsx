@@ -12,7 +12,6 @@ const sponsorLogos = [
   { 
     src: '/20250520_191329.png', 
     alt: 'Sponsor 1',
-    href: '#' // Add actual sponsor website
   },
   // Add more sponsor logos here
   // { src: '/sponsor2.png', alt: 'Sponsor 2', href: 'https://sponsor2.com' },
@@ -24,25 +23,21 @@ const partnerLogos = [
   { 
     src: '/Asset 1.png', 
     alt: 'The Assembly',
-    href: '#',
     width: 200
   },
   { 
     src: '/partner2.png', 
     alt: 'Unilorin Block Community',
-    href: '#',
     width: 200
   },
   { 
     src: '/partner3.png', 
     alt: 'Google Developer Group on LAUTECH',
-    href: '#',
      width: 200
   },
   { 
     src: '/partner4.png', 
     alt: 'Crypto Asset Buyer',
-    href: '#',
      width: 200
   },
   // Add more partner logos here
@@ -113,7 +108,7 @@ const Speakers = () => {
           <div className='md:text-2xl text-xs font-semibold bg-white py-2 px-7 rounded-full w-fit text-nowrap mx-auto shadow'>
             <h2 className='text-gradient uppercase'>Event Partners</h2>
           </div>
-          <div className=" mt-10">
+          <div className="">
             <div className="mt-10">
             {partnerLogos.length > 1 ? (
               // Use LogoLoop if multiple partners

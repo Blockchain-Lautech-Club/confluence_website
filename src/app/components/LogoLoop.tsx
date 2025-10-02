@@ -389,7 +389,7 @@ export const LogoLoop = React.memo<LogoLoopProps>(
         )}
 
         <div
-          className={cx('flex w-max will-change-transform items-center select-none', 'motion-reduce:transform-none')}
+          className={cx('flex w-max will-change-transform items-center select-none overflow-y-hidden', 'motion-reduce:transform-none')}
           ref={trackRef}
         >
           {logoLists}
