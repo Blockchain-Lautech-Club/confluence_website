@@ -91,79 +91,38 @@ const Speakers = () => {
         {/* Sponsors Section with LogoLoop */}
         <div className="text-center mt-[8%]" data-aos="fade-up">
           <div className='md:text-2xl text-xs font-semibold bg-white py-2 px-7 rounded-full w-fit text-nowrap mx-auto shadow'>
-            <h2 className='text-gradient uppercase'>Sponsors</h2>
+            <h2 className='text-gradient uppercase'>Event Sponsors</h2>
           </div>
-          <p className='text-center text-gradient pt-3 text-2xl md:text-4xl lg:text-5xl font-semibold'>
-            Event Sponsors
-          </p>
-
-          <div className="mt-10">
-            {sponsorLogos.length > 1 ? (
-              // Use LogoLoop if multiple sponsors
-              <LogoLoop
-                logos={sponsorLogos}
-                speed={100}
-                direction="left"
-                logoHeight={80}
-                gap={32}
-                pauseOnHover
-                scaleOnHover
-                fadeOut
-                fadeOutColor="#ffffff"
-                ariaLabel="Event Sponsors"
-                className="[&_img]:!w-[150px] [&_img]:!h-auto"
+          <div className=" mt-10">
+            <div className="flex justify-center items-center">
+              <Image
+                src={'/20250520_191329.png'}
+                width={200}
+                height={10}
+                alt="Facucet Drops"
+                className=''
               />
-            ) : (
-              // Single sponsor - static display
-              <div className="flex justify-center items-center">
-                <Image
-                  src={sponsorLogos[0].src}
-                  width={200}
-                  height={100}
-                  alt={sponsorLogos[0].alt || "Sponsor"}
-                  className='object-contain'
-                />
-              </div>
-            )}
+            </div>
+
           </div>
         </div>
 
         {/* Partners Section with LogoLoop */}
         <div className="text-center mt-[8%]" data-aos="fade-up">
           <div className='md:text-2xl text-xs font-semibold bg-white py-2 px-7 rounded-full w-fit text-nowrap mx-auto shadow'>
-            <h2 className='text-gradient uppercase'>Partners</h2>
+            <h2 className='text-gradient uppercase'>Event Partners</h2>
           </div>
-          <p className='text-center text-gradient pt-3 text-2xl md:text-4xl lg:text-5xl font-semibold'>
-            Event Partners
-          </p>
-
-          <div className="mt-10">
-            {partnerLogos.length > 1 ? (
-              // Use LogoLoop if multiple partners
-              <LogoLoop
-                logos={partnerLogos}
-                speed={120}
-                direction="right"
-                logoHeight={60}
-                gap={50}
-                pauseOnHover
-                scaleOnHover
-                fadeOut={false}
-                fadeOutColor="#000"
-                ariaLabel="Event Partners"
+          <div className=" mt-10">
+            <div className="flex justify-center items-center">
+              <Image
+                src={'/Asset 1.png'}
+                width={200}
+                height={10}
+                alt="The Assembly"
+                className=''
               />
-            ) : (
-              // Single partner - static display
-              <div className="flex justify-center items-center">
-                <Image
-                  src={partnerLogos[0].src}
-                  width={200}
-                  height={100}
-                  alt={partnerLogos[0].alt || "Partner"}
-                  className='object-contain'
-                />
-              </div>
-            )}
+            </div>
+
           </div>
         </div>
       </div>
