@@ -23,31 +23,25 @@ const sponsorLogos = [
 const partnerLogos = [
   { 
     src: '/Asset 1.png', 
-    alt: 'Partner 1',
+    alt: 'The Assembly',
     href: '#',
     width: 200
   },
   { 
-    src: '/partner1.png', 
-    alt: 'Partner 1',
-    href: '#',
-     width: 200
-  },
-  { 
     src: '/partner2.png', 
-    alt: 'Partner 1',
+    alt: 'Unilorin Block Community',
     href: '#',
     width: 200
   },
   { 
     src: '/partner3.png', 
-    alt: 'Partner 1',
+    alt: 'Google Developer Group on LAUTECH',
     href: '#',
      width: 200
   },
   { 
     src: '/partner4.png', 
-    alt: 'Partner 4',
+    alt: 'Crypto Asset Buyer',
     href: '#',
      width: 200
   },
@@ -94,13 +88,20 @@ const Speakers = () => {
             <h2 className='text-gradient uppercase'>Event Sponsors</h2>
           </div>
           <div className=" mt-10">
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center gap-10 items-center">
               <Image
                 src={'/20250520_191329.png'}
                 width={200}
                 height={10}
                 alt="Facucet Drops"
-                className=''
+                className='max-sm:w-35'
+              />
+              <Image
+                src={'/sponsor1.png'}
+                width={200}
+                height={10}
+                alt="LandRite"
+                className='max-sm:w-35'
               />
             </div>
 
@@ -113,15 +114,34 @@ const Speakers = () => {
             <h2 className='text-gradient uppercase'>Event Partners</h2>
           </div>
           <div className=" mt-10">
-            <div className="flex justify-center items-center">
-              <Image
-                src={'/Asset 1.png'}
-                width={200}
-                height={10}
-                alt="The Assembly"
-                className=''
+            <div className="mt-10">
+            {partnerLogos.length > 1 ? (
+              // Use LogoLoop if multiple partners
+              <LogoLoop
+                logos={partnerLogos}
+                speed={120}
+                direction="right"
+                logoHeight={60}
+                gap={60}
+                pauseOnHover
+                scaleOnHover
+                fadeOut={false}
+                fadeOutColor="#000"
+                ariaLabel="Event Partners"
               />
-            </div>
+            ) : (
+              // Single partner - static display
+              <div className="flex justify-center items-center">
+                <Image
+                  src={partnerLogos[0].src}
+                  width={200}
+                  height={100}
+                  alt={partnerLogos[0].alt || "Partner"}
+                  className='object-contain'
+                />
+              </div>
+            )}
+          </div>
 
           </div>
         </div>
