@@ -85,8 +85,7 @@ const Speakers = () => {
 
           <h2 className='text-3xl font-semibold text-slate-700'>Coming Soon...</h2>
           <p className='text-slate-500 py-5 text-lg'>
-            We&apos;re announcing our incredible lineup of industry leaders, <br /> 
-            innovative startups, and ecosystem partners.
+            Stay Tuned as we announce our innovative & incredible lineup of industry leaders. 
           </p>
           <a  
             href={whatsappLink} 
