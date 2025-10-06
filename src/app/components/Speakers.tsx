@@ -10,8 +10,19 @@ const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mes
 // Sponsors logos
 const sponsorLogos = [
   { 
-    src: '/20250520_191329.png', 
+    src: '/sponsor2.png', 
     alt: 'Sponsor 1',
+    width: 150,
+  },
+  { 
+    src: '/sponsor1.png', 
+    alt: 'Sponsor 1',
+    width: 150,
+  },
+  { 
+    src: '/sponsor3.png', 
+    alt: 'Sponsor 1',
+    width: 150,
   },
   // Add more sponsor logos here
   // { src: '/sponsor2.png', alt: 'Sponsor 2', href: 'https://sponsor2.com' },
@@ -42,7 +53,13 @@ const partnerLogos = [
   },
   { 
     src: '/partner5.png', 
-    alt: 'Crypto Asset Buyer',
+    alt: 'web3Nigeria',
+    width: 150
+  },
+  { 
+    src: '/partner6.png', 
+    alt: 'Coin Gabbar',
+    href: 'https://www.coingabbar.com',
     width: 150
   },
   // Add more partner logos here
@@ -83,14 +100,14 @@ const Speakers = () => {
         </div>
 
         {/* Sponsors Section with LogoLoop */}
-        <div className="text-center mt-[8%]" data-aos="fade-up">
+        <div className="text-center mt-[8%] max-sm:mt-[20%]" data-aos="fade-up">
           <div className='md:text-2xl text-xs font-semibold bg-white py-2 px-7 rounded-full w-fit text-nowrap mx-auto shadow'>
             <h2 className='text-gradient uppercase'>Event Sponsors</h2>
           </div>
           <div className=" mt-10">
-            <div className="flex justify-center gap-10 items-center">
+            {/* <div className="flex justify-center gap-10 items-center">
               <Image
-                src={'/20250520_191329.png'}
+                src={'/sponsor2.png'}
                 width={200}
                 height={10}
                 alt="Facucet Drops"
@@ -103,13 +120,26 @@ const Speakers = () => {
                 alt="LandRite"
                 className='max-sm:w-35'
               />
-            </div>
+            </div> */}
+
+            <LogoLoop
+                logos={sponsorLogos}
+                speed={120}
+                direction="right"
+                logoHeight={{ mobile: 40, tablet: 50, desktop: 40 }}
+                gap={{ mobile: 30, tablet: 30, desktop: 50 }}
+                pauseOnHover
+                scaleOnHover
+                fadeOut={false}
+                fadeOutColor="#000"
+                ariaLabel="Event Partners"
+              />
 
           </div>
         </div>
 
         {/* Partners Section with LogoLoop */}
-        <div className="text-center mt-[8%]" data-aos="fade-up">
+        <div className="text-center mt-[8%] max-sm:mt-[20%]" data-aos="fade-up">
           <div className='md:text-2xl text-xs font-semibold bg-white py-2 px-7 rounded-full w-fit text-nowrap mx-auto shadow'>
             <h2 className='text-gradient uppercase'>Event Partners</h2>
           </div>
