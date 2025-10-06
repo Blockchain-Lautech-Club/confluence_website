@@ -71,7 +71,7 @@ const Speakers = () => {
   return (
     <div className='pt-[8%] max-sm:pt-[20%] px-20 max-sm:px-5'>
       <div className='md:text-2xl text-xs font-semibold bg-white py-2 px-7 rounded-full w-fit text-nowrap mx-auto shadow'>
-        <h2 className='text-gradient uppercase'>Speakers & Partners</h2>
+        <h2 className='text-gradient uppercase'>Speakers</h2>
       </div>
       <p className='text-center text-gradient pt-3 text-2xl md:text-4xl lg:text-5xl font-semibold'>
         The Voices and the <br /> Visionaries
