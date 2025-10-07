@@ -100,7 +100,7 @@ const Speakers = () => {
         </div>
 
         {/* Sponsors Section with LogoLoop */}
-        <div className="text-center mt-[8%]" data-aos="fade-up">
+        <div className="text-center mt-[8%] max-sm:mt-[20%]" data-aos="fade-up">
           <div className='md:text-2xl text-xs font-semibold bg-white py-2 px-7 rounded-full w-fit text-nowrap mx-auto shadow'>
             <h2 className='text-gradient uppercase'>Event Sponsors</h2>
           </div>
@@ -139,7 +139,7 @@ const Speakers = () => {
         </div>
 
         {/* Partners Section with LogoLoop */}
-        <div className="text-center mt-[8%]" data-aos="fade-up">
+        <div className="text-center mt-[8%] max-sm:mt-[20%]" data-aos="fade-up">
           <div className='md:text-2xl text-xs font-semibold bg-white py-2 px-7 rounded-full w-fit text-nowrap mx-auto shadow'>
             <h2 className='text-gradient uppercase'>Event Partners</h2>
           </div>
