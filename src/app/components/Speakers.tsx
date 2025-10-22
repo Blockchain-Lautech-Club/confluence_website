@@ -2,6 +2,7 @@ import { HeartHandshake, Users } from 'lucide-react'
 import React from 'react'
 import Image from 'next/image'
 import {LogoLoop} from './LogoLoop' // Adjust path as needed
+import GuestSpeakersCarousel from './GuestSpeakersCarousel'
 
 const phoneNumber = "+2349162706257"
 const message = "Hi, I'm interested in being a sponsor or partner at the confluence 2025 event."
@@ -16,12 +17,17 @@ const sponsorLogos = [
   },
   { 
     src: '/sponsor1.png', 
-    alt: 'Sponsor 1',
+    alt: 'Sponsor 2',
     width: 150,
   },
   { 
     src: '/sponsor3.png', 
-    alt: 'Sponsor 1',
+    alt: 'Sponsor 3',
+    width: 150,
+  },
+  { 
+    src: '/sponsor4.png', 
+    alt: 'Sponsor 4',
     width: 150,
   },
   // Add more sponsor logos here
@@ -62,9 +68,6 @@ const partnerLogos = [
     href: 'https://www.coingabbar.com',
     width: 150
   },
-  // Add more partner logos here
-  // { src: '/partner2.png', alt: 'Partner 2', href: 'https://partner2.com' },
-  // { src: '/partner3.png', alt: 'Partner 3', href: 'https://partner3.com' },
 ]
 
 const Speakers = () => {
@@ -76,6 +79,8 @@ const Speakers = () => {
       <p className='text-center text-gradient pt-3 text-2xl md:text-4xl lg:text-5xl font-semibold'>
         The Voices and the <br /> Visionaries
       </p>
+
+      <GuestSpeakersCarousel />
 
       <div className='pt-10'>
         <div className="bg-white p-10 mb-10 rounded-3xl shadow text-center" data-aos="fade-up">
