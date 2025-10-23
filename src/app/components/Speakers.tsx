@@ -68,6 +68,18 @@ const partnerLogos = [
     href: 'https://www.coingabbar.com',
     width: 150
   },
+  { 
+    src: '/partner7.png', 
+    alt: 'Coinpedia',
+    href: 'https://www.coingabbar.com',
+    width: 150
+  },
+  { 
+    src: '/partner8.png', 
+    alt: 'The news crypto',
+    href: 'https://www.coingabbar.com',
+    width: 150
+  },
 ]
 
 const Speakers = () => {
@@ -82,26 +94,7 @@ const Speakers = () => {
 
       <GuestSpeakersCarousel />
 
-      <div className='pt-10'>
-        <div className="bg-white p-10 mb-10 rounded-3xl shadow text-center" data-aos="fade-up">
-          <div className="p-5 rounded-lg mx-auto w-fit text-white bg-conblue mb-5">
-            <Users size={30}/>
-          </div>
-
-          <h2 className='text-3xl font-semibold text-slate-700'>Coming Soon...</h2>
-          <p className='text-slate-500 py-5 text-lg'>
-            Stay Tuned as we announce our innovative & incredible lineup of industry leaders. 
-          </p>
-          <a  
-            href={whatsappLink} 
-            target="_blank" 
-            rel="noopener noreferrer"
-          >
-            <button className='px-10 py-3 rounded-lg md:text-sm text-xs pointer font-normal bg-conblue text-white transition cursor-pointer'>
-              Contact Us
-            </button>
-          </a>
-        </div>
+      <div className=''>
 
         {/* Sponsors Section with LogoLoop */}
         <div className="text-center mt-[8%] max-sm:mt-[20%]" data-aos="fade-up">

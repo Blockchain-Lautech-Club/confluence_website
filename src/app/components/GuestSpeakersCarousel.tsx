@@ -1,21 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight,} from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Speaker {
   id: number;
   name: string;
-  title: string;
+  title: string[];
   image: string;
 }
 
 const speakers: Speaker[] = [
   {
     id: 1,
+    name: '𝐇𝐢𝐬 𝐈𝐦𝐩𝐞𝐫𝐢𝐚𝐥 𝐌𝐚𝐣𝐞𝐬𝐭𝐲, 𝐎𝐛𝐚 𝐆𝐡𝐚𝐧𝐝𝐢 𝐀𝐟𝐨𝐥𝐚𝐛𝐢 𝐎𝐥𝐚𝐨𝐲𝐞, 𝐎𝐫𝐮𝐦𝐨𝐠𝐞𝐠𝐞 𝐈𝐈𝐈.',
+    title: ['𝗦𝗼𝘂𝗻 𝗼𝗳 𝗢𝗴𝗯𝗼𝗺𝗼𝘀𝗼 𝗟𝗮𝗻𝗱,'],
+    image: '/Soun of Ogbomoso.jpg',
+  },
+  {
+    id: 2,
     name: 'Jesudamilare "JD" Adesegun-David',
-    title: "Co-founder and CEO of Ennovate Lab",
+    title: ['Co-founder and CEO of Ennovate Lab'],
     image: "/JD's Headshot.jpg",
   },
-  
+  {
+    id: 3,
+    name: 'Eniola Mercy',
+    title: ['Web3 Community and Partnerships manager'],
+    image: '/eniolamercy.jpg',
+  },
+  {
+    id: 4,
+    name: 'Uchenna Agams Onuegbu',
+    title: ['Arbitrum Ambassador'],
+    image: '/uchenna_agams.jpg',
+  },
+  {
+    id: 5,
+    name: 'Deborah Enyone Oni',
+    title: ['Founder, Hilton Top Solicitors', 'Founder, Hilton Innovations Hub'],
+    image: '/1000017551.jpg',
+  },
 ];
 
 export default function SpeakersCarousel() {
@@ -24,7 +47,7 @@ export default function SpeakersCarousel() {
 
   useEffect(() => {
     if (!isAutoPlaying) return;
-    
+
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % speakers.length);
     }, 5000);
@@ -47,14 +70,11 @@ export default function SpeakersCarousel() {
     setCurrentIndex(index);
   };
 
-return (
-    <div className="flex flex-col items-center justify-center p-4 py-8 md:py-16">
-      {/* Title */}
-      
+  return (
+    <div className="flex flex-col items-center justify-center pt-8 md:pt-16">
       <div className="max-w-7xl w-full">
-        {/* Desktop Layout - Side by Side */}
+        {/* Desktop Layout */}
         <div className="hidden lg:flex items-center gap-8">
-          {/* Left Navigation Button */}
           <button
             onClick={goToPrevious}
             className="bg-gray-300 hover:bg-gray-400 p-3 md:p-4 rounded-full transition-all duration-300 hover:scale-110 flex-shrink-0"
@@ -63,24 +83,24 @@ return (
             <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-gray-700" />
           </button>
 
-          {/* Speaker Card */}
-          <div className="flex-1 bg-blue-700 rounded-3xl shadow-2xl p-12">
+          <div className="flex-1 bg-conblue rounded-3xl shadow-2xl p-12">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Speaker Info */}
               <div className="text-white space-y-6">
                 <div>
                   <h2 className="text-2xl lg:text-2xl font-bold mb-4 uppercase tracking-wide">
                     {speakers[currentIndex].name}
                   </h2>
                   <p className="text-gray-100 text-xl lg:text-lg font-light italic leading-relaxed">
-                    {speakers[currentIndex].title}
+                    {speakers[currentIndex].title.map((line, i) => (
+                      <span key={i}>
+                        {line}
+                        <br />
+                      </span>
+                    ))}
                   </p>
                 </div>
-
-
               </div>
 
-              {/* Speaker Image */}
               <div className="relative">
                 <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl bg-black">
                   <img
@@ -93,7 +113,6 @@ return (
             </div>
           </div>
 
-          {/* Right Navigation Button */}
           <button
             onClick={goToNext}
             className="bg-gray-300 hover:bg-gray-400 p-3 md:p-4 rounded-full transition-all duration-300 hover:scale-110 flex-shrink-0"
@@ -103,9 +122,8 @@ return (
           </button>
         </div>
 
-        {/* Mobile Layout - Vertical Stack */}
-        <div className="lg:hidden bg-blue-700 rounded-2xl shadow-2xl p-6 mx-auto max-w-md">
-          {/* Speaker Image */}
+        {/* Mobile Layout */}
+        <div className="lg:hidden bg-conblue rounded-2xl shadow-2xl p-6 mx-auto max-w-md">
           <div className="mb-6">
             <div className="aspect-square rounded-xl overflow-hidden shadow-2xl bg-white mx-auto max-w-xs">
               <img
@@ -116,20 +134,22 @@ return (
             </div>
           </div>
 
-          {/* Speaker Info */}
           <div className="text-white text-center space-y-3">
             <div>
               <h2 className="text-xl font-bold mb-2 uppercase tracking-wide">
                 {speakers[currentIndex].name}
               </h2>
               <p className="text-gray-100 text-sm font-light italic leading-relaxed">
-                {speakers[currentIndex].title}
+                {speakers[currentIndex].title.map((line, i) => (
+                  <span key={i}>
+                    {line}
+                    <br />
+                  </span>
+                ))}
               </p>
             </div>
-
           </div>
 
-          {/* Mobile Navigation Buttons */}
           <div className="flex justify-center gap-4 mt-6">
             <button
               onClick={goToPrevious}
