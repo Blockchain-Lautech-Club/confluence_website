@@ -12,7 +12,7 @@ const speakers: Speaker[] = [
   {
     id: 1,
     name: '𝐇𝐢𝐬 𝐈𝐦𝐩𝐞𝐫𝐢𝐚𝐥 𝐌𝐚𝐣𝐞𝐬𝐭𝐲, 𝐎𝐛𝐚 𝐆𝐡𝐚𝐧𝐝𝐢 𝐀𝐟𝐨𝐥𝐚𝐛𝐢 𝐎𝐥𝐚𝐨𝐲𝐞, 𝐎𝐫𝐮𝐦𝐨𝐠𝐞𝐠𝐞 𝐈𝐈𝐈.',
-    title: ['𝗦𝗼𝘂𝗻 𝗼𝗳 𝗢𝗴𝗯𝗼𝗺𝗼𝘀𝗼 𝗟𝗮𝗻𝗱,'],
+    title: ['Soun of Ogbomoso land,'],
     image: '/Soun of Ogbomoso.jpg',
   },
   {
@@ -90,7 +90,7 @@ export default function SpeakersCarousel() {
                   <h2 className="text-2xl lg:text-2xl font-bold mb-4 uppercase tracking-wide">
                     {speakers[currentIndex].name}
                   </h2>
-                  <p className="text-gray-100 text-xl lg:text-lg font-light italic leading-relaxed">
+                  <p className="text-gray-100 text-xl lg:text-lg font-medium leading-relaxed">
                     {speakers[currentIndex].title.map((line, i) => (
                       <span key={i}>
                         {line}
@@ -139,7 +139,7 @@ export default function SpeakersCarousel() {
               <h2 className="text-xl font-bold mb-2 uppercase tracking-wide">
                 {speakers[currentIndex].name}
               </h2>
-              <p className="text-gray-100 text-sm font-light italic leading-relaxed">
+              <p className="text-gray-100 text-sm font-medium leading-relaxed">
                 {speakers[currentIndex].title.map((line, i) => (
                   <span key={i}>
                     {line}

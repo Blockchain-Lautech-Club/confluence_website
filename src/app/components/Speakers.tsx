@@ -80,6 +80,12 @@ const partnerLogos = [
     href: 'https://www.coingabbar.com',
     width: 150
   },
+  { 
+    src: '/partner9.png', 
+    alt: 'NACOS LAUTECH',
+    href: 'https://www.coingabbar.com',
+    width: 150
+  },
 ]
 
 const Speakers = () => {

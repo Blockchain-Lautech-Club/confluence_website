@@ -80,7 +80,7 @@ const CountdownTimer: React.FC = () => {
                   <div className="text-xl md:text-5xl font-bold text-white mb-2 font-mono">
                     {unit.value.toString().padStart(2, '0')}
                   </div>
-                  <div className="text-white/80 text-[10px] md:text-base font-medium uppercase lg:tracking-wide">
+                  <div className="text-white/80 text-[9px] md:text-base font-medium uppercase lg:tracking-wide">
                     {unit.label}
                   </div>
                 </div>
