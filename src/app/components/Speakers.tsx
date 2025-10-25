@@ -1,8 +1,6 @@
-import { HeartHandshake, Users } from 'lucide-react'
 import React from 'react'
 import Image from 'next/image'
-import {LogoLoop} from './LogoLoop' // Adjust path as needed
-import GuestSpeakersCarousel from './GuestSpeakersCarousel'
+import {LogoLoop} from './LogoLoop'
 import SpeakersCarousel from './SpeakersCarousel'
 
 const phoneNumber = "+2349162706257"
@@ -99,11 +97,10 @@ const Speakers = () => {
         The Voices and the <br /> Visionaries
       </p>
 
-      {/* <GuestSpeakersCarousel /> */}
 
       <SpeakersCarousel />
 
-      <div className=''>
+      <div>
 
         {/* Sponsors Section with LogoLoop */}
         <div className="text-center mt-[8%] max-sm:mt-[20%]" data-aos="fade-up">
