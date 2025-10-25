@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Speaker {
@@ -43,8 +43,27 @@ const speakers: Speaker[] = [
 
 export default function SpeakersCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(false);
+  const carouselRef = useRef<HTMLDivElement | null>(null);
 
+  // Detect visibility
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        setIsAutoPlaying(entry.isIntersecting);
+      },
+      { threshold: 0.5 } // At least 50% visible to start autoplay
+    );
+
+    if (carouselRef.current) observer.observe(carouselRef.current);
+
+    return () => {
+      if (carouselRef.current) observer.unobserve(carouselRef.current);
+    };
+  }, []);
+
+  // Handle autoplay
   useEffect(() => {
     if (!isAutoPlaying) return;
 
@@ -71,13 +90,13 @@ export default function SpeakersCarousel() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center pt-8 md:pt-16">
+    <div ref={carouselRef} className="flex flex-col items-center justify-center pt-8 md:pt-16">
       <div className="max-w-7xl w-full">
         {/* Desktop Layout */}
         <div className="hidden lg:flex items-center gap-8">
           <button
             onClick={goToPrevious}
-            className="bg-gray-300 hover:bg-gray-400 p-3 md:p-4 rounded-full transition-all duration-300 hover:scale-110 flex-shrink-0"
+            className="bg-gray-300 hover:bg-gray-400 p-3 md:p-4 rounded-full transition-all duration-300 hover:scale-110 flex-shrink-0 cursor-pointer"
             aria-label="Previous speaker"
           >
             <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-gray-700" />
@@ -115,7 +134,7 @@ export default function SpeakersCarousel() {
 
           <button
             onClick={goToNext}
-            className="bg-gray-300 hover:bg-gray-400 p-3 md:p-4 rounded-full transition-all duration-300 hover:scale-110 flex-shrink-0"
+            className="bg-gray-300 hover:bg-gray-400 p-3 md:p-4 rounded-full transition-all duration-300 hover:scale-110 flex-shrink-0 cursor-pointer"
             aria-label="Next speaker"
           >
             <ChevronRight className="w-6 h-6 md:w-8 md:h-8 text-gray-700" />
@@ -153,14 +172,14 @@ export default function SpeakersCarousel() {
           <div className="flex justify-center gap-4 mt-6">
             <button
               onClick={goToPrevious}
-              className="bg-gray-200 hover:bg-gray-300 p-3 rounded-full transition-all duration-300"
+              className="bg-gray-200 hover:bg-gray-300 p-3 rounded-full transition-all duration-300 cursor-pointer"
               aria-label="Previous speaker"
             >
               <ChevronLeft className="w-5 h-5 text-gray-700" />
             </button>
             <button
               onClick={goToNext}
-              className="bg-gray-200 hover:bg-gray-300 p-3 rounded-full transition-all duration-300"
+              className="bg-gray-200 hover:bg-gray-300 p-3 rounded-full transition-all duration-300 cursor-pointer"
               aria-label="Next speaker"
             >
               <ChevronRight className="w-5 h-5 text-gray-700" />
@@ -175,7 +194,7 @@ export default function SpeakersCarousel() {
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`transition-all duration-300 rounded-full ${
+            className={`transition-all duration-300 rounded-full cursor-pointer ${
               index === currentIndex
                 ? 'w-3 h-3 bg-blue-600'
                 : 'w-3 h-3 bg-gray-300 hover:bg-gray-400'

@@ -3,6 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import {LogoLoop} from './LogoLoop' // Adjust path as needed
 import GuestSpeakersCarousel from './GuestSpeakersCarousel'
+import SpeakersCarousel from './SpeakersCarousel'
 
 const phoneNumber = "+2349162706257"
 const message = "Hi, I'm interested in being a sponsor or partner at the confluence 2025 event."
@@ -98,7 +99,9 @@ const Speakers = () => {
         The Voices and the <br /> Visionaries
       </p>
 
-      <GuestSpeakersCarousel />
+      {/* <GuestSpeakersCarousel /> */}
+
+      <SpeakersCarousel />
 
       <div className=''>
 
