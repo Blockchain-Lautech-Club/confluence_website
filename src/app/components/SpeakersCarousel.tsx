@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import type { Swiper as SwiperType } from "swiper";
 
 interface Speaker {
   id: number;
@@ -49,14 +50,14 @@ const speakers: Speaker[] = [
 ];
 
 export default function SpeakersCarousel() {
-  const swiperRef = useRef<any>(null);
+  const swiperRef = useRef<SwiperType | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   // 👇 Only autoplay when visible in viewport
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        const swiper = swiperRef.current?.swiper;
+        const swiper = swiperRef.current;
         if (!swiper) return;
         if (entry.isIntersecting) {
           swiper.autoplay.start();
@@ -69,16 +70,17 @@ export default function SpeakersCarousel() {
 
     if (containerRef.current) observer.observe(containerRef.current);
     return () => observer.disconnect();
-  }, []);
+  }, [swiperRef, containerRef]);
 
   return (
     <div
       ref={containerRef}
-      className="flex flex-col items-center justify-center pt-8 md:pt-16" data-aos="fade-up"
+      className="flex flex-col items-center justify-center pt-8 md:pt-16"
+      data-aos="fade-up"
     >
       <div className="max-w-7xl w-full relative">
         <Swiper
-          ref={swiperRef}
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
           modules={[Navigation, Pagination, Autoplay]}
           navigation={{
             nextEl: ".next-btn",
