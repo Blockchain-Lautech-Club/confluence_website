@@ -7,85 +7,8 @@ const phoneNumber = "+2349162706257"
 const message = "Hi, I'm interested in being a sponsor or partner at the confluence 2025 event."
 const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
 
-// Sponsors logos
-const sponsorLogos = [
-  { 
-    src: '/sponsor2.png', 
-    alt: 'Sponsor 1',
-    width: 150,
-  },
-  { 
-    src: '/sponsor1.png', 
-    alt: 'Sponsor 2',
-    width: 150,
-  },
-  { 
-    src: '/sponsor3.png', 
-    alt: 'Sponsor 3',
-    width: 150,
-  },
-  { 
-    src: '/sponsor4.png', 
-    alt: 'Sponsor 4',
-    width: 150,
-  },
-  // Add more sponsor logos here
-  // { src: '/sponsor2.png', alt: 'Sponsor 2', href: 'https://sponsor2.com' },
-  // { src: '/sponsor3.png', alt: 'Sponsor 3', href: 'https://sponsor3.com' },
-]
+import { sponsorLogos, partnerLogos } from '@/app/constants'
 
-// Partners logos
-const partnerLogos = [
-  { 
-    src: '/Asset 1.png', 
-    alt: 'The Assembly',
-    width: 150
-  },
-  { 
-    src: '/partner2.png', 
-    alt: 'Unilorin Block Community',
-    width: 150
-  },
-  { 
-    src: '/partner3.png', 
-    alt: 'Google Developer Group on LAUTECH',
-    width: 150
-  },
-  { 
-    src: '/partner4.png', 
-    alt: 'Crypto Asset Buyer',
-    width: 150
-  },
-  { 
-    src: '/partner5.png', 
-    alt: 'web3Nigeria',
-    width: 150
-  },
-  { 
-    src: '/partner6.png', 
-    alt: 'Coin Gabbar',
-    href: 'https://www.coingabbar.com',
-    width: 150
-  },
-  { 
-    src: '/partner7.png', 
-    alt: 'Coinpedia',
-    href: 'https://www.coingabbar.com',
-    width: 150
-  },
-  { 
-    src: '/partner8.png', 
-    alt: 'The news crypto',
-    href: 'https://www.coingabbar.com',
-    width: 150
-  },
-  { 
-    src: '/partner9.png', 
-    alt: 'NACOS LAUTECH',
-    href: 'https://www.coingabbar.com',
-    width: 150
-  },
-]
 
 const Speakers = () => {
   return (

@@ -9,45 +9,8 @@ import "swiper/css/pagination";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { Swiper as SwiperType } from "swiper";
 
-interface Speaker {
-  id: number;
-  name: string;
-  title: string[];
-  image: string;
-}
+import { speakers } from "@/app/constants";
 
-const speakers: Speaker[] = [
-  {
-    id: 1,
-    name: "𝐇𝐢𝐬 𝐈𝐦𝐩𝐞𝐫𝐢𝐚𝐥 𝐌𝐚𝐣𝐞𝐬𝐭𝐲, 𝐎𝐛𝐚 𝐆𝐡𝐚𝐧𝐝𝐢 𝐀𝐟𝐨𝐥𝐚𝐛𝐢 𝐎𝐥𝐚𝐨𝐲𝐞, 𝐎𝐫𝐮𝐦𝐨𝐠𝐞𝐠𝐞 𝐈𝐈𝐈.",
-    title: ["Soun of Ogbomoso land,"],
-    image: "/Soun of Ogbomoso.jpg",
-  },
-  {
-    id: 2,
-    name: 'Jesudamilare "JD" Adesegun-David',
-    title: ["Co-founder and CEO of Ennovate Lab"],
-    image: "/JD's Headshot.jpg",
-  },
-  {
-    id: 3,
-    name: "Eniola Mercy",
-    title: ["Web3 Community and Partnerships manager"],
-    image: "/eniolamercy.jpg",
-  },
-  {
-    id: 4,
-    name: "Uchenna Agams Onuegbu",
-    title: ["Arbitrum Ambassador"],
-    image: "/uchenna_agams.jpg",
-  },
-  {
-    id: 5,
-    name: "Deborah Enyone Oni",
-    title: ["Founder, Hilton Top Solicitors", "Founder, Hilton Innovations Hub"],
-    image: "/1000017551.jpg",
-  },
-];
 
 export default function SpeakersCarousel() {
   const swiperRef = useRef<SwiperType | null>(null);
@@ -80,6 +43,7 @@ export default function SpeakersCarousel() {
     >
       <div className="max-w-7xl w-full relative">
         <Swiper
+          spaceBetween={20}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
           modules={[Navigation, Pagination, Autoplay]}
           navigation={{
