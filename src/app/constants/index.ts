@@ -20,24 +20,24 @@ export const speakers: Speaker[] = [
   },
   {
     id: 3,
-    name: "Eniola Mercy",
-    title: ["Web3 Community and Partnerships manager"],
-    image: "/eniolamercy.jpg",
+    name: "Karla Nwaeke",
+    title: [
+      "Founder Bitsave Protocol"
+      ,"Lead Partner B<>rder/ess."
+    ],
+    image: "/DSC00431-Enhanced-NR.jpg",
   },
   {
     id: 4,
-    name: "Uchenna Agams Onuegbu",
-    title: ["Arbitrum Ambassador"],
-    image: "/uchenna_agams.jpg",
+    name: "John ADEKUNJO",
+    title: ["Convener, Confluence Co-founder, Blockchain LAUTECH."],
+    image: "/johnadek.jpg",
   },
   {
     id: 5,
-    name: "Deborah Enyone Oni",
-    title: [
-      "Founder, Hilton Top Solicitors",
-      "Founder, Hilton Innovations Hub",
-    ],
-    image: "/1000017551.jpg",
+    name: "Thelma OPURUM",
+    title: ["Founder, Blockchain Lautech."],
+    image: "/thelma.jpg",
   },
   {
     id: 6,
@@ -47,47 +47,45 @@ export const speakers: Speaker[] = [
   },
   {
     id: 7,
-    name: "Adam Saheed",
-    title: ["Core contributor at CeloAfricaDAO"],
-    image: "/adam.jpg",
+    name: "Eniola Mercy",
+    title: ["Web3 Community and Partnerships manager"],
+    image: "/eniolamercy.jpg",
   },
   {
     id: 8,
+    name: "Uchenna Agams Onuegbu",
+    title: ["Arbitrum Ambassador"],
+    image: "/uchenna_agams.jpg",
+  },
+  {
+    id: 9,
     name: "Israel Akinloye",
     title: ["Qubic Nigeria Community Lead"],
     image: "/DSC_7598.jpg",
   },
   {
-    id: 9,
-    name: "Karla Nwaeke",
+    id: 10,
+    name: "Deborah Enyone Oni",
     title: [
-      "Founder Bitsave Protocol"
-      ,"Lead Partner B<>rder/ess."
+      "Founder, Hilton Top Solicitors",
+      "Founder, Hilton Innovations Hub",
     ],
-    image: "/DSC00431-Enhanced-NR.jpg",
+    image: "/1000017551.jpg",
   },
   {
-    id: 10,
+    id: 11,
+    name: "Adam Saheed",
+    title: ["Core contributor at CeloAfricaDAO"],
+    image: "/adam.jpg",
+  },
+  {
+    id: 12,
     name: "Olaoluwa Oluwasina",
     title: ["Founder, 03 Finance School Blockchain and Web3 educator"],
     image: "/olaoluwa.jpg",
   },
-  {
-    id: 11,
-    name: "John ADEKUNJO",
-    title: ["Convener, Confluence Co-founder, Blockchain LAUTECH."],
-    image: "/johnadek.jpg",
-  },
-  {
-    id: 12,
-    name: "Thelma OPURUM",
-    title: ["Founder, Blockchain Lautech."],
-    image: "/thelma.jpg",
-  },
+
 ];
-
-
-
 
 
 export interface Logo {
