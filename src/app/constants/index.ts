@@ -8,7 +8,7 @@ export interface Speaker {
 export const speakers: Speaker[] = [
   {
     id: 1,
-    name: "𝐇𝐢𝐬 𝐈𝐦𝐩𝐞𝐫𝐢𝐚𝐥 𝐌𝐚𝐣𝐞𝐬𝐭𝐲, 𝐎𝐛𝐚 𝐆𝐡𝐚𝐧𝐝𝐢 𝐀𝐟𝐨𝐥𝐚𝐛𝐢 𝐎𝐥𝐚𝐨𝐲𝐞, 𝐎𝐫𝐮𝐦𝐨𝐠𝐞𝐠𝐞 𝐈𝐈𝐈.",
+    name: "𝐇𝐈𝐒 𝐈𝐌𝐏𝐄𝐑𝐈𝐀𝐋 𝐌𝐀𝐉𝐄𝐒𝐓𝐘, 𝐎𝐁𝐀 𝐆𝐇𝐀𝐍𝐃𝐈 𝐀𝐅𝐎𝐋𝐀𝐁𝐈 𝐎𝐋𝐀𝐎𝐘𝐄, 𝐎𝐑𝐔𝐌𝐎𝐆𝐄𝐆𝐄 𝐈𝐈𝐈.",
     title: ["Soun of Ogbomoso land,"],
     image: "/Soun of Ogbomoso.jpg",
   },
@@ -57,7 +57,37 @@ export const speakers: Speaker[] = [
     title: ["Qubic Nigeria Community Lead"],
     image: "/DSC_7598.jpg",
   },
+  {
+    id: 9,
+    name: "Karla Nwaeke",
+    title: [
+      "Founder Bitsave Protocol"
+      ,"Lead Partner B<>rder/ess."
+    ],
+    image: "/DSC00431-Enhanced-NR.jpg",
+  },
+  {
+    id: 10,
+    name: "Olaoluwa Oluwasina",
+    title: ["Founder, 03 Finance School Blockchain and Web3 educator"],
+    image: "/olaoluwa.jpg",
+  },
+  {
+    id: 11,
+    name: "John ADEKUNJO",
+    title: ["Convener, Confluence Co-founder, Blockchain LAUTECH."],
+    image: "/johnadek.jpg",
+  },
+  {
+    id: 12,
+    name: "Thelma OPURUM",
+    title: ["Founder, Blockchain Lautech."],
+    image: "/thelma.jpg",
+  },
 ];
+
+
+
 
 
 export interface Logo {
