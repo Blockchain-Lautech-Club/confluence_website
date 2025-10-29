@@ -30,7 +30,10 @@ export const speakers: Speaker[] = [
   {
     id: 4,
     name: "John ADEKUNJO",
-    title: ["Convener, Confluence Co-founder, Blockchain LAUTECH."],
+    title: [
+      "Convener, Confluence", 
+      "Co-founder, Blockchain LAUTECH."
+    ],
     image: "/johnadek.jpg",
   },
   {
