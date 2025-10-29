@@ -45,6 +45,18 @@ export const speakers: Speaker[] = [
     title: ["C.E.O & Director of SQI College of ICT"],
     image: "/Director (236).jpg",
   },
+  {
+    id: 7,
+    name: "Adam Saheed",
+    title: ["Core contributor at CeloAfricaDAO"],
+    image: "/adam.jpg",
+  },
+  {
+    id: 8,
+    name: "Israel Akinloye",
+    title: ["Qubic Nigeria Community Lead"],
+    image: "/DSC_7598.jpg",
+  },
 ];
 
 
