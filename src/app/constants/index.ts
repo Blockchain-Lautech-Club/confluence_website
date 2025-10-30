@@ -113,9 +113,9 @@ export const sponsorLogos: Logo[] = [
     width: 150,
   },
   {
-    src: "/celodao.jpg",
+    src: "/celodaobg.png",
     alt: "Sponsor 2",
-    width: 140,
+    width: 150,
   },
   {
     src: "/sponsor1.png",
