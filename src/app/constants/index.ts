@@ -68,6 +68,14 @@ export const speakers: Speaker[] = [
   },
   {
     id: 10,
+    name: "Blessing Oluwabamidele",
+    title: [
+      "Panelist, Confluence 2025",
+    ],
+    image: "/missblessing.jpg",
+  },
+  {
+    id: 11,
     name: "Deborah Enyone Oni",
     title: [
       "Founder, Hilton Top Solicitors",
@@ -76,13 +84,13 @@ export const speakers: Speaker[] = [
     image: "/1000017551.jpg",
   },
   {
-    id: 11,
+    id: 12,
     name: "Adam Saheed",
     title: ["Core contributor at CeloAfricaDAO"],
     image: "/adam.jpg",
   },
   {
-    id: 12,
+    id: 13,
     name: "Olaoluwa Oluwasina",
     title: ["Founder, 03 Finance School Blockchain and Web3 educator"],
     image: "/olaoluwa.jpg",
@@ -125,6 +133,11 @@ export const partnerLogos: Logo[] = [
   {
     src: "/Asset 1.png",
     alt: "The Assembly",
+    width: 150,
+  },
+  {
+    src: "/sqi.jpg",
+    alt: "SQI College of ICT ",
     width: 150,
   },
   {
