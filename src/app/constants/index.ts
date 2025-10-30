@@ -136,9 +136,9 @@ export const partnerLogos: Logo[] = [
     width: 150,
   },
   {
-    src: "/sqi.jpg",
+    src: "/sqiremovebg.png",
     alt: "SQI College of ICT ",
-    width: 150,
+    width: 160,
   },
   {
     src: "/partner2.png",
