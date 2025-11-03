@@ -70,7 +70,7 @@ export const speakers: Speaker[] = [
     id: 10,
     name: "Blessing Oluwabamidele",
     title: [
-      "Panelist, Confluence 2025",
+      "Co-founder, Blockchain Lautech",
     ],
     image: "/missblessing.jpg",
   },
@@ -95,9 +95,22 @@ export const speakers: Speaker[] = [
     title: ["Founder, 03 Finance School Blockchain and Web3 educator"],
     image: "/olaoluwa.jpg",
   },
-
+  {
+    id: 14,
+    name: "Favour ABIDOYE-OLADEJO",
+    title: ["Lead CM, Blockchain Club Lautech"],
+    image: "/favour.jpg",
+  },
+  {
+    id: 15,
+    name: "Samuel Babalola",
+    title: [
+      "Web3 Ecosystem Builder",
+      "Program & Operations Manager",
+    ],
+    image: "/IMG_5284.jpg",
+  },
 ];
-
 
 export interface Logo {
   src: string;
