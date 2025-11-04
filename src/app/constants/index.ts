@@ -108,7 +108,7 @@ export const speakers: Speaker[] = [
       "Web3 Ecosystem Builder",
       "Program & Operations Manager",
     ],
-    image: "/IMG_5284.jpg",
+    image: "/sam.JPG",
   },
 ];
 
