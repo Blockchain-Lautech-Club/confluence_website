@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import confetti from "canvas-confetti";
 
 interface TimeLeft {
   days: number;
@@ -21,18 +22,18 @@ const CountdownTimer: React.FC = () => {
     minutes: 0,
     seconds: 0
   });
-  
+
   const [eventStarted, setEventStarted] = useState<boolean>(false);
-  
-  // Set your target date and time here
+
   const targetDate: string = '2025-11-07T00:00:00';
-  const [title, setTitle] = useState<string>('Upcoming Event');
+
+  const startedRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const interval: NodeJS.Timeout = setInterval(() => {
-      const now: number = new Date().getTime();
-      const target: number = new Date(targetDate).getTime();
-      const difference: number = target - now;
+      const now = new Date().getTime();
+      const target = new Date(targetDate).getTime();
+      const difference = target - now;
 
       if (difference > 0) {
         setTimeLeft({
@@ -51,6 +52,35 @@ const CountdownTimer: React.FC = () => {
     return () => clearInterval(interval);
   }, [targetDate]);
 
+  // Confetti observer
+  useEffect(() => {
+    if (!eventStarted) return;
+
+    const el = startedRef.current;
+    if (!el) return;
+
+    let fired = false;
+
+    const observer = new IntersectionObserver(
+      entries => {
+        const entry = entries[0];
+        if (entry.isIntersecting && !fired) {
+          fired = true;
+
+          confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 }
+          });
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [eventStarted]);
+
   const timeUnits: TimeUnit[] = [
     { label: 'Days', value: timeLeft.days },
     { label: 'Hours', value: timeLeft.hours },
@@ -63,16 +93,17 @@ const CountdownTimer: React.FC = () => {
       <div className="bg-conblue rounded-3xl lg:p-8 p-4 shadow-2xl border border-white/20 max-w-4xl w-full">
 
         {eventStarted ? (
-          // Event Started Message
-          <div className="text-center">
+          <div ref={startedRef} className="text-center">
             <div className="bg-white/15 backdrop-blur-sm rounded-3xl lg:p-8 p-4 shadow-lg border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <div className="text-2xl text-center md:text-5xl font-bold text-white animate-pulse">
-              Confluence 2025 has started! 
+              <div className="text-2xl text-center md:text-5xl font-bold text-white mb-4">
+                Thank you for being a part of Confluence! <br />
               </div>
+              <p className="text-white">
+                We hope you had an amazing experience filled with learning, networking, and inspiration. Looking forward to seeing you at the next one.
+              </p>
             </div>
           </div>
         ) : (
-          // Countdown Display
           <div className="grid grid-cols-4 md:grid-cols-4 md:gap-4 gap-2">
             {timeUnits.map((unit: TimeUnit, index: number) => (
               <div key={index} className="text-center">
@@ -88,6 +119,7 @@ const CountdownTimer: React.FC = () => {
             ))}
           </div>
         )}
+
       </div>
     </div>
   );
