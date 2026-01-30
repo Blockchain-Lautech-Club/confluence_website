@@ -101,6 +101,9 @@ const CountdownTimer: React.FC = () => {
               <p className="text-white">
                 We hope you had an amazing experience filled with learning, networking, and inspiration. Looking forward to seeing you at the next one.
               </p>
+              <p className="text-white">
+                View Moments: https://blockchainlautech.pixieset.com/confluence25
+              </p>
             </div>
           </div>
         ) : (
