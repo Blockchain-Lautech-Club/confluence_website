@@ -62,13 +62,13 @@ const Home = () => {
 
           <div className='flex gap-5' data-aos="fade-up" data-aos-delay="900">
              <a href="https://luma.com/c0kc9817" rel='noreferrer' target='_blank'>  
-              <button className=' bg-[#286cfd] text-white px-7 py-3 rounded-lg md:text-sm text-xs pointer font-normal cursor-pointer'>
+              <button disabled className=' bg-[#286cfd] text-white px-7 py-3 rounded-lg md:text-sm text-xs pointer font-normal cursor-pointer'>
               Register for Community Track
             </button>
              </a>
             
              <a href="https://forms.gle/L6Px91wxUdZAbuvB8" rel='noreferrer' target='_blank'>  
-                <button className='border-[#286cfd] border-2 text-[#286cfd] px-7 py-3 rounded-lg md:text-sm text-xs pointer font-normal cursor-pointer'>
+                <button disabled className='border-[#286cfd] border-2 text-[#286cfd] px-7 py-3 rounded-lg md:text-sm text-xs pointer font-normal cursor-pointer'>
                   Apply for Dev Track
                 </button>
              </a>

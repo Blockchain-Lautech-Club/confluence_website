@@ -7,7 +7,7 @@ const phoneNumber = "+2349162706257"
 const message = "Hi, I'm interested in being a sponsor or partner at the confluence 2025 event."
 const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
 
-import { sponsorLogos, partnerLogos } from '@/app/constants'
+import { sponsorLogos, partnerLogos } from '@/app/constants/2025'
 
 
 const Speakers = () => {

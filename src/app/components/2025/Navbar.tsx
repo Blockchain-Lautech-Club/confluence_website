@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-
+import Link from "next/link";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,26 +11,26 @@ export default function Navbar() {
       <nav className="">
         <div className="max-w-screen-xl flex flex-wrap items-center max-sm:items-start justify-between mx-auto p-4">
           {/* Logo */} 
-          <a href="#home" className="flex items-center space-x-3 rtl:space-x-reverse">
+          <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
             <Image
               src="/actual-logo.png"
               width={180}
               height={10}
               alt="Confluence Logo"
               className="max-sm:w-35"/>
-          </a>
+          </Link>
 
           {/* Buttons */}
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <a href="#format">
+            <Link href="/">
               <button
                 type="button"
                 className="text-white bg-[#286cfd] hover:bg-blue-800 focus:ring-4 focus:outline-none 
                 focus:ring-blue-300 font-medium rounded-full text-sm px-4 py-2 text-center cursor-pointer"
               >
-                Register
+                Confluence 2.0
               </button>
-            </a>
+            </Link>
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}

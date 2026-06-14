@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { Swiper as SwiperType } from "swiper";
 
-import { speakers } from "@/app/constants";
+import { speakers } from "@/app/constants/2025";
 
 
 export default function SpeakersCarousel() {

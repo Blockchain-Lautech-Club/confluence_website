@@ -24,7 +24,7 @@ const Format = () => {
                             <li className='flex gap-2'><Cast />Panel Session</li>
                         </ul>
                         <a href="https://forms.gle/L6Px91wxUdZAbuvB8" rel='noreferrer' target='_blank'>
-                           <button className='bg-white text-black px-7 py-3 rounded-lg md:text-sm text-xs cursor-pointer font-normal mt-15 w-full'>Apply for Dev Track →</button>
+                           <button disabled className='bg-white text-black px-7 py-3 rounded-lg md:text-sm text-xs cursor-pointer font-normal mt-15 w-full'>Apply for Dev Track →</button>
                         </a>
                     </div>
 
@@ -49,7 +49,7 @@ const Format = () => {
 
 
                     <a href="https://luma.com/c0kc9817" rel='noreferrer' target='_blank'>
-                       <button className='bg-white text-black px-7 py-3 rounded-lg md:text-sm text-xs cursor-pointer font-normal mt-15 w-full'>Register for Community Track → </button>
+                       <button disabled className='bg-white text-black px-7 py-3 rounded-lg md:text-sm text-xs cursor-pointer font-normal mt-15 w-full'>Register for Community Track → </button>
                     </a>
                     
                 </div>
