@@ -63,13 +63,13 @@ const Home = () => {
                 </button>
              </a>
             
-             {/* 
-             <a href="#" className="w-full sm:w-auto">  
+             
+             <a href="/2025" className="w-full sm:w-auto">  
                 <button className='bg-[#0C1246] hover:bg-slate-800 transition-colors shadow-lg text-white px-8 py-4 rounded-xl md:text-lg text-base font-medium cursor-pointer w-full sm:w-auto'>
-                  Register Now
+                  View 2025 Highlights
                 </button>
              </a>
-             */}
+            
           </div>
 
           {/* Stats Grid */}
