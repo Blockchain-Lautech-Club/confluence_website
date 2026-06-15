@@ -11,11 +11,11 @@ const Home = () => {
         <Navbar />
         <div className='flex flex-col justify-center items-center gap-7 md:pt-30 pt-14 max-sm:px-5 px-20 relative z-10'>
           
-          <div data-aos="fade-up" className="flex flex-col items-center mt-6 md:mt-0">
+          <div data-aos="fade-up" className="flex flex-col items-center mt-8 md:mt-0">
             <h2 className='text-[#286cfd] font-bold text-sm md:text-base tracking-widest uppercase text-center mb-4'>
               The biggest Blockchain extravaganza in Oyo State
             </h2>
-            <h1 className='font-black lg:text-8xl md:text-7xl text-5xl text-[#0C1246] text-center tracking-tight uppercase leading-none mb-8'>
+            <h1 className='font-black lg:text-8xl md:text-7xl text-4xl text-[#0C1246] text-center tracking-tight uppercase leading-none mb-2'>
               CONFLUENCE
               <span className="text-[#286cfd]"> 2.0</span>
             </h1>
@@ -35,7 +35,7 @@ const Home = () => {
           </p> */}
 
           {/* Date and Venue */}
-          <div className='flex flex-col md:flex-row items-center gap-6 md:gap-12 mt-6' data-aos="fade-up" data-aos-delay="200">
+          <div className='flex flex-col md:flex-row items-center gap-6 md:gap-12 mt-2' data-aos="fade-up" data-aos-delay="200">
             <div className="flex flex-col items-center gap-2">
               <p className='uppercase font-bold text-sm text-slate-500 tracking-wider'>Date</p>
               <div className="flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-sm border border-slate-100">
@@ -57,13 +57,13 @@ const Home = () => {
 
           {/* Buttons */}
           <div className='flex gap-5 mt-4' data-aos="fade-up" data-aos-delay="400">
-             <a href="#" className="w-full sm:w-auto">  
-                <button className='bg-[#286cfd] hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/30 text-white px-8 py-4 rounded-xl md:text-lg text-base font-medium cursor-pointer w-full sm:w-auto'>
+             <a href="#" rel='noreferrer' target='_blank'>  
+                <button className='bg-[#286cfd] hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/30 text-white px-5 py-4 rounded-xl md:text-lg text-base font-medium cursor-pointer'>
                   Pitch Deck
                 </button>
              </a>
-             <a href="/2025" className="w-full sm:w-auto">  
-                <button className='bg-[#0C1246] hover:bg-slate-800 transition-colors shadow-lg text-white px-8 py-4 rounded-xl md:text-lg text-base font-medium cursor-pointer w-full sm:w-auto'>
+             <a href="/2025" rel='noreferrer' target='_blank'>  
+                <button className='bg-[#0C1246] hover:bg-slate-800 transition-colors shadow-lg text-white px-5 py-4 rounded-xl md:text-lg text-base font-medium cursor-pointer'>
                   View 2025 Highlights
                 </button>
              </a>

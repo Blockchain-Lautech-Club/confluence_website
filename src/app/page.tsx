@@ -32,9 +32,9 @@ const Page = () => {
     <div className="bg-[url('/bg-main.svg')] bg-fixed bg-cover pt-5 min-h-screen overflow-x-hidden flex flex-col relative">
       
       {/* Simplified Navbar */}
-      <div className="bg-white max-w-[1200px] mx-auto rounded-full shadow fixed top-5 left-1/2 transform -translate-x-1/2 lg:w-[90%] w-[95%] z-50">
+      {/* <div className="bg-white max-w-[1200px] mx-auto rounded-full shadow fixed top-5 left-1/2 transform -translate-x-1/2 lg:w-[90%] w-[95%] z-50">
         <nav>
-          <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 px-6">
+          <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-6">
             <Link href="/" className="flex items-center space-x-3">
               <Image
                 src="/actual-logo.png"
@@ -56,9 +56,9 @@ const Page = () => {
                 </button>
               </Link>
             </div>
-          </div>
-        </nav>
-      </div>
+          </div> */}
+        {/* </nav> */}
+      {/* </div> */}
 
 
       <Home2026/>
