@@ -9,7 +9,7 @@ const Home = () => {
     <section id='home'>
       <div>
         <Navbar />
-        <div className='flex flex-col justify-center items-center gap-7 md:pt-30 pt-14 max-sm:px-5 px-20 relative z-10'>
+        <div className='flex flex-col justify-center items-center gap-7 md:pt-30 pt-18 max-sm:px-5 px-20 relative z-10'>
           
           <div data-aos="fade-up" className="flex flex-col items-center mt-6 md:mt-0">
             <h2 className='text-[#286cfd] font-bold text-sm md:text-base tracking-widest uppercase text-center mb-4'>
