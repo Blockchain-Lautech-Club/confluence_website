@@ -9,15 +9,15 @@ const Home = () => {
     <section id='home'>
       <div>
         <Navbar />
-        <div className='flex flex-col justify-center items-center gap-7 md:pt-40 pt-32 max-sm:px-5 px-20 relative z-10'>
+        <div className='flex flex-col justify-center items-center gap-7 md:pt-30 pt-14 max-sm:px-5 px-20 relative z-10'>
           
           <div data-aos="fade-up" className="flex flex-col items-center mt-6 md:mt-0">
             <h2 className='text-[#286cfd] font-bold text-sm md:text-base tracking-widest uppercase text-center mb-4'>
               The biggest Blockchain extravaganza in Oyo State
             </h2>
             <h1 className='font-black lg:text-8xl md:text-7xl text-5xl text-[#0C1246] text-center tracking-tight uppercase leading-none mb-8'>
-              CONFLUENCE <br className='md:hidden' /> 
-              <span className="text-[#286cfd]">2.0</span>
+              CONFLUENCE
+              <span className="text-[#286cfd]"> 2.0</span>
             </h1>
           </div>
 
@@ -56,14 +56,12 @@ const Home = () => {
           </div>
 
           {/* Buttons */}
-          <div className='flex flex-col sm:flex-row gap-5 mt-4 w-full sm:w-auto' data-aos="fade-up" data-aos-delay="400">
+          <div className='flex gap-5 mt-4' data-aos="fade-up" data-aos-delay="400">
              <a href="#" className="w-full sm:w-auto">  
                 <button className='bg-[#286cfd] hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/30 text-white px-8 py-4 rounded-xl md:text-lg text-base font-medium cursor-pointer w-full sm:w-auto'>
                   Pitch Deck
                 </button>
              </a>
-            
-             
              <a href="/2025" className="w-full sm:w-auto">  
                 <button className='bg-[#0C1246] hover:bg-slate-800 transition-colors shadow-lg text-white px-8 py-4 rounded-xl md:text-lg text-base font-medium cursor-pointer w-full sm:w-auto'>
                   View 2025 Highlights
