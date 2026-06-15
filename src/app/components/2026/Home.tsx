@@ -12,10 +12,10 @@ const Home = () => {
         <div className='flex flex-col justify-center items-center gap-7 md:pt-30 pt-14 max-sm:px-5 px-20 relative z-10'>
           
           <div data-aos="fade-up" className="flex flex-col items-center mt-8 md:mt-0">
-            <h2 className='text-[#286cfd] font-bold text-[10px] sm:text-sm md:text-base tracking-[0.05em] sm:tracking-widest uppercase text-center mb-4 whitespace-nowrap'>
+            <h2 className='text-[#286cfd] font-bold text-[clamp(10px,3.2vw,14px)] sm:text-sm md:text-base tracking-[0.05em] sm:tracking-widest uppercase text-center mb-4 whitespace-nowrap'>
               The biggest Blockchain extravaganza in Oyo State
             </h2>
-            <h1 className='font-black lg:text-8xl md:text-7xl sm:text-5xl text-[32px] text-[#0C1246] text-center tracking-tight uppercase leading-none mb-2 whitespace-nowrap'>
+            <h1 className='font-black lg:text-8xl md:text-7xl sm:text-5xl text-[clamp(32px,11vw,48px)] text-[#0C1246] text-center tracking-tight uppercase leading-none mb-2 whitespace-nowrap'>
               CONFLUENCE
               <span className="text-[#286cfd]"> 2.0</span>
             </h1>
