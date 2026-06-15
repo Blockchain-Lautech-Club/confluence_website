@@ -7,36 +7,37 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="bg-white max-w-[1200px] mx-auto rounded-full shadow fixed left-1/2 transform -translate-x-1/2 lg:w-[90%] w-full z-50">
+    <div className="bg-white max-w-[1200px] mx-auto rounded-full shadow fixed left-1/2 transform -translate-x-1/2 lg:w-[90%] w-[95%] z-50">
       <nav className="">
-        <div className="max-w-screen-xl flex flex-wrap items-center max-sm:items-start justify-between mx-auto p-4">
+        <div className="max-w-screen-xl flex items-center justify-between mx-auto p-3 sm:p-4 gap-2">
           {/* Logo */} 
-          <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+          <Link href="/" className="flex items-center flex-shrink-0">
             <Image
               src="/actual-logo.png"
               width={180}
               height={10}
               alt="Confluence Logo"
-              className="max-sm:w-35"/>
+              className="w-28 sm:w-35 md:w-[180px] h-auto"/>
           </Link>
 
           {/* Buttons */}
-          <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <div className="flex md:order-2 space-x-2 md:space-x-3 rtl:space-x-reverse items-center flex-shrink-0">
             <Link href="/2025">
               <button
                 type="button"
                 className="text-white bg-[#286cfd] hover:bg-blue-800 focus:ring-4 focus:outline-none 
-                focus:ring-blue-300 font-medium rounded-full text-sm px-4 py-2 text-center cursor-pointer"
+                focus:ring-blue-300 font-medium rounded-full text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 text-center cursor-pointer whitespace-nowrap"
               >
-                Relive Confluence 2025
+                <span className="hidden sm:inline">Relive Confluence 2025</span>
+                <span className="sm:hidden">Relive 2025</span>
               </button>
             </Link>
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 
-              rounded-lg md:hidden max-sm:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+              className="inline-flex items-center p-2 w-9 h-9 sm:w-10 sm:h-10 justify-center text-sm text-gray-500 
+              rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
               aria-controls="navbar-sticky"
               aria-expanded={isOpen}
             >
