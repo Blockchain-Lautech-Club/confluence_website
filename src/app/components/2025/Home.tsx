@@ -31,11 +31,11 @@ const Home = () => {
           <div data-aos="fade-up">
           <div className="bg-[#0C1246] px-8 py-3 rounded-full shadow">
             <h2 className='text-[#F5F5F5] font-medium lg:text-2xl uppercase text-center'>
-              Welcome to Confluence 2025
+              Welcome to Confluence 1.0 - 2025
 
             </h2>
           </div>
-            <p className='text-center text-slate-700 pt-2 lg:text-2xl'>The Biggest Web 3 Extravaganza in Oyo State</p>
+            <p className='text-center text-slate-700 pt-2 lg:text-2xl'>The Biggest Web3 Extravaganza in Oyo State</p>
           </div>
           <div>
             <p className='uppercase text-center font-semibold text-xl pb-3' data-aos="fade-up" data-aos-delay="300">Theme:</p>
