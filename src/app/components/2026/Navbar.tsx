@@ -7,9 +7,17 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="bg-white max-w-[1200px] mx-auto rounded-full shadow fixed left-1/2 transform -translate-x-1/2 lg:w-[90%] w-[95%] z-50">
-      <nav className="">
-        <div className="max-w-screen-xl flex items-center justify-between mx-auto p-3 sm:p-4 gap-2">
+    <>
+      {/* Background overlay for closing menu on outside click */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 z-40 bg-black/20 md:hidden backdrop-blur-sm"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+      <div className="bg-white max-w-[1200px] mx-auto rounded-full shadow fixed left-1/2 transform -translate-x-1/2 lg:w-[90%] w-full z-50">
+        <nav className="">
+          <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 gap-2">
           {/* Logo */} 
           <Link href="/" className="flex items-center flex-shrink-0">
             <Image
@@ -17,11 +25,11 @@ export default function Navbar() {
               width={180}
               height={10}
               alt="Confluence Logo"
-              className="w-28 sm:w-35 md:w-[180px] h-auto"/>
+              className="w-32 sm:w-40 md:w-[180px] h-auto"/>
           </Link>
 
           {/* Buttons */}
-          <div className="flex md:order-2 space-x-2 md:space-x-3 rtl:space-x-reverse items-center flex-shrink-0">
+          <div className="flex md:order-2 space-x-1 sm:space-x-3 items-center flex-shrink-0">
             <Link href="/2025">
               <button
                 type="button"
@@ -36,8 +44,8 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="inline-flex items-center p-2 w-9 h-9 sm:w-10 sm:h-10 justify-center text-sm text-gray-500 
-              rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 
+              rounded-lg md:hidden max-sm:hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
               aria-controls="navbar-sticky"
               aria-expanded={isOpen}
             >
@@ -133,7 +141,8 @@ export default function Navbar() {
 
           </div>
         </div>
-      </nav>
-    </div>
+        </nav>
+      </div>
+    </>
   );
 }

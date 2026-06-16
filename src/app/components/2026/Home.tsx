@@ -9,7 +9,7 @@ const Home = () => {
     <section id='home'>
       <div>
         <Navbar />
-        <div className='flex flex-col justify-center items-center gap-7 md:pt-30 pt-14 max-sm:px-5 px-20 relative z-10'>
+        <div className='flex flex-col justify-center items-center gap-7 md:pt-26 pt-14 max-sm:px-5 px-20 relative z-10'>
           
           <div data-aos="fade-up" className="flex flex-col items-center mt-8 md:mt-0">
             <h2 className='text-[#286cfd] font-bold text-[clamp(10px,3.2vw,14px)] sm:text-sm md:text-base tracking-[0.05em] sm:tracking-widest uppercase text-center mb-4 whitespace-nowrap'>
@@ -34,29 +34,47 @@ const Home = () => {
             Get ready for a bigger and better Web3 experience.
           </p> */}
 
-          {/* Date and Venue */}
-          <div className='flex flex-col md:flex-row items-center gap-6 md:gap-12 mt-2' data-aos="fade-up" data-aos-delay="200">
-            <div className="flex flex-col items-center gap-2">
-              <p className='uppercase font-bold text-sm text-slate-500 tracking-wider'>Date</p>
-              <div className="flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-sm border border-slate-100">
-                <Calendar className="w-5 h-5 text-[#286cfd]" />
-                <p className='font-semibold md:text-lg text-base text-[#0C1246]'>September, 2026</p>
-              </div>
+          {/* Date and Venue - Compact Inline Pill */}
+          <div className="flex flex-row items-center justify-center gap-2 sm:gap-6 bg-white/90 backdrop-blur-sm px-4 sm:px-8 py-3 rounded-full shadow-sm border border-slate-100 mt-4 mx-auto w-fit" data-aos="fade-up" data-aos-delay="200">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <Calendar className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-[#286cfd]" />
+              <span className="font-semibold text-[11px] sm:text-base text-[#0C1246] whitespace-nowrap">September, 2026</span>
             </div>
-
-            <div className="hidden md:block w-px h-16 bg-slate-200"></div>
-
-            <div className="flex flex-col items-center gap-2">
-              <p className='uppercase font-bold text-sm text-slate-500 tracking-wider'>Venue</p>
-              <div className="flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-sm border border-slate-100">
-                <MapPin className="w-5 h-5 text-[#286cfd]" />
-                <p className='font-semibold md:text-lg text-base text-[#0C1246]'>TBA - Ogbomoso, Nigeria</p>
-              </div>
+            
+            <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-slate-300"></div>
+            
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <MapPin className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-[#286cfd]" />
+              <span className="font-semibold text-[11px] sm:text-base text-[#0C1246] whitespace-nowrap">TBA - Ogbomoso, Nigeria</span>
             </div>
           </div>
 
-          {/* Buttons */}
-          <div className='flex gap-5 mt-4' data-aos="fade-up" data-aos-delay="400">
+          {/* Stats Grid */}
+          {/* Stats Grid */}
+          <div className="w-full max-w-4xl flex flex-row justify-center items-start gap-3 sm:gap-6 md:gap-16 mt-2 md:mt-4 mb-2 py-1 mx-auto" data-aos="fade-up" data-aos-delay="600">
+            <div className="flex flex-col items-center text-center flex-1">
+              <h3 className="text-3xl sm:text-4xl md:text-6xl font-medium text-[#0C1246] mb-1 tracking-tight">800<span className="text-[#286cfd]">+</span></h3>
+              <p className="text-slate-500 font-medium text-[10px] sm:text-sm md:text-base leading-snug">Expected Attendees</p>
+            </div>
+
+            <div className="flex flex-col items-center text-center flex-1">
+              <h3 className="text-3xl sm:text-4xl md:text-6xl font-medium text-[#0C1246] mb-1 tracking-tight">20<span className="text-[#286cfd]">+</span></h3>
+              <p className="text-slate-500 font-medium text-[10px] sm:text-sm md:text-base leading-snug">Speakers</p>
+            </div>
+
+            <div className="flex flex-col items-center text-center flex-1">
+              <h3 className="text-3xl sm:text-4xl md:text-6xl font-medium text-[#0C1246] mb-1 tracking-tight">3</h3>
+              <p className="text-slate-500 font-medium text-[10px] sm:text-sm md:text-base leading-snug">Tracks</p>
+            </div>
+
+            <div className="flex flex-col items-center text-center flex-1">
+              <h3 className="text-3xl sm:text-4xl md:text-6xl font-medium text-[#0C1246] mb-1 tracking-tight">3<span className="text-[#286cfd]">+</span></h3>
+              <p className="text-slate-500 font-medium text-[10px] sm:text-sm md:text-base leading-snug">Days</p>
+            </div>
+          </div>
+
+                    {/* Buttons */}
+          <div className='flex gap-5' data-aos="fade-up" data-aos-delay="400">
              <a href="#" rel='noreferrer' target='_blank'>  
                 <button className='bg-[#286cfd] hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/30 text-white px-5 py-4 rounded-xl md:text-lg text-base font-medium cursor-pointer'>
                   Pitch Deck
@@ -68,41 +86,6 @@ const Home = () => {
                 </button>
              </a>
             
-          </div>
-
-          {/* Stats Grid */}
-          <div className="w-full max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-8 md:mt-14 mb-10" data-aos="fade-up" data-aos-delay="600">
-            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-3xl shadow-sm border border-slate-100 flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
-              <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-5">
-                <Users className="w-7 h-7 text-[#286cfd]" />
-              </div>
-              <h3 className="text-4xl font-bold text-[#0C1246] mb-1">800<span className="text-[#286cfd]">+</span></h3>
-              <p className="text-sm text-slate-500 font-bold uppercase tracking-wide">Expected Attendees</p>
-            </div>
-
-            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-3xl shadow-sm border border-slate-100 flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
-              <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-5">
-                <Mic className="w-7 h-7 text-[#286cfd]" />
-              </div>
-              <h3 className="text-4xl font-bold text-[#0C1246] mb-1">20<span className="text-[#286cfd]">+</span></h3>
-              <p className="text-sm text-slate-500 font-bold uppercase tracking-wide">Expert Speakers</p>
-            </div>
-
-            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-3xl shadow-sm border border-slate-100 flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
-              <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-5">
-                <Layers className="w-7 h-7 text-[#286cfd]" />
-              </div>
-              <h3 className="text-4xl font-bold text-[#0C1246] mb-1">3</h3>
-              <p className="text-sm text-slate-500 font-bold uppercase tracking-wide">Dynamic Tracks</p>
-            </div>
-
-            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-3xl shadow-sm border border-slate-100 flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
-              <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-5">
-                <Clock className="w-7 h-7 text-[#286cfd]" />
-              </div>
-              <h3 className="text-4xl font-bold text-[#0C1246] mb-1">3<span className="text-[#286cfd]">+</span></h3>
-              <p className="text-sm text-slate-500 font-bold uppercase tracking-wide">Days of Content</p>
-            </div>
           </div>
 
         </div>
