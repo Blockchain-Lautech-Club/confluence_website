@@ -12,7 +12,7 @@ const Home = () => {
         <div className='flex flex-col justify-center items-center gap-7 md:pt-26 pt-14 max-sm:px-5 px-20 relative z-10'>
           
           <div data-aos="fade-up" className="flex flex-col items-center mt-8 md:mt-0">
-            <h2 className='text-[#286cfd] font-bold text-[clamp(10px,3.2vw,14px)] sm:text-sm md:text-base tracking-[0.05em] sm:tracking-widest uppercase text-center mb-4 whitespace-nowrap'>
+            <h2 className='text-[#286cfd] font-bold text-[clamp(10px,3vw,16px)] sm:text-sm md:text-base tracking-normal sm:tracking-[0.05em] md:tracking-widest uppercase text-center mb-4 whitespace-nowrap'>
               The biggest Blockchain extravaganza in Oyo State
             </h2>
             <h1 className='font-black lg:text-8xl md:text-7xl sm:text-5xl text-[clamp(32px,11vw,48px)] text-[#0C1246] text-center tracking-tight uppercase leading-none mb-2 whitespace-nowrap'>
@@ -51,23 +51,23 @@ const Home = () => {
 
           {/* Stats Grid */}
           {/* Stats Grid */}
-          <div className="w-full max-w-4xl flex flex-row justify-center items-start gap-3 sm:gap-6 md:gap-16 mt-2 md:mt-4 mb-2 py-1 mx-auto" data-aos="fade-up" data-aos-delay="600">
-            <div className="flex flex-col items-center text-center flex-1">
+          <div className="flex flex-row flex-wrap justify-center items-center gap-6 sm:gap-10 md:gap-16 mt-2 md:mt-4 mb-2 py-1 mx-auto" data-aos="fade-up" data-aos-delay="600">
+            <div className="flex flex-col items-center text-center">
               <h3 className="text-3xl sm:text-4xl md:text-6xl font-medium text-[#0C1246] mb-1 tracking-tight">800<span className="text-[#286cfd]">+</span></h3>
               <p className="text-slate-500 font-medium text-[10px] sm:text-sm md:text-base leading-snug">Expected Attendees</p>
             </div>
 
-            <div className="flex flex-col items-center text-center flex-1">
+            <div className="flex flex-col items-center text-center">
               <h3 className="text-3xl sm:text-4xl md:text-6xl font-medium text-[#0C1246] mb-1 tracking-tight">20<span className="text-[#286cfd]">+</span></h3>
               <p className="text-slate-500 font-medium text-[10px] sm:text-sm md:text-base leading-snug">Speakers</p>
             </div>
 
-            <div className="flex flex-col items-center text-center flex-1">
+            <div className="flex flex-col items-center text-center">
               <h3 className="text-3xl sm:text-4xl md:text-6xl font-medium text-[#0C1246] mb-1 tracking-tight">3</h3>
               <p className="text-slate-500 font-medium text-[10px] sm:text-sm md:text-base leading-snug">Tracks</p>
             </div>
 
-            <div className="flex flex-col items-center text-center flex-1">
+            <div className="flex flex-col items-center text-center">
               <h3 className="text-3xl sm:text-4xl md:text-6xl font-medium text-[#0C1246] mb-1 tracking-tight">3<span className="text-[#286cfd]">+</span></h3>
               <p className="text-slate-500 font-medium text-[10px] sm:text-sm md:text-base leading-snug">Days</p>
             </div>
@@ -80,9 +80,9 @@ const Home = () => {
                   Pitch Deck
                 </button>
              </a>
-             <a href="/2025" rel='noreferrer' target='_blank'>  
+             <a href="mailto:blockchainlautech@gmail.com">  
                 <button className='bg-[#0C1246] hover:bg-slate-800 transition-colors shadow-lg text-white px-5 py-4 rounded-xl md:text-lg text-base font-medium cursor-pointer'>
-                  View 2025 Highlights
+                  Contact Us
                 </button>
              </a>
             
