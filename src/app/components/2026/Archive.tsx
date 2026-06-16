@@ -38,7 +38,7 @@ const Archive = () => {
               key={item.id}
               data-aos="fade-up"
               data-aos-delay={100 * index}
-              className={`min-w-[280px] md:min-w-[320px] lg:min-w-[350px] p-8 rounded-2xl flex flex-col justify-between snap-start transition-all duration-300 ${
+              className={`min-w-[280px] md:min-w-[320px] lg:min-w-[350px] p-5 rounded-2xl flex flex-col justify-between snap-start transition-all duration-300 ${
                 item.isLatest
                   ? 'bg-[#0f1730] border border-[#286cfd] shadow-[0_0_20px_rgba(40,108,253,0.15)] relative'
                   : 'bg-[#0C1226] border border-slate-800 hover:border-slate-700'
@@ -60,17 +60,24 @@ const Archive = () => {
                   Confluence {item.version} - {item.year}
                 </h4>
                 
-                <h3 className="text-white text-xl md:text-2xl font-bold leading-snug mb-8">
-                  {item.theme}
-                </h3>
+                {item.id === '2025' ? (
+                  <div className="flex flex-col gap-3 mb-8 mt-2">
+                    <a href="https://blockchainlautech.pixieset.com/confluence25/" target="_blank" rel="noreferrer" className="text-center bg-[#286cfd]/20 border border-[#286cfd] hover:bg-[#286cfd] text-white py-2.5 px-4 rounded-xl transition-colors font-medium text-sm">Community Track Media</a>
+                    <a href="https://drive.google.com/drive/folders/1ZjO7oUuP6nRRcm1PHGrz6rgKRPvjlh57" target="_blank" rel="noreferrer" className="text-center bg-[#286cfd]/20 border border-[#286cfd] hover:bg-[#286cfd] text-white py-2.5 px-4 rounded-xl transition-colors font-medium text-sm">Developer Track Media</a>
+                  </div>
+                ) : (
+                  <h3 className="text-white text-xl md:text-2xl font-bold leading-snug mb-8">
+                    {item.theme}
+                  </h3>
+                )}
               </div>
 
-              <Link href={item.link}>
+              {/* <Link href={item.link}>
                 <div className="inline-flex items-center text-sm font-medium text-[#286cfd] hover:text-[#6092ff] transition-colors group">
                   View 
                   <span className="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
                 </div>
-              </Link>
+              </Link> */}
             </div>
           ))}
         </div>

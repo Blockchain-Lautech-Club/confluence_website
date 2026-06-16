@@ -8,7 +8,7 @@ const Connected = () => {
         <h2 className='text-[#286cfd] font-bold text-sm md:text-base tracking-widest uppercase text-center mb-4'>
           Stay Connected
         </h2>
-        <h1 className='font-black lg:text-5xl md:text-4xl text-[clamp(16px,6vw,36px)] sm:text-4xl text-[#0C1246] text-center tracking-tight uppercase leading-tight mb-8 whitespace-nowrap'>
+        <h1 className='font-black lg:text-5xl md:text-4xl text-[clamp(16px,6vw,36px)] sm:text-4xl text-[#0C1246] text-center tracking-tight uppercase leading-tight mb-4 whitespace-nowrap'>
           Follow our journey to <br /> 
           <span className="text-[#286cfd]">Confluence 2026</span>
         </h1>
@@ -17,7 +17,7 @@ const Connected = () => {
 
       <div className="flex gap-10 mt-2 mb-6 flex-col lg:flex-row lg:items-stretch">
         <div className="basis-1/2" data-aos="fade-right">
-          <h2 className='text-3xl md:text-4xl font-bold text-[#0C1246] max-sm:text-center tracking-tight'>About Blockchain Lautech</h2>
+          <h2 className='text-[clamp(22px,6vw,30px)] md:text-4xl font-bold text-[#0C1246] max-sm:text-center tracking-tight whitespace-nowrap'>About Blockchain Lautech</h2>
           <p className='text-slate-600 mt-4 text-lg leading-relaxed text-justify md:text-left'>
             Blockchain Lautech has been championing blockchain education since 2020. Through workshops, hackathons, and community building, we&apos;ve created a vibrant ecosystem that connects LAUTECH students to the global Web3 movement.
           </p>
