@@ -7,6 +7,7 @@ import Link from "next/link"
 import Home2026 from './components/2026/Home'
 import Footer2026 from './components/2026/Footer'
 import Connected2026 from './components/2026/Connected'
+import Archive2026 from './components/2026/Archive'
 
 const Page = () => {
   useEffect(() => {
@@ -62,7 +63,9 @@ const Page = () => {
 
 
       <Home2026/>
+            <Archive2026/>
       <Connected2026/>
+
       <Footer2026/>
     </div>
   )

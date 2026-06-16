@@ -3,19 +3,19 @@ import React from 'react'
 
 const Connected = () => {
   return (
-    <section id='contact' className='pt-16 md:pt-32 px-5 md:px-20 relative z-10'>
+    <section id='contact' className='pt-8 md:pt-12 px-5 md:px-20 relative z-10'>
       <div data-aos="fade-up" className="flex flex-col items-center">
         <h2 className='text-[#286cfd] font-bold text-sm md:text-base tracking-widest uppercase text-center mb-4'>
           Stay Connected
         </h2>
-        <h1 className='font-black lg:text-5xl md:text-4xl text-4xl text-[#0C1246] text-center tracking-tight uppercase leading-tight mb-8'>
+        <h1 className='font-black lg:text-5xl md:text-4xl text-[clamp(16px,6vw,36px)] sm:text-4xl text-[#0C1246] text-center tracking-tight uppercase leading-tight mb-8 whitespace-nowrap'>
           Follow our journey to <br /> 
           <span className="text-[#286cfd]">Confluence 2026</span>
         </h1>
       </div>
 
 
-      <div className="flex gap-10 mt-8 mb-16 flex-col lg:flex-row lg:items-stretch">
+      <div className="flex gap-10 mt-2 mb-6 flex-col lg:flex-row lg:items-stretch">
         <div className="basis-1/2" data-aos="fade-right">
           <h2 className='text-3xl md:text-4xl font-bold text-[#0C1246] max-sm:text-center tracking-tight'>About Blockchain Lautech</h2>
           <p className='text-slate-600 mt-4 text-lg leading-relaxed text-justify md:text-left'>
