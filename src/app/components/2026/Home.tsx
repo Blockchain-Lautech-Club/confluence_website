@@ -75,7 +75,19 @@ const Home = () => {
 
                     {/* Buttons */}
           <div className='flex gap-5' data-aos="fade-up" data-aos-delay="400">
-             <a href="#" rel='noreferrer' target='_blank'>  
+             <a 
+                href="/pitch-deck2026.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = '/pitch-deck2026.pdf';
+                  link.download = 'Pitch_Deck2026.pdf';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+             >  
                 <button className='bg-[#286cfd] hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/30 text-white px-5 py-4 rounded-xl md:text-lg text-base font-medium cursor-pointer'>
                   Pitch Deck
                 </button>
