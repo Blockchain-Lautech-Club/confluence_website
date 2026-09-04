@@ -58,7 +58,7 @@ const scheduleData: DayData[] = [
         venue: 'TBA',
         track: 'Human Layer',
         details: ['Icebreakers', 'Girls Conversation', 'Games'],
-        registerUrl: 'https://confluence-sandbox.vercel.app/'
+        registerUrl: 'https://www.crenelle.org/register/the-human-layer-female-guild-picnic-4ae1'
       }
     ]
   },

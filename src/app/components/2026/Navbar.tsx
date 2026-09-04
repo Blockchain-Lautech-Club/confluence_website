@@ -21,7 +21,7 @@ export default function Navbar({ isRegisterOpen: propsRegisterOpen, setIsRegiste
   const developerRegUrl = "https://www.crenelle.org/register/developers-track-confluence-2-0-f637";
   const founderRegUrl = "https://www.crenelle.org/register/the-confluence-fellowship-founders-track-4cdf";
   const humanLayerRegUrl = "https://www.crenelle.org/register/the-human-layer-unplugged-room-9de3";
-  const femaleGuildRegUrl = "https://confluence-sandbox.vercel.app/";
+  const femaleGuildRegUrl = "https://www.crenelle.org/register/the-human-layer-female-guild-picnic-4ae1";
 
   const navLinks = [
     { label: "About", href: "#about" },
