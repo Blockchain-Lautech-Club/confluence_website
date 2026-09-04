@@ -17,16 +17,16 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Confluence 2.0",
   description:
-    "The Largest Student Web3 Conference in Southwestern Nigeria. Powered by Blockchain LAUTECH—a Tier-1 University Blockchain Club in Africa.",
+    "The Largest Student Web3 Conference in Africa. Powered by Blockchain LAUTECH.",
   icons: {
-    icon: "/logo.jpg",
-    shortcut: "/logo.jpg",
-    apple: "/logo.jpg",
+    icon: "/newfavicon.jpg",
+    shortcut: "/newfavicon.jpg",
+    apple: "/newfavicon.jpg",
   },
   openGraph: {
     title: "Confluence 2.0",
     description:
-      "The Largest Student Web3 Conference in Southwestern Nigeria. Powered by Blockchain LAUTECH—a Tier-1 University Blockchain Club in Africa.",
+      "The Largest Student-Led Web3 Conference in Africa. Powered by Blockchain LAUTECH.",
     url: "https://confluence.blockchainlautech.club/",
     siteName: "Confluence 2.0",
     images: [
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Confluence 2.0",
     description:
-      "The Largest Student Web3 Conference in Southwestern Nigeria. Powered by Blockchain LAUTECH—a Tier-1 University Blockchain Club in Africa.",
+      "The Largest Student Web3 Conference in Africa. Powered by Blockchain LAUTECH.",
     images: ["/CONFLUENCEprev.jpg"],
   },
 };
