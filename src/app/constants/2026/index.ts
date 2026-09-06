@@ -179,8 +179,8 @@ export const partnerLogos: PartnerLogo[] = [
   {
     src: "/CABMedia.png",
     alt: "CAB Media",
-    width: 130,
-    height: 70,
+    width: 100,
+    height: 40,
     category: "Media Partner",
   },
   {
