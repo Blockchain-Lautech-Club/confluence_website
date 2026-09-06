@@ -139,21 +139,21 @@ const Speakers = () => {
               return logo ? (
                 <div
                   key={idx}
-                  className="border border-white/20 rounded-xl h-16 bg-black/40 flex items-center justify-center px-2 hover:border-[#286cfd] transition-colors relative group"
+                  className="border border-white/20 rounded-xl h-20 sm:h-20 md:h-18 bg-black/40 flex items-center justify-center p-3 hover:border-[#286cfd] transition-colors relative group"
                   title={`${logo.alt}${logo.category ? ` (${logo.category})` : ''}`}
                 >
                   <Image
                     src={logo.src}
                     alt={logo.alt}
-                    width={logo.width ?? 120}
-                    height={logo.height ?? 50}
-                    className="object-contain max-h-full w-auto"
+                    width={logo.width ?? 160}
+                    height={logo.height ?? 70}
+                    className="object-contain max-h-full max-w-full w-auto h-auto"
                   />
                 </div>
               ) : (
                 <div 
                   key={idx}
-                  className="border border-dashed border-white/10 rounded-xl h-16 bg-black/40 hover:bg-black/60 transition-colors duration-300 flex items-center justify-center group"
+                  className="border border-dashed border-white/10 rounded-xl h-20 sm:h-20 md:h-18 bg-black/40 hover:bg-black/60 transition-colors duration-300 flex items-center justify-center group"
                 >
                   <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest group-hover:text-[#ccff00] transition-colors duration-300">
                     Partner Slot
