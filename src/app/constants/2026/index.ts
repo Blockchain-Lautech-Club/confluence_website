@@ -172,22 +172,22 @@ export const partnerLogos: PartnerLogo[] = [
   {
     src: "/web3ogbomoso2026.png",
     alt: "Web3 Ogbomoso",
-    width: 100,
-    height: 40,
+    width: 140,
+    height: 60,
     category: "Ecosystem Partner",
   },
   {
     src: "/CABMedia.png",
     alt: "CAB Media",
-    width: 100,
-    height: 40,
+    width: 160,
+    height: 70,
     category: "Media Partner",
   },
   {
     src: "/BNUGnew.png",
     alt: "BNUG",
-    width: 100,
-    height: 40,
+    width: 160,
+    height: 70,
     category: "Ecosystem Partner",
   },
 ];
