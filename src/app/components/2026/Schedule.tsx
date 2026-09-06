@@ -199,7 +199,7 @@ const Schedule = () => {
   };
 
   return (
-    <section id='schedule' className='pt-6 pb-20 px-6 md:px-20 max-w-7xl mx-auto relative z-10'>
+    <section id='schedule' className='pt-6 pb-6 px-6 md:px-20 max-w-7xl mx-auto relative z-10'>
       
       {/* Badge */}
       <div className="flex justify-center mb-6" data-aos="fade-up">

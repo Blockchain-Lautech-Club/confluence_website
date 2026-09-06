@@ -46,7 +46,7 @@ const Footer = () => {
           {/* Social Links */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-widest text-slate-400 text-left lg:text-right">Follow Our Journey</h4>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 flex-wrap justify-start lg:justify-end">
               <a 
                 href="mailto:blockchainlautech@gmail.com" 
                 className="p-3 bg-white/5 hover:bg-[#ccff00] hover:text-black hover:scale-105 transition-all rounded-xl w-11 h-11 flex justify-center items-center text-white border border-white/10"
@@ -56,6 +56,8 @@ const Footer = () => {
               </a>
               <a 
                 href="https://x.com/ConfluenceEvent/" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 bg-white/5 hover:bg-[#ccff00] hover:text-black hover:scale-105 transition-all rounded-xl w-11 h-11 flex justify-center items-center text-white border border-white/10"
                 aria-label="X (Twitter)"
               >
@@ -63,6 +65,8 @@ const Footer = () => {
               </a>
               <a 
                 href="https://t.me/BlockchainLautech/24" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 bg-white/5 hover:bg-[#ccff00] hover:text-black hover:scale-105 transition-all rounded-xl w-11 h-11 flex justify-center items-center text-white border border-white/10"
                 aria-label="Telegram"
               >
@@ -70,10 +74,39 @@ const Footer = () => {
               </a>
               <a 
                 href="https://chat.whatsapp.com/BvmEcyxnRsKAI64ht8LQls" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 bg-white/5 hover:bg-[#ccff00] hover:text-black hover:scale-105 transition-all rounded-xl w-11 h-11 flex justify-center items-center text-white border border-white/10"
                 aria-label="WhatsApp Community"
               >
                 <i className="bi bi-whatsapp text-lg"></i>
+              </a>
+              <a 
+                href="https://www.linkedin.com/company/blockchain-club-lautech/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-white/5 hover:bg-[#ccff00] hover:text-black hover:scale-105 transition-all rounded-xl w-11 h-11 flex justify-center items-center text-white border border-white/10"
+                aria-label="LinkedIn"
+              >
+                <i className="bi bi-linkedin text-lg"></i>
+              </a>
+              <a 
+                href="https://www.tiktok.com/@blockchainlautech" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-white/5 hover:bg-[#ccff00] hover:text-black hover:scale-105 transition-all rounded-xl w-11 h-11 flex justify-center items-center text-white border border-white/10"
+                aria-label="TikTok"
+              >
+                <i className="bi bi-tiktok text-lg"></i>
+              </a>
+              <a 
+                href="https://www.instagram.com/blockchainlautech" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-white/5 hover:bg-[#ccff00] hover:text-black hover:scale-105 transition-all rounded-xl w-11 h-11 flex justify-center items-center text-white border border-white/10"
+                aria-label="Instagram"
+              >
+                <i className="bi bi-instagram text-lg"></i>
               </a>
             </div>
           </div>
