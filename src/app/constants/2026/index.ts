@@ -179,15 +179,15 @@ export const partnerLogos: PartnerLogo[] = [
   {
     src: "/CABMedia.png",
     alt: "CAB Media",
-    width: 100,
-    height: 40,
+    width: 130,
+    height: 60,
     category: "Media Partner",
   },
   {
     src: "/BNUGnew.png",
     alt: "BNUG",
-    width: 100,
-    height: 40,
+    width: 120,
+    height: 50,
     category: "Ecosystem Partner",
   },
 ];
