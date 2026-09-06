@@ -139,14 +139,14 @@ const Speakers = () => {
               return logo ? (
                 <div
                   key={idx}
-                  className="border border-white/20 rounded-xl h-16 bg-black/40 flex items-center justify-center px-3 hover:border-[#286cfd] transition-colors relative group"
+                  className="border border-white/20 rounded-xl h-16 bg-black/40 flex items-center justify-center px-2 hover:border-[#286cfd] transition-colors relative group"
                   title={`${logo.alt}${logo.category ? ` (${logo.category})` : ''}`}
                 >
                   <Image
                     src={logo.src}
                     alt={logo.alt}
-                    width={logo.width ?? 100}
-                    height={logo.height ?? 40}
+                    width={logo.width ?? 120}
+                    height={logo.height ?? 50}
                     className="object-contain max-h-full w-auto"
                   />
                 </div>
