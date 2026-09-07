@@ -184,6 +184,13 @@ export const partnerLogos: PartnerLogo[] = [
     category: "Media Partner",
   },
   {
+    src: "/web3kitpartner.png",
+    alt: "WEB3KIT",
+    width: 160,
+    height: 70,
+    category: "Ecosystem Partner",
+  },
+  {
     src: "/BNUGnew.png",
     alt: "BNUG",
     width: 160,
