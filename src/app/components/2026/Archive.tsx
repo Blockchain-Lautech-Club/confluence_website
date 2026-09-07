@@ -80,36 +80,6 @@ const Archive = () => {
             </div>
           </div>
         ))}
-
-        {/* Conceptual Confluence 2.0 card */}
-        <div className="bg-black/40 text-white rounded-3xl p-8 shadow-2xl flex flex-col justify-between relative overflow-hidden border border-white/10 neo-shadow-yellow">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(40,108,253,0.08),transparent_50%)] pointer-events-none" />
-          
-          <div>
-            <div className="mb-6 inline-flex items-center gap-2 bg-[#ccff00]/10 border border-[#ccff00]/25 text-[#ccff00] text-xs font-black tracking-widest px-3.5 py-1.5 rounded-full uppercase">
-              <span className="w-1.5 h-1.5 bg-[#ccff00] rounded-full animate-ping"></span>
-              IN PROGRESS
-            </div>
-            
-            <h4 className="text-xs font-bold tracking-wider uppercase text-slate-400 mb-2">
-              Confluence 2.0 — 2026
-            </h4>
-            
-            <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight leading-snug mb-6 text-white">
-              CODE. CREATE. CONNECT.
-            </h3>
-            
-            <p className="text-slate-300 text-sm leading-relaxed">
-              We are currently in active redesign and venture alignment. Stay tuned for registration passes and program tracks.
-            </p>
-          </div>
-          
-          <div className="pt-6 mt-6 border-t border-white/10">
-            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#facc15]">
-              November 2–7, 2026 <ExternalLink className="w-3.5 h-3.5" />
-            </span>
-          </div>
-        </div>
       </div>
 
     </section>

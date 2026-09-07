@@ -164,7 +164,7 @@ const scheduleData: DayData[] = [
         venue: 'TBA',
         track: 'Community',
         details: ['Pillars convergence celebration', 'Keynote addresses & fireside chats', 'Community award recognitions'],
-        registerUrl: 'https://www.crenelle.org/register/community-track-confluence-2-0-f637'
+        registerUrl: 'https://candao.io/graphs/d26325898cd34567afa6f16b28613983'
       }
     ]
   }
