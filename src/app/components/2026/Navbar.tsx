@@ -17,7 +17,7 @@ export default function Navbar({ isRegisterOpen: propsRegisterOpen, setIsRegiste
   const isRegisterOpen = propsRegisterOpen !== undefined ? propsRegisterOpen : localRegisterOpen;
   const setIsRegisterOpen = propsSetRegisterOpen !== undefined ? propsSetRegisterOpen : setLocalRegisterOpen;
 
-  const communityRegUrl = "#";
+  const communityRegUrl = "https://candao.io/graphs/d26325898cd34567afa6f16b28613983";
   const developerRegUrl = "https://www.crenelle.org/register/developers-track-confluence-2-0-f637";
   const founderRegUrl = "https://www.crenelle.org/register/the-confluence-fellowship-founders-track-4cdf";
   const humanLayerRegUrl = "https://www.crenelle.org/register/the-human-layer-unplugged-room-9de3";
