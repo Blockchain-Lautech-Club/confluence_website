@@ -166,6 +166,7 @@ export interface PartnerLogo {
   height?: number;
   href?: string;
   category?: string;
+  bg?: string;
 }
 
 export const partnerLogos: PartnerLogo[] = [
@@ -175,6 +176,14 @@ export const partnerLogos: PartnerLogo[] = [
     width: 140,
     height: 60,
     category: "Ecosystem Partner",
+  },
+  {
+    src: "/explore ogbomoso.png",
+    alt: "Explore Ogbomoso",
+    width: 160,
+    height: 70,
+    category: "Media Partner",
+    bg: "bg-white",
   },
   {
     src: "/CABMedia.png",
@@ -191,10 +200,25 @@ export const partnerLogos: PartnerLogo[] = [
     category: "Ecosystem Partner",
   },
   {
-    src: "/BNUGnew.png",
+    src: "/Eventsparks.png",
+    alt: "Eventsparks",
+    width: 160,
+    height: 70,
+    category: "Event Partner",
+  },
+  {
+    src: "/Krypto Extract.png",
+    alt: "Krypto Extract",
+    width: 160,
+    height: 70,
+    category: "Media Partner",
+  },
+  {
+    src: "/BNUGLogo.png",
     alt: "BNUG",
     width: 160,
     height: 70,
     category: "Ecosystem Partner",
+    bg: "bg-white",
   },
 ];
