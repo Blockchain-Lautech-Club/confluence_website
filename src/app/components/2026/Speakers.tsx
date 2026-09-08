@@ -7,7 +7,7 @@ import { Mail, Handshake } from 'lucide-react'
 import { sponsorTiers, partnerLogos } from '@/app/constants/2026'
 
 const Speakers = () => {
-  const PARTNER_SLOTS = 6;
+  const PARTNER_SLOTS = Math.max(8, partnerLogos.length);
 
   return (
     <div id="speakers-partners" className="space-y-16 md:space-y-24 pt-8 pb-8 px-6 md:px-20 max-w-7xl mx-auto overflow-hidden w-full">
@@ -133,13 +133,13 @@ const Speakers = () => {
               Press coverage and distribution.
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
             {Array.from({ length: PARTNER_SLOTS }).map((_, idx) => {
               const logo = partnerLogos[idx];
               return logo ? (
                 <div
                   key={idx}
-                  className="border border-white/20 rounded-xl h-20 sm:h-20 md:h-18 bg-black/40 flex items-center justify-center p-3 hover:border-[#286cfd] transition-colors relative group"
+                  className={`border border-white/20 rounded-xl h-20 sm:h-20 md:h-18 ${logo.bg ?? 'bg-black/40'} flex items-center justify-center p-3 hover:border-[#286cfd] transition-colors relative group`}
                   title={`${logo.alt}${logo.category ? ` (${logo.category})` : ''}`}
                 >
                   <Image

@@ -166,6 +166,7 @@ export interface PartnerLogo {
   height?: number;
   href?: string;
   category?: string;
+  bg?: string;
 }
 
 export const partnerLogos: PartnerLogo[] = [
@@ -196,5 +197,27 @@ export const partnerLogos: PartnerLogo[] = [
     width: 160,
     height: 70,
     category: "Ecosystem Partner",
+  },
+  {
+    src: "/Eventsparks.png",
+    alt: "Eventsparks",
+    width: 160,
+    height: 70,
+    category: "Event Partner",
+  },
+  {
+    src: "/Krypto Extract.png",
+    alt: "Krypto Extract",
+    width: 160,
+    height: 70,
+    category: "Media Partner",
+  },
+  {
+    src: "/explore ogbomoso.png",
+    alt: "Explore Ogbomoso",
+    width: 160,
+    height: 70,
+    category: "Media Partner",
+    bg: "bg-white",
   },
 ];
