@@ -224,8 +224,8 @@ export const partnerLogos: PartnerLogo[] = [
   {
     src: "/onigbinpartner.png",
     alt: "Oluseun Onigbinde Resource Centre",
-    width: 160,
-    height: 70,
+    width: 200,
+    height: 80,
     category: "Ecosystem Partner",
     bg: "bg-white",
   },
