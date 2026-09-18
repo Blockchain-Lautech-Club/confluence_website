@@ -167,17 +167,12 @@ export interface PartnerLogo {
   href?: string;
   category?: string;
   bg?: string;
+  padding?: string;
+  className?: string;
 }
 
 export const partnerLogos: PartnerLogo[] = [
-  {
-    src: "/web3ogbomoso2026.png",
-    alt: "Web3 Ogbomoso",
-    width: 140,
-    height: 60,
-    category: "Ecosystem Partner",
-  },
-  {
+    {
     src: "/explore ogbomoso.png",
     alt: "Explore Ogbomoso",
     width: 160,
@@ -186,11 +181,27 @@ export const partnerLogos: PartnerLogo[] = [
     bg: "bg-white",
   },
   {
+    src: "/web3ogbomoso2026.png",
+    alt: "Web3 Ogbomoso",
+    width: 140,
+    height: 60,
+    category: "Ecosystem Partner",
+  },
+
+  {
     src: "/CABMedia.png",
     alt: "CAB Media",
     width: 160,
     height: 70,
     category: "Media Partner",
+  },
+    {
+    src: "/BNUGLogo.png",
+    alt: "BNUG",
+    width: 160,
+    height: 70,
+    category: "Ecosystem Partner",
+    bg: "bg-white",
   },
   {
     src: "/web3kitpartner.png",
@@ -213,20 +224,15 @@ export const partnerLogos: PartnerLogo[] = [
     height: 70,
     category: "Media Partner",
   },
-  {
-    src: "/BNUGLogo.png",
-    alt: "BNUG",
-    width: 160,
-    height: 70,
-    category: "Ecosystem Partner",
-    bg: "bg-white",
-  },
+
   {
     src: "/onigbinpartner.png",
     alt: "Oluseun Onigbinde Resource Centre",
-    width: 200,
-    height: 80,
+    width: 240,
+    height: 150,
     category: "Ecosystem Partner",
     bg: "bg-white",
+    padding: "p-2",
+    className: "scale-115",
   },
 ];
