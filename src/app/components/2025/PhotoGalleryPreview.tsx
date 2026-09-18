@@ -43,11 +43,11 @@ export default function PhotoGalleryPreview() {
     return (currentIndex + offset + items.length) % items.length
   }
 
-  // Fallback placeholder images if items are not loaded yet
+  // Fallback images if items are loading or API is unconfigured
   const fallbackImages = [
-    { image: "https://static.vecteezy.com/system/resources/previews/031/394/161/non_2x/audience-listening-conference-cartoon-flat-illustration-seminar-attendees-group-of-business-people-diverse-2d-characters-isolated-on-white-background-lecture-participants-scene-color-image-vector.jpg", text: "Audience" },
-    { image: "https://media.istockphoto.com/id/1210803911/vector/people-working-together-hackathon-vector-flat-illustration-programmers-work-with-data.jpg?s=612x612&w=0&k=20&c=yoTjL26kAyCebnpuA-DelwoSOf1EBmazkl8HKragWTw=", text: "Hackathon" },
-    { image: "https://static.vecteezy.com/system/resources/previews/004/943/964/non_2x/a-public-speaker-give-a-speech-behind-the-podium-free-vector.jpg", text: "Keynote" },
+    { image: "https://res.cloudinary.com/zz3ptcjd/image/upload/v1789731686/img-9944_uigdeq.jpg", text: "Community Track Keynote" },
+    { image: "https://res.cloudinary.com/zz3ptcjd/image/upload/v1789733101/IMG_20251107_115424_nz2rto.jpg", text: "Developer Workshop & Hackathon" },
+    { image: "https://res.cloudinary.com/zz3ptcjd/image/upload/v1789731684/img-9940_qd8qch.jpg", text: "Confluence 1.0 Panel" },
   ]
 
   const displayList = items.length > 0 ? items : fallbackImages

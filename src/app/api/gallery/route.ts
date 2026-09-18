@@ -26,23 +26,24 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const track = searchParams.get('track');
 
-    let prefix = 'gallery/Confluence 1.0';
+    let expression = 'asset_folder:"gallery/Confluence 1.0 Nov 2025*"';
     if (track === 'community') {
-      prefix = 'gallery/Confluence 1.0 (Nov 7-8 2025)/Community Track';
+      expression = 'asset_folder:"gallery/Confluence 1.0 Nov 2025/Community Track [November 8,2025]"';
     } else if (track === 'dev') {
-      prefix = 'gallery/Confluence 1.0 (Nov 7-8 2025)/Dev Track';
+      expression = 'asset_folder:"gallery/Confluence 1.0 Nov 2025/Dev Track [November 7,2025]"';
     }
 
-    const result = await cloudinary.api.resources({
-      type: 'upload',
-      prefix,
-      max_results: 500,
-    });
+    const result = await cloudinary.search
+      .expression(expression)
+      .sort_by('public_id', 'asc')
+      .max_results(500)
+      .execute();
 
-    const items = (result.resources || []).map((resource: { secure_url: string; public_id: string }) => {
-      const publicId = resource.public_id;
-      const isDevTrack = publicId.includes('Dev Track');
-      const isCommunityTrack = publicId.includes('Community Track');
+    const items = (result.resources || []).map((resource: { secure_url: string; public_id: string; asset_folder?: string }) => {
+      const assetFolder = resource.asset_folder || '';
+      const publicId = resource.public_id || '';
+      const isDevTrack = assetFolder.includes('Dev Track') || publicId.includes('Dev');
+      const isCommunityTrack = assetFolder.includes('Community Track') || publicId.includes('Community');
 
       let trackName = 'all';
       if (isDevTrack) trackName = 'dev';
@@ -55,7 +56,7 @@ export async function GET(request: Request) {
         image: resource.secure_url,
         text: cleanName,
         track: trackName,
-        publicId: resource.public_id,
+        publicId,
       };
     });
 

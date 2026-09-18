@@ -36,7 +36,8 @@ export default function Gallery() {
 
   const filteredItems = items.filter((item) => {
     if (selectedTrack === 'all') return true
-    return item.track === selectedTrack
+    return item.
+    track === selectedTrack
   })
 
   const communityCount = items.filter((i) => i.track === 'community').length
