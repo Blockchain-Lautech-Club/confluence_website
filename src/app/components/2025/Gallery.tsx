@@ -16,6 +16,15 @@ export default function Gallery() {
   const [selectedTrack, setSelectedTrack] = useState<'all' | 'community' | 'dev'>('all')
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
 
+  const fallbackItems: GalleryItem[] = [
+    { image: 'https://res.cloudinary.com/zz3ptcjd/image/upload/v1789731686/img-9944_uigdeq.jpg', text: 'Community Track Keynote', track: 'community' },
+    { image: 'https://res.cloudinary.com/zz3ptcjd/image/upload/v1789731685/img-9943_nju0fh.jpg', text: 'Panel Discussion', track: 'community' },
+    { image: 'https://res.cloudinary.com/zz3ptcjd/image/upload/v1789731684/img-9940_qd8qch.jpg', text: 'Networking Session', track: 'community' },
+    { image: 'https://res.cloudinary.com/zz3ptcjd/image/upload/v1789733101/IMG_20251107_115424_nz2rto.jpg', text: 'Dev Hackathon Prep', track: 'dev' },
+    { image: 'https://res.cloudinary.com/zz3ptcjd/image/upload/v1789733099/IMG_20251107_115427_brxxnl.jpg', text: 'Workshop Coding', track: 'dev' },
+    { image: 'https://res.cloudinary.com/zz3ptcjd/image/upload/v1789733098/IMG_20251107_115427_1_uhgxxs.jpg', text: 'Developer Keynote', track: 'dev' },
+  ]
+
   useEffect(() => {
     async function fetchGallery() {
       try {
@@ -24,9 +33,12 @@ export default function Gallery() {
         const data = await res.json()
         if (data.items && data.items.length > 0) {
           setItems(data.items)
+        } else {
+          setItems(fallbackItems)
         }
       } catch (err) {
         console.error('Failed to fetch gallery images:', err)
+        setItems(fallbackItems)
       } finally {
         setLoading(false)
       }

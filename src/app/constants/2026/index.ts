@@ -153,6 +153,12 @@ export const sponsorTiers: SponsorTier[] = [
         width: 120,
         height: 48,
       },
+       {
+        src: "/beaconlab_logo_white.png",
+        alt: "Beacon Labs",
+        width: 120,
+        height: 48,
+      },
     ],
   },
 ];
