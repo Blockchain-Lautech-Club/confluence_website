@@ -241,4 +241,20 @@ export const partnerLogos: PartnerLogo[] = [
     padding: "p-2",
     className: "scale-115",
   },
+  {
+    src: "/Gdgoc lautech logo.png",
+    alt: "GDG on Campus LAUTECH",
+    width: 160,
+    height: 70,
+    category: "Community Partner",
+    bg: "bg-white",
+  },
+  {
+    src: "/acoms-logo.jpg",
+    alt: "ACOMS LAUTECH",
+    width: 160,
+    height: 70,
+    category: "Community Partner",
+    bg: "bg-white",
+  },
 ];

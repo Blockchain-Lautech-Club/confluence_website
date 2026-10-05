@@ -10,6 +10,9 @@ export interface LogoItem {
   sizes?: string;
   width?: number;
   height?: number;
+  bg?: string;
+  padding?: string;
+  className?: string;
 }
 
 export interface LogoLoopProps {
@@ -293,26 +296,28 @@ export const LogoLoop = React.memo<LogoLoopProps>(
         }
 
         const content = (
-          <img
-            className={cx(
-              'block object-contain',
-              !item.width && !item.height && 'h-[var(--logoloop-logoHeight-mobile)] md:h-[var(--logoloop-logoHeight-tablet)] lg:h-[var(--logoloop-logoHeight-desktop)] w-auto',
-              '[-webkit-user-drag:none] pointer-events-none',
-              '[image-rendering:-webkit-optimize-contrast]',
-              'motion-reduce:transition-none',
-              scaleOnHover &&
-                'transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-110'
-            )}
-            style={imageStyle}
-            src={item.src}
-            srcSet={item.srcSet}
-            sizes={item.sizes}
-            alt={item.alt ?? ''}
-            title={item.title}
-            loading="lazy"
-            decoding="async"
-            draggable={false}
-          />
+          <div className={cx('border border-white/20 rounded-xl h-20 px-6 flex items-center justify-center transition-all relative overflow-hidden', item.bg ?? 'bg-black/40', item.padding ?? 'p-3')}>
+            <img
+              className={cx(
+                'block object-contain max-h-full max-w-full w-auto h-auto',
+                '[-webkit-user-drag:none] pointer-events-none',
+                '[image-rendering:-webkit-optimize-contrast]',
+                'motion-reduce:transition-none',
+                scaleOnHover &&
+                  'transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-110',
+                item.className
+              )}
+              style={imageStyle}
+              src={item.src}
+              srcSet={item.srcSet}
+              sizes={item.sizes}
+              alt={item.alt ?? ''}
+              title={item.title ?? item.alt}
+              loading="lazy"
+              decoding="async"
+              draggable={false}
+            />
+          </div>
         );
 
         const itemAriaLabel = item.alt ?? item.title;

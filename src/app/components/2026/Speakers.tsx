@@ -3,12 +3,11 @@
 import React from 'react'
 import Image from 'next/image'
 import SpeakersCarousel from './SpeakersCarousel'
+import { LogoLoop } from './LogoLoop'
 import { Mail, Handshake } from 'lucide-react'
 import { sponsorTiers, partnerLogos } from '@/app/constants/2026'
 
 const Speakers = () => {
-  const PARTNER_SLOTS = Math.max(8, partnerLogos.length);
-
   return (
     <div id="speakers-partners" className="space-y-16 md:space-y-24 pt-8 pb-8 px-6 md:px-20 max-w-7xl mx-auto overflow-hidden w-full">
       
@@ -133,34 +132,18 @@ const Speakers = () => {
               Press coverage and distribution.
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {Array.from({ length: PARTNER_SLOTS }).map((_, idx) => {
-              const logo = partnerLogos[idx];
-              return logo ? (
-                <div
-                  key={idx}
-                  className={`border border-white/20 rounded-xl h-20 sm:h-20 md:h-20 ${logo.bg ?? 'bg-black/40'} flex items-center justify-center ${logo.padding ?? 'p-3'} hover:border-[#286cfd] transition-colors relative group overflow-hidden`}
-                  title={`${logo.alt}${logo.category ? ` (${logo.category})` : ''}`}
-                >
-                  <Image
-                    src={logo.src}
-                    alt={logo.alt}
-                    width={logo.width ?? 160}
-                    height={logo.height ?? 70}
-                    className={`object-contain max-h-full max-w-full w-auto h-auto transition-transform ${logo.className ?? ''}`}
-                  />
-                </div>
-              ) : (
-                <div 
-                  key={idx}
-                  className="border border-dashed border-white/10 rounded-xl h-20 sm:h-20 md:h-20 bg-black/40 hover:bg-black/60 transition-colors duration-300 flex items-center justify-center group"
-                >
-                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest group-hover:text-[#ccff00] transition-colors duration-300">
-                    Partner Slot
-                  </span>
-                </div>
-              );
-            })}
+          <div className="py-4 overflow-hidden">
+            <LogoLoop
+              logos={partnerLogos}
+              speed={80}
+              direction="left"
+              logoHeight={48}
+              gap={24}
+              pauseOnHover
+              scaleOnHover
+              fadeOut={true}
+              fadeOutColor="rgba(0, 0, 0, 0)"
+            />
           </div>
 
           {/* Become a partner call-to-action */}
