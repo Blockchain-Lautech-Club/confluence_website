@@ -257,4 +257,13 @@ export const partnerLogos: PartnerLogo[] = [
     category: "Community Partner",
     bg: "bg-white",
   },
+  {
+    src: "/nacos_lautech_wordmark_dark.png",
+    alt: "NACOS LAUTECH",
+    // href: "https://nacoslautech.org",
+    width: 160,
+    height: 70,
+    category: "Community Partner",
+    bg: "bg-white",
+  },
 ];
