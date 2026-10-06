@@ -264,6 +264,6 @@ export const partnerLogos: PartnerLogo[] = [
     width: 160,
     height: 70,
     category: "Community Partner",
-    bg: "bg-white",
+   
   },
 ];
