@@ -266,4 +266,12 @@ export const partnerLogos: PartnerLogo[] = [
     category: "Community Partner",
    
   },
+  {
+    src: '/awspartner.png',
+    alt: 'AWS Student Builder Group',
+    width: 160,
+    height: 70,
+    category: "Community Partner",
+    bg: "bg-[#161d27]",
+  }
 ];

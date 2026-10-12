@@ -202,4 +202,9 @@ export const partnerLogos: Logo[] = [
     href: "https://nacoslautech.org",
     width: 150,
   },
+  {
+    src: 'awspartner.jpg',
+    alt: 'AWS',
+    width: 150,
+  }
 ];
