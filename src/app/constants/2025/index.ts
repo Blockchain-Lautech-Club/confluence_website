@@ -206,5 +206,10 @@ export const partnerLogos: Logo[] = [
     src: 'awspartner.jpg',
     alt: 'AWS',
     width: 150,
+  },
+  {
+    src: 'Gabbar.png',
+    alt: 'GAB',
+    width: 150,
   }
 ];
