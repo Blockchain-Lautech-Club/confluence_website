@@ -159,6 +159,12 @@ export const sponsorTiers: SponsorTier[] = [
         width: 120,
         height: 48,
       },
+      {
+        src: "/nectos_horizontal_white.png",
+        alt: "Nectos Tags",
+        width: 120,
+        height: 48,
+      },
     ],
   },
 ];
