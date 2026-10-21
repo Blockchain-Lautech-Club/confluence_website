@@ -138,7 +138,15 @@ export const sponsorTiers: SponsorTier[] = [
     slots: 3,
     cols: "grid-cols-1 sm:grid-cols-2 md:grid-cols-3",
     height: "h-20",
-    sponsors: [],
+    sponsors: [
+      {
+        src: "/zcash_white.png",
+        alt: "Zcash",
+        width: 220,
+        height: 48,
+        href: "https://z.cash",
+      }
+    ],
   },
   {
     name: "Bronze Sponsors",
@@ -161,9 +169,9 @@ export const sponsorTiers: SponsorTier[] = [
       },
       {
         src: "/nectos_horizontal_white.png",
-        alt: "Nectos Tags",
-        width: 120,
-        height: 48,
+        alt: "Nectos Smart Tags",
+        width: 160,
+        height: 36,
       },
     ],
   },
