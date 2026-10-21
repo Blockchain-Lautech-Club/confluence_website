@@ -116,22 +116,14 @@ export interface SponsorLogo {
 }
 
 export const sponsorTiers: SponsorTier[] = [
-  {
-    name: "Platinum Sponsors",
-    description: "Headline branding, hackathon naming rights, keynotes.",
-    slots: 2,
-    cols: "grid-cols-1 sm:grid-cols-2",
-    height: "h-24",
-    sponsors: [
-      {
-        src: "/candao_full_white.svg",
-        alt: "Candao",
-        width: 200,
-        height: 80,
-        href: "https://candao.io",
-      },
-    ],
-  },
+  // {
+  //   name: "Platinum Sponsors",
+  //   description: "Headline branding, hackathon naming rights, keynotes.",
+  //   slots: 2,
+  //   cols: "grid-cols-1 sm:grid-cols-2",
+  //   height: "h-24",
+  //   sponsors: [],
+  // },
   {
     name: "Gold Sponsors",
     description: "Track sponsorship, custom workshops, talent access.",
