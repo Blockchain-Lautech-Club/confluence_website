@@ -1,14 +1,14 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Calendar, MapPin, Clock, PhoneOff, Rocket, Code2, Users2, Activity, Sparkles } from 'lucide-react'
+import { Calendar, MapPin, Clock, PhoneOff, Rocket, Code2, Users2, Activity, Store } from 'lucide-react'
 
 interface Session {
   time: string;
   title: string;
   description: React.ReactNode;
   venue: string;
-  track: 'Kickoff' | 'Human Layer' | 'Founders' | 'Developers' | 'Community';
+  track: 'Kickoff' | 'Human Layer' | 'Founders' | 'Developers' | 'Community' | 'Merchants';
   details?: string[];
   registerUrl?: string;
 }
@@ -24,7 +24,7 @@ interface DayData {
 const scheduleData: DayData[] = [
   {
     id: 'mon',
-    date: 'Monday, Nov 2',
+    date: 'Monday, Nov 9',
     title: 'KICKOFF',
     phase: 'Road to Confluence',
     sessions: [
@@ -39,7 +39,7 @@ const scheduleData: DayData[] = [
   },
   {
     id: 'tue',
-    date: 'Tuesday, Nov 3',
+    date: 'Tuesday, Nov 10',
     title: 'THE HUMAN LAYER',
     phase: 'Road to Confluence',
     sessions: [
@@ -64,7 +64,7 @@ const scheduleData: DayData[] = [
   },
   {
     id: 'wed',
-    date: 'Wednesday, Nov 4',
+    date: 'Wednesday, Nov 11',
     title: 'THE HUMAN LAYER',
     phase: 'Road to Confluence',
     sessions: [
@@ -97,7 +97,7 @@ const scheduleData: DayData[] = [
   },
   {
     id: 'thu',
-    date: 'Thursday, Nov 5',
+    date: 'Thursday, Nov 12',
     title: 'CONFLUENCE BEGINS',
     phase: 'Confluence 2.0 (Main Conference)',
     sessions: [
@@ -122,38 +122,64 @@ const scheduleData: DayData[] = [
           'Going from MVP to something people actually want'
         ],
         registerUrl: 'https://www.crenelle.org/register/the-confluence-fellowship-founders-track-4cdf'
-      },
-      {
-        time: '5:00 PM',
-        title: 'Dev Track: 24-Hour Hackathon Sprint',
-        description: '18 HOURS TO BUILD. 6 HOURS TO DEMO. The developer track sprint kicks off Thursday evening, pushing technical builders to create live solutions.',
-        venue: 'The Assembly',
-        track: 'Developers',
-        details: ['Hackathon rules and criteria are currently being curated'],
-        registerUrl: 'https://www.crenelle.org/register/developers-track-confluence-2-0-f637'
       }
+      
     ]
   },
   {
     id: 'fri',
-    date: 'Friday, Nov 6',
-    title: 'DEV TRACK CONCLUDES',
+    date: 'Friday, Nov 13',
+    title: 'DEV & MERCHANTS',
     phase: 'Confluence 2.0 (Main Conference)',
     sessions: [
       {
-        time: 'All Day',
-        title: 'Dev Track Concludes: Hackathon Demos & Pitching',
-        description: 'Hackathon teams pitch their product prototypes before judges. (All Day: 18h building + 6h pitching).',
+        time: '8:30 AM',
+        title: 'Merchants Session: ZEC for Business Workshop',
+        description: (
+          <>
+            A practical, hands-on onboarding workshop for local campus business owners, vendors, and student entrepreneurs around LAUTECH. Discover how accepting ZEC (Zcash) expands your market to a growing community of student Web3 earners while keeping your usual cash and bank transfer operations completely intact.
+            <strong className="block mt-2 text-white">
+              Includes zero-friction Naira conversion via Paj Cash (no mandatory crypto holding required), complimentary store signage, and direct onboarding support.
+            </strong>
+          </>
+        ),
+        venue: 'LAUTECH Campus / Ogbomoso',
+        track: 'Merchants',
+        details: [
+          'Direct access to a new customer base of student ZEC earners',
+          'Instant Naira settlement with zero crypto volatility risk via Paj Cash',
+          'Free store discovery & official listing on ZecMap directory',
+          'Complimentary merchant payment signage and counter display materials',
+          'Hands-on training: wallet setup, receiving payments & transaction checks',
+          'Zero disruption to existing payments — continue cash & bank transfers as usual'
+        ],
+        registerUrl: 'mailto:blockchainlautech@gmail.com?subject=Register%20Business%20-%20ZEC%20Merchants%20Session'
+      },
+      {
+        time: '2:00 PM',
+        title: 'Dev Track: BUILD ON ARC',
+        description: (
+          <>
+            An ecosystem experience at Confluence 2026. Get hands-on with the Arc ecosystem through technical sessions, live builds, demos, and competitive developer challenges.
+            <strong className="block mt-2 text-[#ccff00] font-black">
+              $100 in rewards
+            </strong>
+          </>
+        ),
         venue: 'The Assembly',
         track: 'Developers',
-        details: ['18 Hours of building complete', '6 Hours of presentations and live demos'],
-        registerUrl: 'https://www.crenelle.org/register/developers-track-confluence-2-0-f637'
+        details: [
+          'Hands-on technical sessions & live architecture',
+          'Live builds & ecosystem project demos',
+          'Competitive developer challenges',
+          '$100 in rewards for participating builders'
+        ]
       }
     ]
   },
   {
     id: 'sat',
-    date: 'Saturday, Nov 7',
+    date: 'Saturday, Nov 14',
     title: 'COMMUNITY TRACK',
     phase: 'Confluence 2.0 (Main Conference)',
     sessions: [
@@ -184,6 +210,7 @@ const Schedule = () => {
       case 'Human Layer': return <PhoneOff className="w-4 h-4" />;
       case 'Founders': return <Rocket className="w-4 h-4" />;
       case 'Developers': return <Code2 className="w-4 h-4" />;
+      case 'Merchants': return <Store className="w-4 h-4" />;
       default: return <Calendar className="w-4 h-4" />;
     }
   };
@@ -194,6 +221,7 @@ const Schedule = () => {
       case 'Human Layer': return 'bg-yellow-950/40 text-[#facc15] border-yellow-900/50';
       case 'Founders': return 'bg-lime-950/40 text-[#ccff00] border-lime-900/50';
       case 'Developers': return 'bg-blue-950/40 text-[#286cfd] border-blue-900/50';
+      case 'Merchants': return 'bg-amber-950/40 text-[#f59e0b] border-amber-800/50';
       default: return 'bg-slate-900/50 text-slate-300 border-slate-800';
     }
   };
@@ -349,7 +377,7 @@ const Schedule = () => {
                   </div>
                 </div>
 
-                {session.registerUrl && session.registerUrl !== '#' && (
+                {session.registerUrl && session.registerUrl !== '#' ? (
                   (session.title.includes('Unplugged Room') || session.title.includes('Create with Purpose')) ? (
                     <div className="w-full flex flex-col gap-1.5 md:mt-2">
                       <a
@@ -373,6 +401,13 @@ const Schedule = () => {
                     >
                       Apply
                     </a>
+                  ) : session.track === 'Merchants' ? (
+                    <a
+                      href={session.registerUrl}
+                      className="w-full bg-[#f59e0b] hover:bg-[#d97706] text-black border border-black font-extrabold rounded-xl text-xs py-3 text-center transition-all duration-200 md:mt-2 block uppercase tracking-wider shadow-sm"
+                    >
+                      Register Business
+                    </a>
                   ) : (
                     <a
                       href={session.registerUrl}
@@ -383,7 +418,11 @@ const Schedule = () => {
                       Register
                     </a>
                   )
-                )}
+                ) : session.title.includes('BUILD ON ARC') ? (
+                  <div className="w-full bg-white/5 border border-white/10 text-slate-400 font-extrabold rounded-xl text-xs py-3 text-center md:mt-2 block uppercase tracking-wider">
+                    Registration Opens Soon
+                  </div>
+                ) : null}
               </div>
 
             </div>

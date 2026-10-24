@@ -127,8 +127,8 @@ export const sponsorTiers: SponsorTier[] = [
   {
     name: "Gold Sponsors",
     description: "Track sponsorship, custom workshops, talent access.",
-    slots: 3,
-    cols: "grid-cols-1 sm:grid-cols-2 md:grid-cols-3",
+    slots: 1,
+    cols: "grid-cols-1 max-w-md mx-auto",
     height: "h-20",
     sponsors: [
       {
@@ -143,8 +143,8 @@ export const sponsorTiers: SponsorTier[] = [
   {
     name: "Bronze Sponsors",
     description: "Exhibition booth, brand merchandise placement.",
-    slots: 4,
-    cols: "grid-cols-2 sm:grid-cols-4",
+    slots: 3,
+    cols: "grid-cols-1 sm:grid-cols-3",
     height: "h-16",
     sponsors: [
       {

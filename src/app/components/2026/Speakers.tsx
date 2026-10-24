@@ -48,7 +48,9 @@ const Speakers = () => {
 
         {/* Sponsor Tiers Grid */}
         <div className="space-y-8 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="200">
-          {sponsorTiers.map((tier) => (
+          {sponsorTiers
+            .filter((tier) => tier.sponsors.length > 0)
+            .map((tier) => (
             <div key={tier.name} className="space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between border-b border-white/10 pb-2 gap-1.5">
                 <h4 className="text-sm font-black uppercase tracking-widest text-[#286cfd]">
@@ -59,12 +61,10 @@ const Speakers = () => {
                 </p>
               </div>
               <div className={`grid ${tier.cols} gap-4`}>
-                {Array.from({ length: tier.slots }).map((_, idx) => {
-                  const logo = tier.sponsors[idx];
-                  return logo ? (
+                {tier.sponsors.map((logo, idx) => {
+                  const content = (
                     <div
-                      key={idx}
-                      className={`border border-white/20 rounded-2xl flex items-center justify-center ${tier.height} bg-black/40 px-4`}
+                      className={`border border-white/20 rounded-2xl flex items-center justify-center ${tier.height} bg-black/40 px-4 w-full h-full hover:border-[#286cfd] transition-colors`}
                     >
                       <Image
                         src={logo.src}
@@ -75,14 +75,21 @@ const Speakers = () => {
                         style={{ maxHeight: logo.height ? `${logo.height}px` : '48px' }}
                       />
                     </div>
-                  ) : (
-                    <div 
+                  );
+
+                  return logo.href ? (
+                    <a
                       key={idx}
-                      className={`border border-dashed border-white/10 rounded-2xl flex items-center justify-center ${tier.height} bg-black/40 hover:bg-black/60 transition-colors duration-300 group`}
+                      href={logo.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full h-full"
                     >
-                      <span className="text-xs font-bold text-slate-500 uppercase tracking-wider group-hover:text-[#ccff00] transition-colors duration-300">
-                        Sponsor Slot
-                      </span>
+                      {content}
+                    </a>
+                  ) : (
+                    <div key={idx} className="w-full h-full">
+                      {content}
                     </div>
                   );
                 })}

@@ -25,7 +25,7 @@ const CountdownTimer: React.FC = () => {
 
   const [eventStarted, setEventStarted] = useState<boolean>(false);
 
-  const targetDate: string = '2026-11-05T09:00:00';
+  const targetDate: string = '2026-11-09T09:00:00';
 
   const startedRef = useRef<HTMLDivElement>(null);
 

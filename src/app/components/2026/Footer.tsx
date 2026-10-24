@@ -35,7 +35,7 @@ const Footer = () => {
             </p>
             
             <p className='text-slate-300 font-semibold text-sm'>
-              November 2–7, 2026 • Ogbomoso, Nigeria
+              November 9–14, 2026 • Ogbomoso, Nigeria
             </p>
             
             <p className="text-slate-400 text-xs font-semibold">

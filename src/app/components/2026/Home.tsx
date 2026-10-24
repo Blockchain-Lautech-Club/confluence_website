@@ -157,7 +157,7 @@ const Home = () => {
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#ccff00] flex-shrink-0" />
               <span className="font-extrabold text-[10px] sm:text-sm text-slate-100 uppercase tracking-wider whitespace-nowrap">
-                November 5–7, 2026
+                November 9–14, 2026
               </span>
             </div>
             
