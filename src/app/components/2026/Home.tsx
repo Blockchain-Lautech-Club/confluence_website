@@ -157,7 +157,7 @@ const Home = () => {
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-[#ccff00] flex-shrink-0" />
               <span className="font-extrabold text-[10px] sm:text-sm text-slate-100 uppercase tracking-wider whitespace-nowrap">
-                November 9–14, 2026
+                November 12–14, 2026
               </span>
             </div>
             
@@ -166,7 +166,7 @@ const Home = () => {
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-[#ccff00] flex-shrink-0" />
               <span className="font-extrabold text-[10px] sm:text-sm text-slate-100 uppercase tracking-wider text-center sm:text-left">
-                TBA
+                The Assembly, Beside Bon Nest Hotel, along Lautech main gate, Ogbomoso
               </span>
             </div>
           </div>

@@ -103,7 +103,7 @@ const Details = () => {
           <div className='flex flex-wrap gap-3 mt-6'>
             <div className='flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm border border-slate-100'>
               <Calendar className='w-4 h-4 text-[#286cfd]' />
-              <span className='font-semibold text-[#0C1246] text-sm'>November 9–14, 2026</span>
+              <span className='font-semibold text-[#0C1246] text-sm'>November 12–14, 2026</span>
             </div>
             <div className='flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm border border-slate-100'>
               <MapPin className='w-4 h-4 text-[#286cfd]' />

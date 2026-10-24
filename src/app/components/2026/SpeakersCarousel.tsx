@@ -82,9 +82,9 @@ export default function SpeakersCarousel() {
 
                 <div className="space-y-4">
                   {/* Track label */}
-                  <span className="inline-flex items-center gap-1.5 bg-[#ccff00]/10 text-[#ccff00] border border-[#ccff00]/20 text-[10px] font-black tracking-widest px-3 py-1 rounded-full uppercase">
+                  {/* <span className="inline-flex items-center gap-1.5 bg-[#ccff00]/10 text-[#ccff00] border border-[#ccff00]/20 text-[10px] font-black tracking-widest px-3 py-1 rounded-full uppercase">
                     {speaker.track}
-                  </span>
+                  </span> */}
 
                   {/* Speaker photo */}
                   <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden relative shadow-inner border border-white/5">
@@ -122,10 +122,10 @@ export default function SpeakersCarousel() {
 
                 <div className="space-y-4">
                   {/* Category label */}
-                  <span className="inline-flex items-center gap-1.5 bg-[#286cfd]/10 text-[#286cfd] border border-[#286cfd]/20 text-[10px] font-black tracking-widest px-3 py-1 rounded-full uppercase">
+                  {/* <span className="inline-flex items-center gap-1.5 bg-[#286cfd]/10 text-[#286cfd] border border-[#286cfd]/20 text-[10px] font-black tracking-widest px-3 py-1 rounded-full uppercase">
                     {speaker.track}
                   </span>
-                  
+                   */}
                   {/* Giant mysterious question mark block */}
                   <div className="aspect-video w-full rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center relative overflow-hidden shadow-inner group-hover:bg-[#286cfd]/5 transition-colors duration-300">
                     <span className="text-4xl sm:text-5xl font-black text-white/10 tracking-widest group-hover:text-[#ccff00]/30 group-hover:scale-110 transition-all duration-500">

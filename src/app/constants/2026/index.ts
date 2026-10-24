@@ -11,7 +11,7 @@ export interface Speaker {
   title: string[];
   image: string;
   /** Track this speaker is associated with */
-  track: string;
+  // track: string;
   /** Short topic / talk description */
   topic: string;
   /** Whether this is a confirmed speaker or a mystery placeholder */
@@ -22,76 +22,87 @@ export const speakers: Speaker[] = [
   // ── Confirmed speakers (shown first in carousel) ──
   {
     id: 1,
-    name: "Pawel Barylski",
-    title: ["Co-founder, Candao"],
-    image: "/pawel-barylski.jpg",
-    track: "ALL TRACKS",
-    topic: "TBA",
+    name: "His Imperial Majesty, Oba Ghandi Afolabi Olaoye, Orumogege III",
+    title: ["Soun of Ogbomoso Land"],
+    image: "/soun.jpg",
+    // track: "ROYAL KEYNOTE",
+    topic: "Royal Keynote Address",
     confirmed: true,
   },
-  {
+   {
     id: 2,
-    name: "Robert Wesker",
-    title: ["Co-founder, Candao"],
-    image: "/robert-wesker.jpg",
-    track: "ALL TRACKS",
-    topic: "TBA",
-    confirmed: true,
-  },
-    
-  {
-    id: 3,
     name: "John ADEKUNJO",
     title: [
       "Convener, Confluence",
       "Co-founder, Blockchain LAUTECH",
     ],
     image: "/johnadek.jpg",
-    track: "ALL TRACKS",
+    // track: "ALL TRACKS",
     topic: "Web3 & Emerging Technologies",
     confirmed: true,
   },
   {
-    id: 4,
+    id: 3,
     name: "Thelma OPURUM",
     title: [
       "Co-convener, Confluence",
       "Founder, Blockchain Lautech",
     ],
     image: "/thelma.jpg",
-    track: "ALL TRACKS",
+    // track: "ALL TRACKS",
     topic: "Design & Creative Innovation",
     confirmed: true,
   },
   {
-    id: 5,
+    id: 4,
     name: "Blessing OLUWABAMIDELE",
     title: ["Co-founder, Blockchain Lautech"],
     image: "/missblessing.jpg",
-    track: "ALL TRACKS",
+    // track: "ALL TRACKS",
     topic: "Community & Ecosystem Growth",
     confirmed: true,
   },
+  {
+    id: 5,
+    name: "Dr. Eloho Erezi-Kesi",
+    title: ["ZCash Global Ambassador"],
+    image: "/eloho.jpg",
+    // track: "ALL TRACKS",
+    topic: "Privacy, Financial Freedom & Zcash Ecosystem",
+    confirmed: true,
+  },
+  {
+    id: 6,
+    name: "Jerry Ojumah",
+    title: ["Country Lead (Nigeria), Arc"],
+    image: "/ojumah.jpg",
+    // track: "DEV TRACK",
+    topic: "Build on Arc Ecosystem",
+    confirmed: true,
+  },
+  
+    
+ 
 
   // ── Mystery / TBA speakers ──
-  {
-    id: 101,
-    name: "[ Mystery Speaker ]",
-    title: ["TBA"],
-    image: "",
-    track: "CODE TRACK",
-    topic: "Protocol Infrastructure & Dev Tools",
-    confirmed: false,
-  },
-  {
-    id: 102,
-    name: "[ Mystery Speaker ]",
-    title: ["TBA"],
-    image: "",
-    track: "FOUNDERS TRACK",
-    topic: "Venture Capital & Product-Market Scale",
-    confirmed: false,
-  },
+  // {
+  //   id: 101,
+  //   name: "[ Mystery Speaker ]",
+  //   title: ["TBA"],
+  //   image: "",
+  //   track: "CODE TRACK",
+  //   topic: "Protocol Infrastructure & Dev Tools",
+  //   confirmed: false,
+  // },
+  // {
+  //   id: 102,
+  //   name: "[ Mystery Speaker ]",
+  //   title: ["TBA"],
+  //   image: "",
+  //   track: "FOUNDERS TRACK",
+  //   topic: "Venture Capital & Product-Market Scale",
+  //   confirmed: false,
+  // },
 ];
 
 // ── Sponsors ──────────────────────────────────
@@ -184,7 +195,23 @@ export interface PartnerLogo {
 }
 
 export const partnerLogos: PartnerLogo[] = [
-    {
+  {
+    src: "/the_assembly.png",
+    alt: "The Assembly",
+    width: 160,
+    height: 70,
+    category: "Community Partner",
+    bg: "bg-white",
+    padding: "p-2",
+  },
+  {
+    src: "/arc.jpg",
+    alt: "Arc",
+    width: 160,
+    height: 70,
+    category: "Ecosystem Partner",
+  },
+  {
     src: "/explore ogbomoso.png",
     alt: "Explore Ogbomoso",
     width: 160,

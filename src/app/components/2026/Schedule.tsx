@@ -138,12 +138,10 @@ const scheduleData: DayData[] = [
         description: (
           <>
             A practical, hands-on onboarding workshop for local campus business owners, vendors, and student entrepreneurs around LAUTECH. Discover how accepting ZEC (Zcash) expands your market to a growing community of student Web3 earners while keeping your usual cash and bank transfer operations completely intact.
-            <strong className="block mt-2 text-white">
-              Includes zero-friction Naira conversion via Paj Cash (no mandatory crypto holding required), complimentary store signage, and direct onboarding support.
-            </strong>
+           
           </>
         ),
-        venue: 'LAUTECH Campus / Ogbomoso',
+        venue: 'The Assembly, Beside Bon Nest Hotel, along Lautech main gate, Ogbomoso, Nigeria',
         track: 'Merchants',
         details: [
           'Direct access to a new customer base of student ZEC earners',
@@ -152,8 +150,7 @@ const scheduleData: DayData[] = [
           'Complimentary merchant payment signage and counter display materials',
           'Hands-on training: wallet setup, receiving payments & transaction checks',
           'Zero disruption to existing payments — continue cash & bank transfers as usual'
-        ],
-        registerUrl: 'mailto:blockchainlautech@gmail.com?subject=Register%20Business%20-%20ZEC%20Merchants%20Session'
+        ]
       },
       {
         time: '2:00 PM',
@@ -166,7 +163,7 @@ const scheduleData: DayData[] = [
             </strong>
           </>
         ),
-        venue: 'The Assembly',
+        venue: 'The Assembly, Beside Bon Nest Hotel, along Lautech main gate, Ogbomoso, Nigeria',
         track: 'Developers',
         details: [
           'Hands-on technical sessions & live architecture',
@@ -187,9 +184,14 @@ const scheduleData: DayData[] = [
         time: 'Full Day',
         title: 'Community Track: Confluence 2026 Culmination',
         description: 'The grand finale uniting Code, Create, and Connect with keynotes, panels, and ecosystem awards.',
-        venue: 'TBA',
+        venue: 'The Assembly, Beside Bon Nest Hotel, along Lautech main gate, Ogbomoso, Nigeria',
         track: 'Community',
-        details: ['Pillars convergence celebration', 'Keynote addresses & fireside chats', 'Community award recognitions'],
+        details: [
+          'Keynote presentations',
+          'Expert panel discussions',
+          'Interactive workshops',
+          'Prize distribution & closing ceremony'
+        ],
         registerUrl: 'https://candao.io/graphs/d26325898cd34567afa6f16b28613983'
       }
     ]
@@ -401,13 +403,6 @@ const Schedule = () => {
                     >
                       Apply
                     </a>
-                  ) : session.track === 'Merchants' ? (
-                    <a
-                      href={session.registerUrl}
-                      className="w-full bg-[#f59e0b] hover:bg-[#d97706] text-black border border-black font-extrabold rounded-xl text-xs py-3 text-center transition-all duration-200 md:mt-2 block uppercase tracking-wider shadow-sm"
-                    >
-                      Register Business
-                    </a>
                   ) : (
                     <a
                       href={session.registerUrl}
@@ -418,7 +413,7 @@ const Schedule = () => {
                       Register
                     </a>
                   )
-                ) : session.title.includes('BUILD ON ARC') ? (
+                ) : (session.title.includes('BUILD ON ARC') || session.track === 'Merchants') ? (
                   <div className="w-full bg-white/5 border border-white/10 text-slate-400 font-extrabold rounded-xl text-xs py-3 text-center md:mt-2 block uppercase tracking-wider">
                     Registration Opens Soon
                   </div>
