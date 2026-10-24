@@ -205,10 +205,10 @@ export const partnerLogos: PartnerLogo[] = [
     padding: "p-2",
   },
   {
-    src: "/arc.jpg",
+    src: "/arc_white.png",
     alt: "Arc",
-    width: 160,
-    height: 70,
+    width: 140,
+    height: 60,
     category: "Ecosystem Partner",
   },
   {
