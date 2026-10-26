@@ -10,6 +10,8 @@ export interface Speaker {
   /** One or more role / title lines */
   title: string[];
   image: string;
+  /** Custom CSS classes for image object positioning */
+  imageClass?: string;
   /** Track this speaker is associated with */
   // track: string;
   /** Short topic / talk description */
@@ -25,6 +27,7 @@ export const speakers: Speaker[] = [
     name: "His Imperial Majesty, Oba Ghandi Afolabi Olaoye, Orumogege III",
     title: ["Soun of Ogbomoso Land"],
     image: "/soun.jpg",
+    imageClass: "object-top",
     // track: "ROYAL KEYNOTE",
     topic: "Royal Keynote Address",
     confirmed: true,
@@ -67,6 +70,7 @@ export const speakers: Speaker[] = [
     name: "Dr. Eloho Erezi-Kesi",
     title: ["ZCash Global Ambassador"],
     image: "/eloho.jpg",
+    imageClass: "object-center",
     // track: "ALL TRACKS",
     topic: "Privacy, Financial Freedom & Zcash Ecosystem",
     confirmed: true,
@@ -80,9 +84,14 @@ export const speakers: Speaker[] = [
     topic: "Build on Arc Ecosystem",
     confirmed: true,
   },
-  
-    
- 
+  {
+    id: 7,
+    name: "Oluwaseyi R. Odekomaya",
+    title: ["Director of Academics and Corporate Affairs", "SQI College of ICT"],
+    image: "/Seyi.png",
+    topic: "Tech Education & Corporate Affairs",
+    confirmed: true,
+  },
 
   // ── Mystery / TBA speakers ──
   // {
@@ -154,8 +163,8 @@ export const sponsorTiers: SponsorTier[] = [
   {
     name: "Bronze Sponsors",
     description: "Exhibition booth, brand merchandise placement.",
-    slots: 3,
-    cols: "grid-cols-1 sm:grid-cols-3",
+    slots: 4,
+    cols: "grid-cols-2 sm:grid-cols-4",
     height: "h-16",
     sponsors: [
       {
@@ -175,6 +184,12 @@ export const sponsorTiers: SponsorTier[] = [
         alt: "Nectos Smart Tags",
         width: 160,
         height: 36,
+      },
+      {
+        src: "/pointzero.png",
+        alt: "Point Zero",
+        width: 140,
+        height: 44,
       },
     ],
   },

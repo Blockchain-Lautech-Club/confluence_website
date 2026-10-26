@@ -75,24 +75,19 @@ export default function SpeakersCarousel() {
           {/* Confirmed speakers */}
           {confirmedSpeakers.map((speaker) => (
             <SwiperSlide key={speaker.id} className="h-full">
-              <div className="group bg-black/40 hover:bg-black/60 border border-white/10 hover:border-[#ccff00]/50 rounded-3xl p-6 shadow-sm hover:shadow-[0_0_30px_rgba(204,255,0,0.12)] transition-all duration-300 flex flex-col justify-between h-[420px] transform hover:-translate-y-2 relative overflow-hidden backdrop-blur-sm">
+              <div className="group bg-black/40 hover:bg-black/60 border border-white/10 hover:border-[#ccff00]/50 rounded-3xl p-6 shadow-sm hover:shadow-[0_0_30px_rgba(204,255,0,0.12)] transition-all duration-300 flex flex-col justify-between h-[450px] transform hover:-translate-y-2 relative overflow-hidden backdrop-blur-sm">
 
                 {/* Gradient top bar */}
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#286cfd] to-[#ccff00] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 <div className="space-y-4">
-                  {/* Track label */}
-                  {/* <span className="inline-flex items-center gap-1.5 bg-[#ccff00]/10 text-[#ccff00] border border-[#ccff00]/20 text-[10px] font-black tracking-widest px-3 py-1 rounded-full uppercase">
-                    {speaker.track}
-                  </span> */}
-
                   {/* Speaker photo */}
-                  <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden relative shadow-inner border border-white/5">
+                  <div className="aspect-square w-full rounded-2xl overflow-hidden relative shadow-inner border border-white/5">
                     <Image
                       src={speaker.image}
                       alt={speaker.name}
                       fill
-                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      className={`object-cover ${speaker.imageClass || 'object-top'} group-hover:scale-105 transition-transform duration-500`}
                     />
                     {/* Overlay gradient at bottom */}
                     <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/60 to-transparent" />
@@ -115,19 +110,14 @@ export default function SpeakersCarousel() {
           {/* Mystery placeholder speakers */}
           {placeholderSpeakers.map((speaker) => (
             <SwiperSlide key={speaker.id} className="h-full">
-              <div className="group bg-black/40 hover:bg-black/60 border border-white/10 hover:border-[#286cfd]/50 rounded-3xl p-6 shadow-sm hover:shadow-[0_0_30px_rgba(40,108,253,0.15)] transition-all duration-300 flex flex-col justify-between h-[420px] transform hover:-translate-y-2 relative overflow-hidden backdrop-blur-sm">
+              <div className="group bg-black/40 hover:bg-black/60 border border-white/10 hover:border-[#286cfd]/50 rounded-3xl p-6 shadow-sm hover:shadow-[0_0_30px_rgba(40,108,253,0.15)] transition-all duration-300 flex flex-col justify-between h-[450px] transform hover:-translate-y-2 relative overflow-hidden backdrop-blur-sm">
                 
                 {/* Neon-like top border line always present, brightens on hover */}
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#286cfd] to-[#ccff00] opacity-30 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 <div className="space-y-4">
-                  {/* Category label */}
-                  {/* <span className="inline-flex items-center gap-1.5 bg-[#286cfd]/10 text-[#286cfd] border border-[#286cfd]/20 text-[10px] font-black tracking-widest px-3 py-1 rounded-full uppercase">
-                    {speaker.track}
-                  </span>
-                   */}
                   {/* Giant mysterious question mark block */}
-                  <div className="aspect-video w-full rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center relative overflow-hidden shadow-inner group-hover:bg-[#286cfd]/5 transition-colors duration-300">
+                  <div className="aspect-square w-full rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center relative overflow-hidden shadow-inner group-hover:bg-[#286cfd]/5 transition-colors duration-300">
                     <span className="text-4xl sm:text-5xl font-black text-white/10 tracking-widest group-hover:text-[#ccff00]/30 group-hover:scale-110 transition-all duration-500">
                       ???
                     </span>

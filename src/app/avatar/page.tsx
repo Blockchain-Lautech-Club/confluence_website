@@ -21,6 +21,7 @@ import {
   MapPin,
   Twitter,
   ChevronDown,
+  AlertCircle,
   Image as ImageIcon
 } from 'lucide-react';
 
@@ -37,13 +38,19 @@ const CONFLUENCE_THEME = {
 
 const PRESET_ROLES = [
   'Attendee',
-  'Developer',
-  'Designer & Creative',
-  'Student Builder',
-  'Speaker / VIP',
+  'Speaker',
   'Volunteer & Team',
-  'Convener',
 ];
+
+const isRestrictedRole = (val: string): boolean => {
+  const normalized = val.trim().toLowerCase().replace(/[\s\-_]+/g, '');
+  return (
+    normalized.includes('convener') ||
+    normalized.includes('convenor') ||
+    normalized.includes('founder') ||
+    normalized.includes('founding')
+  );
+};
 
 export default function AvatarGeneratorPage() {
   // Form State
@@ -68,8 +75,13 @@ export default function AvatarGeneratorPage() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
-  // Active Role text
-  const activeRole = role === 'Custom' ? customRole : role;
+  // Active Role text (Disallows reserved roles like Convener & Co-convener)
+  const isRestricted = isRestrictedRole(role === 'Custom' ? customRole : role);
+  const activeRole = isRestricted
+    ? 'Attendee'
+    : role === 'Custom'
+    ? customRole
+    : role;
 
   // Load Confluence background graphic on mount
   useEffect(() => {
@@ -957,8 +969,18 @@ export default function AvatarGeneratorPage() {
                       setCustomRole(e.target.value);
                       setRole('Custom');
                     }}
-                    className="w-full bg-black/50 border border-white/15 focus:border-[#ccff00] focus:outline-none rounded-xl py-2 px-3 text-white text-xs font-medium transition-colors"
+                    className={`w-full bg-black/50 border focus:outline-none rounded-xl py-2 px-3 text-white text-xs font-medium transition-colors ${
+                      isRestrictedRole(customRole)
+                        ? 'border-amber-500/80 focus:border-amber-400'
+                        : 'border-white/15 focus:border-[#ccff00]'
+                    }`}
                   />
+                  {isRestrictedRole(customRole) && (
+                    <p className="text-[11px] text-amber-400 font-semibold mt-1.5 flex items-center gap-1.5">
+                      <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                      <span>choose another title.</span>
+                    </p>
+                  )}
                 </div>
               </div>
 
