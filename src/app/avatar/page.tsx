@@ -700,51 +700,51 @@ export default function AvatarGeneratorPage() {
       </header>
 
       {/* Main Content Area */}
-      <main className="relative z-10 flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-6 lg:py-12">
-        {/* Title & Headline - tight on mobile */}
-        <div className="text-center space-y-1 sm:space-y-2 mb-3 sm:mb-8">
-          <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-white/5 border border-white/10 text-[10px] sm:text-xs font-extrabold uppercase tracking-widest text-[#ccff00]">
+      <main className="relative z-10 flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-2 sm:py-6 lg:py-12">
+        {/* Title & Headline - ultra-compact on mobile */}
+        <div className="text-center mb-2 sm:mb-8">
+          <div className="hidden sm:inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-white/5 border border-white/10 text-xs font-extrabold uppercase tracking-widest text-[#ccff00] mb-2">
             Official Attendee Badge
           </div>
-          <h1 className="text-xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white">
-            I Will Be At <span style={{ color: theme.primary }}>Confluence 2.0</span>
+          <h1 className="text-lg sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white">
+            Confluence 2.0 <span style={{ color: theme.primary }}>DP Generator</span>
           </h1>
-          <p className="text-slate-400 max-w-xl mx-auto text-[11px] sm:text-sm font-medium leading-tight">
+          <p className="hidden sm:block text-slate-400 max-w-xl mx-auto text-sm font-medium leading-tight mt-1">
             Customize and download your official 2026 digital badge.
           </p>
         </div>
 
         {/* Studio Grid: Controls on left, Preview on right */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-6 lg:gap-8 items-start">
           
           {/* ── RIGHT COLUMN (ORDER-1 ON MOBILE, ORDER-2 ON DESKTOP): LIVE CANVAS PREVIEW ── */}
-          <div className="order-1 lg:order-2 lg:col-span-7 flex flex-col items-center space-y-3 sm:space-y-6 lg:sticky lg:top-28">
+          <div className="order-1 lg:order-2 lg:col-span-7 flex flex-col items-center space-y-2 sm:space-y-6 lg:sticky lg:top-28">
             
-            {/* Live Canvas Card Container - Compact on mobile (260px) so controls peek above fold */}
-            <div className="relative group w-full max-w-[260px] sm:max-w-[340px] lg:max-w-[480px] flex justify-center">
+            {/* Live Canvas Card Container - Compact on mobile (210px) so controls peek clearly above fold */}
+            <div className="relative group w-full max-w-[210px] sm:max-w-[340px] lg:max-w-[480px] flex justify-center">
               {/* Outer decorative ambient glow */}
               <div
-                className="absolute -inset-1 rounded-3xl opacity-40 blur-xl transition-all duration-500 group-hover:opacity-60"
+                className="absolute -inset-1 rounded-2xl sm:rounded-3xl opacity-40 blur-xl transition-all duration-500 group-hover:opacity-60"
                 style={{ backgroundColor: theme.primary }}
               />
 
               {/* The Actual HTML5 Canvas */}
-              <div className="relative bg-black rounded-2xl sm:rounded-3xl border border-white/20 overflow-hidden shadow-2xl w-full flex justify-center items-center">
+              <div className="relative bg-black rounded-xl sm:rounded-3xl border border-white/20 overflow-hidden shadow-2xl w-full flex justify-center items-center">
                 <canvas
                   ref={canvasRef}
-                  className="w-full h-auto object-contain block max-h-[340px] sm:max-h-[460px] lg:max-h-[640px]"
+                  className="w-full h-auto object-contain block max-h-[260px] sm:max-h-[460px] lg:max-h-[640px]"
                 />
               </div>
             </div>
 
             {/* Actions: Download & Share (Immediately after image preview) */}
-            <div className="w-full max-w-[260px] sm:max-w-[340px] lg:max-w-[480px] space-y-2 sm:space-y-3">
+            <div className="w-full max-w-[250px] sm:max-w-[340px] lg:max-w-[480px] space-y-1.5 sm:space-y-3">
               {/* Primary Download Button */}
               <button
                 type="button"
                 onClick={handleDownload}
                 disabled={isExporting}
-                className="w-full bg-[#ccff00] hover:bg-[#b5e000] text-black font-black py-2.5 sm:py-4 px-4 sm:px-6 rounded-xl sm:rounded-2xl flex items-center justify-center gap-2 cursor-pointer transition-all uppercase tracking-wider text-xs sm:text-sm shadow-[0_0_25px_rgba(204,255,0,0.3)] hover:scale-[1.02] active:scale-[0.99]"
+                className="w-full bg-[#ccff00] hover:bg-[#b5e000] text-black font-black py-2 sm:py-4 px-3 sm:px-6 rounded-xl sm:rounded-2xl flex items-center justify-center gap-2 cursor-pointer transition-all uppercase tracking-wider text-xs sm:text-sm shadow-[0_0_20px_rgba(204,255,0,0.3)] hover:scale-[1.02] active:scale-[0.99]"
               >
                 <Download className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span>{isExporting ? 'Generating...' : 'Download Badge'}</span>
@@ -756,11 +756,11 @@ export default function AvatarGeneratorPage() {
                 <button
                   type="button"
                   onClick={handleCopy}
-                  className="bg-white/10 hover:bg-white/15 text-white font-bold py-2 sm:py-3 px-2 sm:px-3 rounded-xl flex items-center justify-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs transition-all border border-white/10 hover:border-white/25 cursor-pointer"
+                  className="bg-white/10 hover:bg-white/15 text-white font-bold py-1.5 sm:py-3 px-1.5 sm:px-3 rounded-lg sm:rounded-xl flex items-center justify-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs transition-all border border-white/10 hover:border-white/25 cursor-pointer truncate"
                 >
                   {copied ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-[#ccff00]" /> Copied!
+                      <Check className="w-3.5 h-3.5 text-[#ccff00]" /> Copied
                     </>
                   ) : (
                     <>
@@ -773,32 +773,39 @@ export default function AvatarGeneratorPage() {
                 <button
                   type="button"
                   onClick={handleShareTwitter}
-                  className="bg-[#286cfd]/20 hover:bg-[#286cfd]/30 text-white font-bold py-2 sm:py-3 px-2 sm:px-3 rounded-xl flex items-center justify-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs transition-all border border-[#286cfd]/40 hover:border-[#286cfd] cursor-pointer"
+                  className="bg-[#286cfd]/20 hover:bg-[#286cfd]/30 text-white font-bold py-1.5 sm:py-3 px-1.5 sm:px-3 rounded-lg sm:rounded-xl flex items-center justify-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs transition-all border border-[#286cfd]/40 hover:border-[#286cfd] cursor-pointer"
                 >
-                  <Twitter className="w-3.5 h-3.5 text-[#286cfd]" /> Share on X
+                  <Twitter className="w-3.5 h-3.5 text-[#286cfd]" /> Share
                 </button>
 
                 {/* Share on WhatsApp */}
                 <button
                   type="button"
                   onClick={handleShareWhatsApp}
-                  className="bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-bold py-2 sm:py-3 px-2 sm:px-3 rounded-xl flex items-center justify-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs transition-all border border-emerald-500/30 hover:border-emerald-400 cursor-pointer"
+                  className="bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-bold py-1.5 sm:py-3 px-1.5 sm:px-3 rounded-lg sm:rounded-xl flex items-center justify-center gap-1 sm:gap-1.5 text-[10px] sm:text-xs transition-all border border-emerald-500/30 hover:border-emerald-400 cursor-pointer"
                 >
                   <Share2 className="w-3.5 h-3.5 text-emerald-400" /> WhatsApp
                 </button>
               </div>
 
-              {/* Mobile-only scroll indicator to clearly reveal the customization form */}
-              <div className="flex lg:hidden items-center justify-center gap-1.5 pt-1 text-[10px] font-extrabold uppercase tracking-widest text-[#ccff00]">
-                <span>Scroll down to customize photo & name</span>
-                <ChevronDown className="w-3 h-3 animate-bounce" />
-              </div>
+              {/* Clickable single-line scroll indicator */}
+              <button
+                type="button"
+                onClick={() => document.getElementById('customize-section')?.scrollIntoView({ behavior: 'smooth' })}
+                className="flex lg:hidden items-center justify-center gap-1.5 py-1 text-[11px] font-black uppercase tracking-wider text-[#ccff00] hover:underline cursor-pointer w-full text-center"
+              >
+                <span>Customize photo & name</span>
+                <ChevronDown className="w-3.5 h-3.5 animate-bounce" />
+              </button>
             </div>
 
           </div>
 
           {/* ── LEFT COLUMN (ORDER-2 ON MOBILE, ORDER-1 ON DESKTOP): CUSTOMIZATION CONTROLS ── */}
-          <div className="order-2 lg:order-1 lg:col-span-5 space-y-5 bg-white/[0.03] border border-white/10 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 backdrop-blur-xl shadow-2xl">
+          <div
+            id="customize-section"
+            className="order-2 lg:order-1 lg:col-span-5 space-y-4 sm:space-y-5 bg-white/[0.03] border border-white/10 rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 lg:p-8 backdrop-blur-xl shadow-2xl"
+          >
             
             {/* 1. Photo Upload & Framing Controls (Immediately below preview on mobile) */}
             <div className="space-y-3">
