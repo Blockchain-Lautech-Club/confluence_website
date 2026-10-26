@@ -36,18 +36,20 @@ const CONFLUENCE_THEME = {
 
 const PRESET_ROLES = [
   'Attendee',
+  'Developer',
   'Designer & Creative',
   'Student Builder',
   'Speaker / VIP',
   'Volunteer & Team',
+  'Convener',
 ];
 
 export default function AvatarGeneratorPage() {
   // Form State
-  const [name, setName] = useState<string>('John Adekunjo');
-  const [role, setRole] = useState<string>('Convener');
+  const [name, setName] = useState<string>('');
+  const [role, setRole] = useState<string>('Attendee');
   const [customRole, setCustomRole] = useState<string>('');
-  const [handle, setHandle] = useState<string>(' @johnadek_');
+  const [handle, setHandle] = useState<string>('');
   const theme = CONFLUENCE_THEME;
   const [aspectRatio, setAspectRatio] = useState<AspectRatio>('square');
   const [template, setTemplate] = useState<TemplateStyle>('official');
@@ -55,7 +57,7 @@ export default function AvatarGeneratorPage() {
   // Image & Transform State
   const [userImage, setUserImage] = useState<HTMLImageElement | null>(null);
   const [bgImage, setBgImage] = useState<HTMLImageElement | null>(null);
-  const [zoom, setZoom] = useState<number>(1.1);
+  const [zoom, setZoom] = useState<number>(1.0);
   const [panX, setPanX] = useState<number>(0);
   const [panY, setPanY] = useState<number>(0);
   const [copied, setCopied] = useState<boolean>(false);
@@ -66,9 +68,9 @@ export default function AvatarGeneratorPage() {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   // Active Role text
-  const activeRole = role === 'Custom' ? (customRole || 'Attendee') : role;
+  const activeRole = role === 'Custom' ? customRole : role;
 
-  // Load Confluence background graphic and default user avatar on mount
+  // Load Confluence background graphic on mount
   useEffect(() => {
     // 1. Load CONFLUENCEprev.jpg as official background
     const bg = new window.Image();
@@ -76,14 +78,6 @@ export default function AvatarGeneratorPage() {
     bg.src = '/CONFLUENCEprev.jpg';
     bg.onload = () => {
       setBgImage(bg);
-    };
-
-    // 2. Load placeholder user avatar
-    const img = new window.Image();
-    img.crossOrigin = 'anonymous';
-    img.src = '/johnadek.jpg';
-    img.onload = () => {
-      setUserImage(img);
     };
   }, []);
 
@@ -201,6 +195,29 @@ export default function AvatarGeneratorPage() {
         vignette.addColorStop(1, 'rgba(0, 0, 0, 0.5)');
         ctx.fillStyle = vignette;
         ctx.fillRect(frameX, frameY, frameSize, frameSize);
+      } else {
+        // Minimalist stylish avatar silhouette placeholder
+        ctx.fillStyle = '#090a0f';
+        ctx.fillRect(frameX, frameY, frameSize, frameSize);
+
+        const centerX = frameX + frameSize / 2;
+        const centerY = frameY + frameSize / 2 - 12;
+
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.12)';
+        ctx.beginPath();
+        ctx.arc(centerX, centerY - 25, 52, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(centerX, centerY + 95, 88, Math.PI * 1.1, Math.PI * 1.9);
+        ctx.fill();
+
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+        ctx.font = '800 12px Montserrat, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.letterSpacing = '2px';
+        ctx.fillText('UPLOAD PHOTO', centerX, frameY + frameSize - 40);
+        ctx.letterSpacing = '0px';
       }
       ctx.restore();
 
@@ -244,8 +261,9 @@ export default function AvatarGeneratorPage() {
       // ──────────────────────────────────────────
       const infoStartY = isSquare ? 725 : 1190;
 
-      const displayName = (name || 'YOUR NAME').toUpperCase();
-      ctx.fillStyle = '#ffffff';
+      const hasName = Boolean(name.trim());
+      const displayName = hasName ? name.trim().toUpperCase() : 'YOUR NAME';
+      ctx.fillStyle = hasName ? '#ffffff' : 'rgba(255, 255, 255, 0.4)';
       ctx.textAlign = 'center';
 
       let nameFontSize = isSquare ? 38 : 48;
@@ -257,7 +275,7 @@ export default function AvatarGeneratorPage() {
 
       // Track / Role Pill
       const rolePillY = infoStartY + (isSquare ? 36 : 46);
-      const roleText = activeRole.toUpperCase();
+      const roleText = (activeRole.trim() || 'ATTENDEE').toUpperCase();
       ctx.font = '800 13px Montserrat, sans-serif';
       const roleTextWidth = ctx.measureText(roleText).width;
       const rolePillWidth = Math.max(180, roleTextWidth + 40);
@@ -278,12 +296,12 @@ export default function AvatarGeneratorPage() {
       ctx.letterSpacing = '0px';
 
       // Social Handle
-      if (handle.trim()) {
-        const handleY = rolePillY + (isSquare ? 28 : 36);
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
-        ctx.font = '600 13px Montserrat, sans-serif';
-        ctx.fillText(handle.startsWith(' @') ? handle : `@${handle}`, W / 2, handleY);
-      }
+      const hasHandle = Boolean(handle.trim());
+      const cleanHandle = hasHandle ? handle.trim() : '@yourhandle';
+      const handleY = rolePillY + (isSquare ? 28 : 36);
+      ctx.fillStyle = hasHandle ? 'rgba(255, 255, 255, 0.65)' : 'rgba(255, 255, 255, 0.3)';
+      ctx.font = '600 13px Montserrat, sans-serif';
+      ctx.fillText(cleanHandle.startsWith('@') ? cleanHandle : `@${cleanHandle}`, W / 2, handleY);
 
       // Date & Venue inside card
       const dateVenueY = isSquare ? 870 : 1440;
@@ -449,6 +467,29 @@ export default function AvatarGeneratorPage() {
         vignette.addColorStop(1, 'rgba(0, 0, 0, 0.55)');
         ctx.fillStyle = vignette;
         ctx.fillRect(frameX, frameY, frameSize, frameSize);
+      } else {
+        // Minimalist stylish avatar silhouette placeholder
+        ctx.fillStyle = '#090a0f';
+        ctx.fillRect(frameX, frameY, frameSize, frameSize);
+
+        const centerX = frameX + frameSize / 2;
+        const centerY = frameY + frameSize / 2 - 12;
+
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.12)';
+        ctx.beginPath();
+        ctx.arc(centerX, centerY - 25, 52, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(centerX, centerY + 95, 88, Math.PI * 1.1, Math.PI * 1.9);
+        ctx.fill();
+
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+        ctx.font = '800 12px Montserrat, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.letterSpacing = '2px';
+        ctx.fillText('UPLOAD PHOTO', centerX, frameY + frameSize - 40);
+        ctx.letterSpacing = '0px';
       }
       ctx.restore();
 
@@ -487,8 +528,9 @@ export default function AvatarGeneratorPage() {
 
       // Attendee Name
       const infoStartY = isSquare ? 730 : 1060;
-      const displayName = (name || 'YOUR NAME').toUpperCase();
-      ctx.fillStyle = '#ffffff';
+      const hasName = Boolean(name.trim());
+      const displayName = hasName ? name.trim().toUpperCase() : 'YOUR NAME';
+      ctx.fillStyle = hasName ? '#ffffff' : 'rgba(255, 255, 255, 0.4)';
       ctx.textAlign = 'center';
 
       let nameFontSize = isSquare ? 44 : 56;
@@ -500,7 +542,7 @@ export default function AvatarGeneratorPage() {
 
       // Attendee Role
       const rolePillY = infoStartY + (isSquare ? 42 : 54);
-      const roleText = activeRole.toUpperCase();
+      const roleText = (activeRole.trim() || 'ATTENDEE').toUpperCase();
       ctx.font = '800 14px Montserrat, sans-serif';
       const roleTextWidth = ctx.measureText(roleText).width;
       const rolePillWidth = Math.max(200, roleTextWidth + 48);
@@ -520,12 +562,12 @@ export default function AvatarGeneratorPage() {
       ctx.fillText(roleText, W / 2, rolePillY);
       ctx.letterSpacing = '0px';
 
-      if (handle.trim()) {
-        const handleY = rolePillY + (isSquare ? 34 : 44);
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-        ctx.font = '600 15px Montserrat, sans-serif';
-        ctx.fillText(handle.startsWith(' @') ? handle : ` @${handle}`, W / 2, handleY);
-      }
+      const hasHandle = Boolean(handle.trim());
+      const cleanHandle = hasHandle ? handle.trim() : '@yourhandle';
+      const handleY = rolePillY + (isSquare ? 34 : 44);
+      ctx.fillStyle = hasHandle ? 'rgba(255, 255, 255, 0.55)' : 'rgba(255, 255, 255, 0.3)';
+      ctx.font = '600 15px Montserrat, sans-serif';
+      ctx.fillText(cleanHandle.startsWith('@') ? cleanHandle : `@${cleanHandle}`, W / 2, handleY);
 
       // Footer
       const footerY = isSquare ? 970 : 1720;
