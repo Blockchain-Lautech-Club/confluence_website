@@ -674,77 +674,92 @@ export default function AvatarGeneratorPage() {
         {/* Studio Grid: Controls on left, Preview on right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* ── LEFT COLUMN: CUSTOMIZATION CONTROLS ── */}
-          <div className="lg:col-span-5 space-y-6 bg-white/[0.03] border border-white/10 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl">
+          {/* ── RIGHT COLUMN (ORDER-1 ON MOBILE, ORDER-2 ON DESKTOP): LIVE CANVAS PREVIEW ── */}
+          <div className="order-1 lg:order-2 lg:col-span-7 flex flex-col items-center space-y-6 lg:sticky lg:top-28">
             
-            {/* 1. Template Style Switcher */}
-            <div className="space-y-2.5">
-              <label className="text-xs font-black uppercase tracking-wider text-slate-300 flex items-center gap-2">
-                <ImageIcon className="w-3.5 h-3.5 text-[#ccff00]" /> Flyer Template
-              </label>
-              <div className="grid grid-cols-2 gap-3">
-                <button
-                  type="button"
-                  onClick={() => setTemplate('official')}
-                  className={`py-3 px-3 rounded-2xl border text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${
-                    template === 'official'
-                      ? 'bg-[#ccff00] text-black border-[#ccff00] shadow-[0_0_20px_rgba(204,255,0,0.3)]'
-                      : 'bg-white/5 text-slate-300 border-white/10 hover:border-white/30'
-                  }`}
-                >
-                  
-                  Official 2026 Art
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setTemplate('cyber')}
-                  className={`py-3 px-3 rounded-2xl border text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${
-                    template === 'cyber'
-                      ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.25)]'
-                      : 'bg-white/5 text-slate-300 border-white/10 hover:border-white/30'
-                  }`}
-                >
-                  <Layers className="w-3.5 h-3.5" />
-                  Obsidian Cyber
-                </button>
+            {/* Live Canvas Card Container */}
+            <div className="relative group w-full max-w-[480px] flex justify-center">
+              {/* Outer decorative ambient glow */}
+              <div
+                className="absolute -inset-1 rounded-3xl opacity-40 blur-xl transition-all duration-500 group-hover:opacity-60"
+                style={{ backgroundColor: theme.primary }}
+              />
+
+              {/* The Actual HTML5 Canvas */}
+              <div className="relative bg-black rounded-3xl border border-white/20 overflow-hidden shadow-2xl w-full flex justify-center items-center">
+                <canvas
+                  ref={canvasRef}
+                  className="w-full h-auto object-contain block max-h-[640px]"
+                />
               </div>
             </div>
 
-            {/* 2. Format Toggle (1:1 vs 9:16) */}
-            <div className="space-y-2.5 pt-3 border-t border-white/10">
-              <label className="text-xs font-black uppercase tracking-wider text-slate-300 flex items-center gap-2">
-                <Layers className="w-3.5 h-3.5 text-[#ccff00]" /> Format / Size
-              </label>
-              <div className="grid grid-cols-2 gap-3">
+            {/* Actions: Download & Share (Immediately after image preview) */}
+            <div className="w-full max-w-[480px] space-y-3">
+              {/* Primary Download Button */}
+              <button
+                type="button"
+                onClick={handleDownload}
+                disabled={isExporting}
+                className="w-full bg-[#ccff00] hover:bg-[#b5e000] text-black font-black py-4 px-6 rounded-2xl flex items-center justify-center gap-2.5 cursor-pointer transition-all uppercase tracking-wider text-sm shadow-[0_0_30px_rgba(204,255,0,0.3)] hover:scale-[1.02] active:scale-[0.99]"
+              >
+                <Download className="w-5 h-5" />
+                <span>{isExporting ? 'Generating...' : 'Download High-Res Badge'}</span>
+              </button>
+
+              {/* Secondary Actions Grid */}
+              <div className="grid grid-cols-3 gap-2.5">
+                {/* Copy to Clipboard */}
                 <button
                   type="button"
-                  onClick={() => setAspectRatio('square')}
-                  className={`py-3 px-4 rounded-2xl border text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${
-                    aspectRatio === 'square'
-                      ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.25)]'
-                      : 'bg-white/5 text-slate-300 border-white/10 hover:border-white/30'
-                  }`}
+                  onClick={handleCopy}
+                  className="bg-white/10 hover:bg-white/15 text-white font-bold py-3 px-3 rounded-xl flex items-center justify-center gap-1.5 text-xs transition-all border border-white/10 hover:border-white/25 cursor-pointer"
                 >
-                  <span className="w-3.5 h-3.5 rounded border-2 border-current inline-block" />
-                  Square (1:1 DP)
+                  {copied ? (
+                    <>
+                      <Check className="w-4 h-4 text-[#ccff00]" /> Copied!
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-4 h-4" /> Copy
+                    </>
+                  )}
                 </button>
+
+                {/* Share on X */}
                 <button
                   type="button"
-                  onClick={() => setAspectRatio('story')}
-                  className={`py-3 px-4 rounded-2xl border text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${
-                    aspectRatio === 'story'
-                      ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.25)]'
-                      : 'bg-white/5 text-slate-300 border-white/10 hover:border-white/30'
-                  }`}
+                  onClick={handleShareTwitter}
+                  className="bg-[#286cfd]/20 hover:bg-[#286cfd]/30 text-white font-bold py-3 px-3 rounded-xl flex items-center justify-center gap-1.5 text-xs transition-all border border-[#286cfd]/40 hover:border-[#286cfd] cursor-pointer"
                 >
-                  <span className="w-2.5 h-4 rounded-sm border-2 border-current inline-block" />
-                  Story (9:16)
+                  <Twitter className="w-4 h-4 text-[#286cfd]" /> Share on X
                 </button>
+
+                {/* Share on WhatsApp */}
+                <button
+                  type="button"
+                  onClick={handleShareWhatsApp}
+                  className="bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-bold py-3 px-3 rounded-xl flex items-center justify-center gap-1.5 text-xs transition-all border border-emerald-500/30 hover:border-emerald-400 cursor-pointer"
+                >
+                  <Share2 className="w-4 h-4 text-emerald-400" /> WhatsApp
+                </button>
+              </div>
+
+              {/* Pro-tip helper */}
+              <div className="pt-2 text-center">
+                <p className="text-slate-400 text-xs">
+                  💡 <strong className="text-slate-300">Tip:</strong> Set your exported badge as your profile picture on X, Telegram, and WhatsApp to connect with fellow attendees before Nov 12!
+                </p>
               </div>
             </div>
 
-            {/* 3. Photo Upload & Framing Controls */}
-            <div className="space-y-3 pt-3 border-t border-white/10">
+          </div>
+
+          {/* ── LEFT COLUMN (ORDER-2 ON MOBILE, ORDER-1 ON DESKTOP): CUSTOMIZATION CONTROLS ── */}
+          <div className="order-2 lg:order-1 lg:col-span-5 space-y-6 bg-white/[0.03] border border-white/10 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl">
+            
+            {/* 1. Photo Upload & Framing Controls (Immediately below preview on mobile) */}
+            <div className="space-y-3">
               <label className="text-xs font-black uppercase tracking-wider text-slate-300 flex items-center justify-between">
                 <span className="flex items-center gap-2">
                   <Camera className="w-3.5 h-3.5 text-[#ccff00]" /> Your Photo
@@ -756,7 +771,7 @@ export default function AvatarGeneratorPage() {
                 <button
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
-                  className="flex-1 bg-[#ccff00] hover:bg-[#b5e000] text-black font-black text-xs py-3 px-4 rounded-2xl flex items-center justify-center gap-2 cursor-pointer transition-all uppercase tracking-wider shadow-md hover:scale-[1.01]"
+                  className="flex-1 bg-[#ccff00] hover:bg-[#b5e000] text-black font-black text-xs py-3.5 px-4 rounded-2xl flex items-center justify-center gap-2 cursor-pointer transition-all uppercase tracking-wider shadow-[0_0_20px_rgba(204,255,0,0.25)] hover:scale-[1.01]"
                 >
                   <Upload className="w-4 h-4" /> Upload New Photo
                 </button>
@@ -777,7 +792,7 @@ export default function AvatarGeneratorPage() {
                     <span className="flex items-center gap-1.5">
                       <ZoomIn className="w-3 h-3 text-[#286cfd]" /> Photo Zoom
                     </span>
-                    <span>{Math.round(zoom * 100)}%</span>
+                    <span className="text-white font-mono">{Math.round(zoom * 100)}%</span>
                   </div>
                   <input
                     type="range"
@@ -796,7 +811,7 @@ export default function AvatarGeneratorPage() {
                     <span className="flex items-center gap-1.5">
                       <Move className="w-3 h-3 text-[#286cfd]" /> Move Vertical (Y)
                     </span>
-                    <span>{panY}px</span>
+                    <span className="text-white font-mono">{panY}px</span>
                   </div>
                   <input
                     type="range"
@@ -815,7 +830,7 @@ export default function AvatarGeneratorPage() {
                     <span className="flex items-center gap-1.5">
                       <Move className="w-3 h-3 text-[#286cfd]" /> Move Horizontal (X)
                     </span>
-                    <span>{panX}px</span>
+                    <span className="text-white font-mono">{panX}px</span>
                   </div>
                   <input
                     type="range"
@@ -843,8 +858,8 @@ export default function AvatarGeneratorPage() {
               </div>
             </div>
 
-            {/* 4. Personal Details */}
-            <div className="space-y-4 pt-3 border-t border-white/10">
+            {/* 2. Personal Details */}
+            <div className="space-y-4 pt-4 border-t border-white/10">
               {/* Full Name */}
               <div className="space-y-1.5">
                 <label className="text-xs font-black uppercase tracking-wider text-slate-300">
@@ -916,87 +931,75 @@ export default function AvatarGeneratorPage() {
               </div>
             </div>
 
+            {/* 3. Flyer Template & Size */}
+            <div className="space-y-4 pt-4 border-t border-white/10">
+              {/* Template Style Switcher */}
+              <div className="space-y-2.5">
+                <label className="text-xs font-black uppercase tracking-wider text-slate-300 flex items-center gap-2">
+                  <ImageIcon className="w-3.5 h-3.5 text-[#ccff00]" /> Flyer Template
+                </label>
+                <div className="grid grid-cols-2 gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setTemplate('official')}
+                    className={`py-3 px-3 rounded-2xl border text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                      template === 'official'
+                        ? 'bg-[#ccff00] text-black border-[#ccff00] shadow-[0_0_20px_rgba(204,255,0,0.3)]'
+                        : 'bg-white/5 text-slate-300 border-white/10 hover:border-white/30'
+                    }`}
+                  >
+                    Official 2026 Art
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setTemplate('cyber')}
+                    className={`py-3 px-3 rounded-2xl border text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                      template === 'cyber'
+                        ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.25)]'
+                        : 'bg-white/5 text-slate-300 border-white/10 hover:border-white/30'
+                    }`}
+                  >
+                    <Layers className="w-3.5 h-3.5" />
+                    Obsidian Cyber
+                  </button>
+                </div>
+              </div>
 
-          </div>
-
-          {/* ── RIGHT COLUMN: LIVE CANVAS PREVIEW & EXPORT ── */}
-          <div className="lg:col-span-7 flex flex-col items-center space-y-6">
-            
-            {/* Live Canvas Card Container */}
-            <div className="relative group w-full max-w-[480px] flex justify-center">
-              {/* Outer decorative ambient glow */}
-              <div
-                className="absolute -inset-1 rounded-3xl opacity-40 blur-xl transition-all duration-500 group-hover:opacity-60"
-                style={{ backgroundColor: theme.primary }}
-              />
-
-              {/* The Actual HTML5 Canvas */}
-              <div className="relative bg-black rounded-3xl border border-white/20 overflow-hidden shadow-2xl w-full flex justify-center items-center">
-                <canvas
-                  ref={canvasRef}
-                  className="w-full h-auto object-contain block max-h-[640px]"
-                />
+              {/* Format Toggle (1:1 vs 9:16) */}
+              <div className="space-y-2.5 pt-3 border-t border-white/10">
+                <label className="text-xs font-black uppercase tracking-wider text-slate-300 flex items-center gap-2">
+                  <Layers className="w-3.5 h-3.5 text-[#ccff00]" /> Format / Size
+                </label>
+                <div className="grid grid-cols-2 gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setAspectRatio('square')}
+                    className={`py-3 px-4 rounded-2xl border text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                      aspectRatio === 'square'
+                        ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.25)]'
+                        : 'bg-white/5 text-slate-300 border-white/10 hover:border-white/30'
+                    }`}
+                  >
+                    <span className="w-3.5 h-3.5 rounded border-2 border-current inline-block" />
+                    Square (1:1 DP)
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setAspectRatio('story')}
+                    className={`py-3 px-4 rounded-2xl border text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                      aspectRatio === 'story'
+                        ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.25)]'
+                        : 'bg-white/5 text-slate-300 border-white/10 hover:border-white/30'
+                    }`}
+                  >
+                    <span className="w-2.5 h-4 rounded-sm border-2 border-current inline-block" />
+                    Story (9:16)
+                  </button>
+                </div>
               </div>
             </div>
 
-            {/* Actions: Download & Share */}
-            <div className="w-full max-w-[480px] space-y-3">
-              {/* Primary Download Button */}
-              <button
-                type="button"
-                onClick={handleDownload}
-                disabled={isExporting}
-                className="w-full bg-[#ccff00] hover:bg-[#b5e000] text-black font-black py-4 px-6 rounded-2xl flex items-center justify-center gap-2.5 cursor-pointer transition-all uppercase tracking-wider text-sm shadow-[0_0_30px_rgba(204,255,0,0.3)] hover:scale-[1.02] active:scale-[0.99]"
-              >
-                <Download className="w-5 h-5" />
-                <span>{isExporting ? 'Generating...' : 'Download High-Res Badge'}</span>
-              </button>
 
-              {/* Secondary Actions Grid */}
-              <div className="grid grid-cols-3 gap-2.5">
-                {/* Copy to Clipboard */}
-                <button
-                  type="button"
-                  onClick={handleCopy}
-                  className="bg-white/10 hover:bg-white/15 text-white font-bold py-3 px-3 rounded-xl flex items-center justify-center gap-1.5 text-xs transition-all border border-white/10 hover:border-white/25 cursor-pointer"
-                >
-                  {copied ? (
-                    <>
-                      <Check className="w-4 h-4 text-[#ccff00]" /> Copied!
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-4 h-4" /> Copy
-                    </>
-                  )}
-                </button>
-
-                {/* Share on X */}
-                <button
-                  type="button"
-                  onClick={handleShareTwitter}
-                  className="bg-[#286cfd]/20 hover:bg-[#286cfd]/30 text-white font-bold py-3 px-3 rounded-xl flex items-center justify-center gap-1.5 text-xs transition-all border border-[#286cfd]/40 hover:border-[#286cfd] cursor-pointer"
-                >
-                  <Twitter className="w-4 h-4 text-[#286cfd]" /> Share on X
-                </button>
-
-                {/* Share on WhatsApp */}
-                <button
-                  type="button"
-                  onClick={handleShareWhatsApp}
-                  className="bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-bold py-3 px-3 rounded-xl flex items-center justify-center gap-1.5 text-xs transition-all border border-emerald-500/30 hover:border-emerald-400 cursor-pointer"
-                >
-                  <Share2 className="w-4 h-4 text-emerald-400" /> WhatsApp
-                </button>
-              </div>
-
-              {/* Pro-tip helper */}
-              <div className="pt-2 text-center">
-                <p className="text-slate-400 text-xs">
-                  💡 <strong className="text-slate-300">Tip:</strong> Set your exported badge as your profile picture on X, Telegram, and WhatsApp to connect with fellow attendees before Nov 12!
-                </p>
-              </div>
-            </div>
 
           </div>
 
