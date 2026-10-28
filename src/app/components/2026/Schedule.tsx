@@ -1,14 +1,14 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Calendar, MapPin, Clock, PhoneOff, Rocket, Code2, Users2, Activity, Store } from 'lucide-react'
+import { Calendar, MapPin, Clock, PhoneOff, Rocket, Code2, Users2, Activity, Store, Sparkles } from 'lucide-react'
 
 interface Session {
   time: string;
   title: string;
   description: React.ReactNode;
   venue: string;
-  track: 'Kickoff' | 'Human Layer' | 'Founders' | 'Developers' | 'Community' | 'Merchants';
+  track: 'Kickoff' | 'Human Layer' | 'Founders' | 'Developers' | 'Community' | 'Merchants' | 'Creators';
   details?: string[];
   registerUrl?: string;
 }
@@ -129,7 +129,7 @@ const scheduleData: DayData[] = [
   {
     id: 'fri',
     date: 'Friday, Nov 13',
-    title: 'DEV & MERCHANTS',
+    title: 'DEV, CREATORS & MERCHANTS',
     phase: 'Confluence 2.0 (Main Conference)',
     sessions: [
       {
@@ -150,6 +150,24 @@ const scheduleData: DayData[] = [
           'Complimentary merchant payment signage and counter display materials',
           'Hands-on training: wallet setup, receiving payments & transaction checks',
           'Zero disruption to existing payments — continue cash & bank transfers as usual'
+        ]
+      },
+      {
+        time: '12:00 PM – 2:00 PM',
+        title: 'Creator Session: Zcash Creators Talk',
+        description: (
+          <>
+            An interactive conversation powered by Zcash for student creators, digital artists, storytellers, writers, and media builders. Connect directly with the Zcash team and ecosystem leads to explore creator funding, decentralized monetization, financial privacy, and the future of independent creative work in Web3.
+          </>
+        ),
+        venue: 'The Assembly, Beside Bon Nest Hotel, along Lautech main gate, Ogbomoso, Nigeria',
+        track: 'Creators',
+        details: [
+          'Direct discussion with the Zcash team and ecosystem ambassadors',
+          'Empowering university creators, digital artists, writers, and storytellers',
+          'Monetizing creative content and exploring decentralized funding opportunities',
+          'Financial privacy, borderless payouts, and creative sovereignty in Web3',
+          'Open creator networking and interactive Q&A'
         ]
       },
       {
@@ -213,6 +231,7 @@ const Schedule = () => {
       case 'Founders': return <Rocket className="w-4 h-4" />;
       case 'Developers': return <Code2 className="w-4 h-4" />;
       case 'Merchants': return <Store className="w-4 h-4" />;
+      case 'Creators': return <Sparkles className="w-4 h-4" />;
       default: return <Calendar className="w-4 h-4" />;
     }
   };
@@ -224,6 +243,7 @@ const Schedule = () => {
       case 'Founders': return 'bg-lime-950/40 text-[#ccff00] border-lime-900/50';
       case 'Developers': return 'bg-blue-950/40 text-[#286cfd] border-blue-900/50';
       case 'Merchants': return 'bg-amber-950/40 text-[#f59e0b] border-amber-800/50';
+      case 'Creators': return 'bg-purple-950/40 text-[#c084fc] border-purple-900/50';
       default: return 'bg-slate-900/50 text-slate-300 border-slate-800';
     }
   };

@@ -58,6 +58,9 @@ code {
 .neo-shadow-yellow {
   box-shadow: 4px 4px 0px 0px #facc15;
 }
+.neo-shadow-green {
+  box-shadow: 4px 4px 0px 0px #25D366;
+}
 .neo-shadow-white {
   box-shadow: 4px 4px 0px 0px #ffffff;
 }

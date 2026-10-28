@@ -2,8 +2,10 @@
 // CONFLUENCE 2.0 (2026) — Data Constants
 // ─────────────────────────────────────────────
 
-// ── Speakers ─────────────────────────────────
+// ── Social & Community Links ─────────────────
+export const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/CIBPtotDSDyG6qSj9ymjT8?s=cl&p=i&mlu=4&ilr=4&iam=2";
 
+// ── Speakers ─────────────────────────────────
 export interface Speaker {
   id: number;
   name: string;
@@ -90,6 +92,15 @@ export const speakers: Speaker[] = [
     title: ["Director of Academics and Corporate Affairs", "SQI College of ICT"],
     image: "/Seyi.png",
     topic: "Tech Education & Corporate Affairs",
+    confirmed: true,
+  },
+  {
+    id: 8,
+    name: "Faith Ogunsina",
+    title: ["Staff Adviser, Blockchain LAUTECH"],
+    image: "/FaithOgunsina.jpg",
+    imageClass: "object-center",
+    topic: "Student Innovation & Blockchain Advisory",
     confirmed: true,
   },
 
@@ -324,10 +335,26 @@ export const partnerLogos: PartnerLogo[] = [
   },
   {
     src: '/Gabbar.png',
-    alt: 'AWS Student Builder Group',
+    alt: 'Gabbar',
     width: 160,
     height: 70,
     category: "Media Partner",
     // bg: "bg-[#161d27]",
+  },
+  {
+    src: "/onedosh.png",
+    alt: "OneDosh",
+    width: 160,
+    height: 70,
+    category: "Ecosystem Partner",
+    bg: "bg-white",
+  },
+  {
+    src: "/routa.png",
+    alt: "Routa",
+    width: 160,
+    height: 70,
+    category: "Ecosystem Partner",
+    bg: "bg-white",
   }
 ];

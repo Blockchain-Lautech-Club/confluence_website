@@ -13,6 +13,7 @@ import Speakers2026 from './components/2026/Speakers'
 import Archive2026 from './components/2026/Archive'
 import Connected2026 from './components/2026/Connected'
 import Footer2026 from './components/2026/Footer'
+import StickyWhatsAppButton from './components/2026/StickyWhatsAppButton'
 
 const Page = () => {
   useEffect(() => {
@@ -66,6 +67,9 @@ const Page = () => {
       
       {/* 10. closing Footer */}
       <Footer2026 />
+
+      {/* Sticky Community WhatsApp Button */}
+      <StickyWhatsAppButton />
 
     </div>
   )

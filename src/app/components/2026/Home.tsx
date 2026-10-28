@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { MapPin, Calendar, ArrowDown, ArrowUpRight } from 'lucide-react'
 import Navbar from './Navbar'
 import CountdownTimer from './CountdownTimer'
+import { WHATSAPP_GROUP_URL } from '@/app/constants/2026'
 
 const Home = () => {
   const [activePillar, setActivePillar] = useState<'code' | 'create' | 'connect'>('code');
@@ -194,23 +195,6 @@ const Home = () => {
         </div>
 
       </div>
-
-      {/* WebGL Carousel Showcase */}
-      {/* <div 
-        style={{ height: '620px', position: 'relative' }} 
-        className='-mt-10 max-sm:-mt-20 overflow-hidden select-none' 
-        data-aos="fade-up" 
-        data-aos-delay="500"
-      >
-        <CircularGallery 
-          bend={bend} 
-          textColor="#0C1246" 
-          borderRadius={0.05} 
-          scrollEase={0.03} 
-          autoScrollSpeed={0.12}
-          items={galleryItems}
-        />
-      </div> */}
 
       {/* Countdown Timer */}
       <div className="w-full mt-4 relative z-20">

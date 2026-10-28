@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
+import { WHATSAPP_GROUP_URL } from '@/app/constants/2026'
 
 const Footer = () => {
   return (
@@ -73,7 +74,7 @@ const Footer = () => {
                 <i className="bi bi-telegram text-lg"></i>
               </a>
               <a 
-                href="https://chat.whatsapp.com/BvmEcyxnRsKAI64ht8LQls" 
+                href={WHATSAPP_GROUP_URL} 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-white/5 hover:bg-[#ccff00] hover:text-black hover:scale-105 transition-all rounded-xl w-11 h-11 flex justify-center items-center text-white border border-white/10"
