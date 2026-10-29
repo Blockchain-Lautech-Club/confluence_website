@@ -103,6 +103,15 @@ export const speakers: Speaker[] = [
     topic: "Student Innovation & Blockchain Advisory",
     confirmed: true,
   },
+  {
+    id: 9,
+    name: "Prof. Oluyinka T. Adedeji",
+    title: ["HOD, Department of Information Systems, LAUTECH"],
+    image: "/adedeji.jpg",
+    imageClass: "object-top",
+    topic: "Building relevant skills for the digital economy",
+    confirmed: true,
+  },
 
   // ── Mystery / TBA speakers ──
   // {
