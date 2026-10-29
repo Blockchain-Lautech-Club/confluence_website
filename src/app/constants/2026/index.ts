@@ -356,5 +356,13 @@ export const partnerLogos: PartnerLogo[] = [
     height: 70,
     category: "Ecosystem Partner",
     bg: "bg-white",
+  },
+  {
+    src: "/inssa-logo.png",
+    alt: "INSSA - Information Systems Students Association, LAUTECH",
+    width: 160,
+    height: 70,
+    category: "Ecosystem Partner",
+    bg: "bg-white",
   }
 ];
