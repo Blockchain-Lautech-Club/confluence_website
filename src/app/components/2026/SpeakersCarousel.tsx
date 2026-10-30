@@ -75,14 +75,14 @@ export default function SpeakersCarousel() {
           {/* Confirmed speakers */}
           {confirmedSpeakers.map((speaker) => (
             <SwiperSlide key={speaker.id} className="h-full">
-              <div className="group bg-black/40 hover:bg-black/60 border border-white/10 hover:border-[#ccff00]/50 rounded-3xl p-6 shadow-sm hover:shadow-[0_0_30px_rgba(204,255,0,0.12)] transition-all duration-300 flex flex-col justify-between h-[450px] transform hover:-translate-y-2 relative overflow-hidden backdrop-blur-sm">
+              <div className="group bg-black/40 hover:bg-black/60 border border-white/10 hover:border-[#ccff00]/50 rounded-3xl p-5 sm:p-6 shadow-sm hover:shadow-[0_0_30px_rgba(204,255,0,0.12)] transition-all duration-300 flex flex-col justify-between h-[490px] sm:h-[460px] transform hover:-translate-y-2 relative overflow-hidden backdrop-blur-sm">
 
                 {/* Gradient top bar */}
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#286cfd] to-[#ccff00] opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 <div className="space-y-4">
                   {/* Speaker photo */}
-                  <div className="aspect-square w-full rounded-2xl overflow-hidden relative shadow-inner border border-white/5">
+                  <div className="aspect-square w-full max-w-[270px] sm:max-w-none mx-auto rounded-2xl overflow-hidden relative shadow-inner border border-white/5">
                     <Image
                       src={speaker.image}
                       alt={speaker.name}
@@ -95,10 +95,10 @@ export default function SpeakersCarousel() {
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-black text-white uppercase tracking-tight mb-1 group-hover:text-[#ccff00] transition-colors duration-300">
+                  <h4 className="text-base sm:text-lg font-black text-white uppercase tracking-tight leading-snug mb-1.5 group-hover:text-[#ccff00] transition-colors duration-300">
                     {speaker.name}
                   </h4>
-                  <p className="text-slate-400 font-bold text-xs uppercase tracking-wider group-hover:text-slate-300 transition-colors duration-300">
+                  <p className="text-slate-400 font-bold text-xs uppercase tracking-wider group-hover:text-slate-300 transition-colors duration-300 leading-relaxed">
                     {speaker.title.join(' · ')}
                   </p>
                 </div>
@@ -110,14 +110,14 @@ export default function SpeakersCarousel() {
           {/* Mystery placeholder speakers */}
           {placeholderSpeakers.map((speaker) => (
             <SwiperSlide key={speaker.id} className="h-full">
-              <div className="group bg-black/40 hover:bg-black/60 border border-white/10 hover:border-[#286cfd]/50 rounded-3xl p-6 shadow-sm hover:shadow-[0_0_30px_rgba(40,108,253,0.15)] transition-all duration-300 flex flex-col justify-between h-[450px] transform hover:-translate-y-2 relative overflow-hidden backdrop-blur-sm">
+              <div className="group bg-black/40 hover:bg-black/60 border border-white/10 hover:border-[#286cfd]/50 rounded-3xl p-5 sm:p-6 shadow-sm hover:shadow-[0_0_30px_rgba(40,108,253,0.15)] transition-all duration-300 flex flex-col justify-between h-[490px] sm:h-[460px] transform hover:-translate-y-2 relative overflow-hidden backdrop-blur-sm">
                 
                 {/* Neon-like top border line always present, brightens on hover */}
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-[#286cfd] to-[#ccff00] opacity-30 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 <div className="space-y-4">
                   {/* Giant mysterious question mark block */}
-                  <div className="aspect-square w-full rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center relative overflow-hidden shadow-inner group-hover:bg-[#286cfd]/5 transition-colors duration-300">
+                  <div className="aspect-square w-full max-w-[270px] sm:max-w-none mx-auto rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center relative overflow-hidden shadow-inner group-hover:bg-[#286cfd]/5 transition-colors duration-300">
                     <span className="text-4xl sm:text-5xl font-black text-white/10 tracking-widest group-hover:text-[#ccff00]/30 group-hover:scale-110 transition-all duration-500">
                       ???
                     </span>
@@ -126,10 +126,10 @@ export default function SpeakersCarousel() {
                 </div>
 
                 <div>
-                  <h4 className="text-lg font-black text-white uppercase tracking-tight mb-1 group-hover:text-[#ccff00] transition-colors duration-300">
+                  <h4 className="text-base sm:text-lg font-black text-white uppercase tracking-tight leading-snug mb-1.5 group-hover:text-[#ccff00] transition-colors duration-300">
                     {speaker.name}
                   </h4>
-                  <p className="text-slate-400 font-bold text-xs uppercase tracking-wider group-hover:text-slate-300 transition-colors duration-300">
+                  <p className="text-slate-400 font-bold text-xs uppercase tracking-wider group-hover:text-slate-300 transition-colors duration-300 leading-relaxed">
                     {speaker.title.join(' · ')}
                   </p>
                 </div>

@@ -188,7 +188,8 @@ const scheduleData: DayData[] = [
           'Live builds & ecosystem project demos',
           'Competitive developer challenges',
           '$100 in rewards for participating builders'
-        ]
+        ],
+        registerUrl: 'https://www.crenelle.org/register/developers-track-confluence-2-0-f637'
       }
     ]
   },

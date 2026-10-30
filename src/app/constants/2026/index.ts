@@ -112,6 +112,16 @@ export const speakers: Speaker[] = [
     topic: "Building relevant skills for the digital economy",
     confirmed: true,
   },
+  {
+    id: 10,
+    name: "Eniola Mercy",
+    title: ["Legal Practitioner"],
+    image: "/eniola.jpg",
+    imageClass: "object-top",
+    // track: "KEYNOTE",
+    topic: "Legal & Regulation: What does the Nigerian Law say about Blockchain & Crypto?",
+    confirmed: true,
+  },
 
   // ── Mystery / TBA speakers ──
   // {
