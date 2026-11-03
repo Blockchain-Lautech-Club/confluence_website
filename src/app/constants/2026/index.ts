@@ -17,7 +17,7 @@ export interface Speaker {
   /** Track this speaker is associated with */
   // track: string;
   /** Short topic / talk description */
-  topic: string;
+  topic?: string;
   /** Whether this is a confirmed speaker or a mystery placeholder */
   confirmed: boolean;
 }
@@ -120,6 +120,42 @@ export const speakers: Speaker[] = [
     imageClass: "object-top",
     // track: "KEYNOTE",
     topic: "Legal & Regulation: What does the Nigerian Law say about Blockchain & Crypto?",
+    confirmed: true,
+  },
+  {
+    id: 11,
+    name: "Adenola Ramadan (Netrovert)",
+    title: ["Web3 Content Strategist and Writer"],
+    image: "/ramadan.jpg",
+    imageClass: "object-top",
+    topic: "Web3 Content Strategy & Writing",
+    confirmed: true,
+  },
+  {
+    id: 12,
+    name: "Awosika Israel Ayodeji",
+    title: ["Founder, Web3Bridge"],
+    image: "/awosika.jpg",
+    imageClass: "object-top",
+    topic: "Developer Onboarding & Ecosystem Growth",
+    confirmed: true,
+  },
+  {
+    id: 13,
+    name: "Omega Wolf",
+    title: ["Videographer", "ZecHub Social Media Manager"],
+    image: "/omegawolf.jpg",
+    imageClass: "object-center",
+    topic: "Decentralized Media & Visual Storytelling",
+    confirmed: true,
+  },
+  {
+    id: 14,
+    name: "Ebenezer Udofa",
+    title: ["Web3 Marketer and Content Creator"],
+    image: "/udofa.jpg",
+    imageClass: "object-top",
+    topic: "Web3 Marketing & Content Creation",
     confirmed: true,
   },
 
@@ -383,5 +419,14 @@ export const partnerLogos: PartnerLogo[] = [
     height: 70,
     category: "Ecosystem Partner",
     bg: "bg-white",
+  },
+  {
+    src: "/jci.png",
+    alt: "JCI",
+    width: 140,
+    height: 70,
+    category: "Community Partner",
+    bg: "bg-white",
+    padding: "p-2",
   }
 ];

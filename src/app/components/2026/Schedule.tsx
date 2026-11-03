@@ -70,7 +70,7 @@ const scheduleData: DayData[] = [
     sessions: [
       {
         time: '9:00 AM',
-        title: 'The Human Layer: Unplugged Room (Strictly 50 Seats)',
+        title: 'The Human Layer: Unplugged Room (Strictly 30 Seats)',
         description: 'Phone-free, technology-free environment for human-centered conversations on building, failure, burnout, and student developer journeys. Replacing traditional tech panels with raw human stories.',
         venue: 'Closed Door',
         track: 'Human Layer',

@@ -13,7 +13,7 @@ const tracks = [
     color: '#b45cf4',
     bgGradient: 'linear-gradient(135deg, #1a0a2e 0%, #2d1154 100%)',
     borderColor: '#b45cf4',
-    badge: 'Premium · Capped at 50',
+    badge: 'Premium · Capped at 30',
     badgeBg: '#2d1154',
     badgeText: '#d89fff',
     icon: Heart,

@@ -36,7 +36,7 @@ const HumanLayer = () => {
             <div className="bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-3xl flex flex-col justify-between hover:border-white/20 transition-colors">
               <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 block">Capacity Limit</span>
               <div className="flex items-baseline gap-2">
-                <span className="text-5xl font-black text-white font-mono">50</span>
+                <span className="text-5xl font-black text-white font-mono">30</span>
                 <span className="text-slate-400 text-sm font-bold uppercase tracking-wider">Attendees Only</span>
               </div>
               <div className="pt-4">
