@@ -6,7 +6,7 @@ import { ChevronDown } from 'lucide-react'
 const faqs = [
   {
     question: "Is Confluence 2.0 free to attend?",
-    answer: "General registration for the Community Track is completely free. However, 'The Human Layer' is a premium, capped experience (50 people), and the Founders Track requires an application and approval to attend."
+    answer: "General registration for the Community Track is completely free. However, 'The Human Layer' is a premium, capped experience (30 people), and the Founders Track requires an application and approval to attend."
   },
   {
     question: "How do I get selected for the Founders Track?",
