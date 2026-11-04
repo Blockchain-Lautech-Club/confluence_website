@@ -21,12 +21,10 @@ import {
   MapPin,
   Twitter,
   ChevronDown,
-  AlertCircle,
-  Image as ImageIcon
+  AlertCircle
 } from 'lucide-react';
 
 type AspectRatio = 'square' | 'story';
-type TemplateStyle = 'official' | 'cyber';
 
 const CONFLUENCE_THEME = {
   id: 'lime',
@@ -60,7 +58,6 @@ export default function AvatarGeneratorPage() {
   const [handle, setHandle] = useState<string>('');
   const theme = CONFLUENCE_THEME;
   const [aspectRatio, setAspectRatio] = useState<AspectRatio>('square');
-  const [template, setTemplate] = useState<TemplateStyle>('official');
 
   // Image & Transform State
   const [userImage, setUserImage] = useState<HTMLImageElement | null>(null);
@@ -130,9 +127,13 @@ export default function AvatarGeneratorPage() {
     // ──────────────────────────────────────────
     // 1. BACKGROUND RENDERING
     // ──────────────────────────────────────────
-    if (template === 'official' && bgImage) {
+    if (bgImage) {
       // Draw official Confluence 2026 Key Art
       ctx.drawImage(bgImage, 0, 0, W, H);
+    } else {
+      ctx.fillStyle = '#06080d';
+      ctx.fillRect(0, 0, W, H);
+    }
 
       // Central dark focus card to frame the attendee's photo and details
       const cardW = isSquare ? 760 : 820;
@@ -324,292 +325,7 @@ export default function AvatarGeneratorPage() {
       ctx.fillText('NOV 12–14, 2026  •  THE ASSEMBLY, OGBOMOSO', W / 2, dateVenueY);
       ctx.letterSpacing = '0px';
 
-    } else {
-      // ──────────────────────────────────────────
-      // CYBER OBSIDIAN TEMPLATE
-      // ──────────────────────────────────────────
-      const bgGradient = ctx.createLinearGradient(0, 0, W, H);
-      bgGradient.addColorStop(0, '#06080d');
-      bgGradient.addColorStop(0.5, '#040508');
-      bgGradient.addColorStop(1, '#020305');
-      ctx.fillStyle = bgGradient;
-      ctx.fillRect(0, 0, W, H);
-
-      // Radial neon glow
-      const primaryGlow = ctx.createRadialGradient(
-        W * 0.5,
-        isSquare ? 420 : 680,
-        50,
-        W * 0.5,
-        isSquare ? 420 : 680,
-        isSquare ? 520 : 700
-      );
-      primaryGlow.addColorStop(0, theme.glow);
-      primaryGlow.addColorStop(0.6, 'rgba(40, 108, 253, 0.12)');
-      primaryGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      ctx.fillStyle = primaryGlow;
-      ctx.fillRect(0, 0, W, H);
-
-      // Tech grid
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.035)';
-      ctx.lineWidth = 1;
-      const gridSize = isSquare ? 60 : 72;
-      for (let x = 0; x <= W; x += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, H);
-        ctx.stroke();
-      }
-      for (let y = 0; y <= H; y += gridSize) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(W, y);
-        ctx.stroke();
-      }
-
-      // Corner brackets
-      const margin = isSquare ? 48 : 56;
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
-      ctx.lineWidth = 1.5;
-      ctx.strokeRect(margin, margin, W - margin * 2, H - margin * 2);
-
-      const bracketSize = 32;
-      ctx.strokeStyle = theme.primary;
-      ctx.lineWidth = 3.5;
-      // Top-Left
-      ctx.beginPath();
-      ctx.moveTo(margin, margin + bracketSize);
-      ctx.lineTo(margin, margin);
-      ctx.lineTo(margin + bracketSize, margin);
-      ctx.stroke();
-      // Top-Right
-      ctx.beginPath();
-      ctx.moveTo(W - margin - bracketSize, margin);
-      ctx.lineTo(W - margin, margin);
-      ctx.lineTo(W - margin, margin + bracketSize);
-      ctx.stroke();
-      // Bottom-Left
-      ctx.beginPath();
-      ctx.moveTo(margin, H - margin - bracketSize);
-      ctx.lineTo(margin, H - margin);
-      ctx.lineTo(margin + bracketSize, H - margin);
-      ctx.stroke();
-      // Bottom-Right
-      ctx.beginPath();
-      ctx.moveTo(W - margin - bracketSize, H - margin);
-      ctx.lineTo(W - margin, H - margin);
-      ctx.lineTo(W - margin, H - margin - bracketSize);
-      ctx.stroke();
-
-      // Top Header
-      const headerY = isSquare ? 100 : 160;
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
-      ctx.font = '700 13px Montserrat, sans-serif';
-      ctx.textAlign = 'center';
-      ctx.letterSpacing = '6px';
-      ctx.fillText('BLOCKCHAIN LAUTECH PRESENTS', W / 2, headerY);
-      ctx.letterSpacing = '0px';
-
-      ctx.fillStyle = '#ffffff';
-      ctx.font = '900 44px Montserrat, sans-serif';
-      ctx.fillText('CONFLUENCE', W / 2 - 42, headerY + 50);
-
-      ctx.fillStyle = theme.primary;
-      ctx.font = '900 44px Montserrat, sans-serif';
-      ctx.fillText('2.0', W / 2 + 138, headerY + 50);
-
-      const pillY = headerY + 84;
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.06)';
-      const pillW = 260;
-      const pillH = 26;
-      ctx.beginPath();
-      ctx.roundRect(W / 2 - pillW / 2, pillY - 18, pillW, pillH, 13);
-      ctx.fill();
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
-      ctx.lineWidth = 1;
-      ctx.stroke();
-
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
-      ctx.font = '800 11px Montserrat, sans-serif';
-      ctx.letterSpacing = '3px';
-      ctx.fillText('CODE  •  CREATE  •  CONNECT', W / 2, pillY);
-      ctx.letterSpacing = '0px';
-
-      // Photo Frame
-      const frameSize = isSquare ? 380 : 540;
-      const frameX = W / 2 - frameSize / 2;
-      const frameY = isSquare ? 260 : 420;
-      const borderRadius = isSquare ? 42 : 56;
-
-      ctx.save();
-      ctx.shadowColor = theme.primary;
-      ctx.shadowBlur = 28;
-      ctx.strokeStyle = theme.primary;
-      ctx.lineWidth = 4;
-      ctx.beginPath();
-      ctx.roundRect(frameX, frameY, frameSize, frameSize, borderRadius);
-      ctx.stroke();
-      ctx.restore();
-
-      ctx.save();
-      ctx.beginPath();
-      ctx.roundRect(frameX, frameY, frameSize, frameSize, borderRadius);
-      ctx.clip();
-
-      if (userImage) {
-        const imgRatio = userImage.width / userImage.height;
-        let drawW: number;
-        let drawH: number;
-
-        if (imgRatio > 1) {
-          drawH = frameSize * zoom;
-          drawW = drawH * imgRatio;
-        } else {
-          drawW = frameSize * zoom;
-          drawH = drawW / imgRatio;
-        }
-
-        const drawX = frameX + (frameSize - drawW) / 2 + panX;
-        const drawY = frameY + (frameSize - drawH) / 2 + panY;
-
-        ctx.drawImage(userImage, drawX, drawY, drawW, drawH);
-
-        const vignette = ctx.createLinearGradient(0, frameY, 0, frameY + frameSize);
-        vignette.addColorStop(0, 'rgba(0, 0, 0, 0.25)');
-        vignette.addColorStop(0.7, 'rgba(0, 0, 0, 0)');
-        vignette.addColorStop(1, 'rgba(0, 0, 0, 0.55)');
-        ctx.fillStyle = vignette;
-        ctx.fillRect(frameX, frameY, frameSize, frameSize);
-      } else {
-        // Minimalist stylish avatar silhouette placeholder
-        ctx.fillStyle = '#090a0f';
-        ctx.fillRect(frameX, frameY, frameSize, frameSize);
-
-        const centerX = frameX + frameSize / 2;
-        const centerY = frameY + frameSize / 2 - 12;
-
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.12)';
-        ctx.beginPath();
-        ctx.arc(centerX, centerY - 25, 52, 0, Math.PI * 2);
-        ctx.fill();
-
-        ctx.beginPath();
-        ctx.arc(centerX, centerY + 95, 88, Math.PI * 1.1, Math.PI * 1.9);
-        ctx.fill();
-
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
-        ctx.font = '800 12px Montserrat, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.letterSpacing = '2px';
-        ctx.fillText('UPLOAD PHOTO', centerX, frameY + frameSize - 40);
-        ctx.letterSpacing = '0px';
-      }
-      ctx.restore();
-
-      // Ribbon (2 lines)
-      const ribbonY = frameY + frameSize - 24;
-      const ribbonW = isSquare ? 280 : 330;
-      const ribbonH = isSquare ? 54 : 60;
-
-      ctx.save();
-      ctx.shadowColor = theme.primary;
-      ctx.shadowBlur = 24;
-
-      ctx.fillStyle = theme.primary;
-      ctx.beginPath();
-      ctx.roundRect(W / 2 - ribbonW / 2, ribbonY, ribbonW, ribbonH, ribbonH / 2);
-      ctx.fill();
-
-      ctx.strokeStyle = '#000000';
-      ctx.lineWidth = 2;
-      ctx.stroke();
-      ctx.restore();
-
-      ctx.fillStyle = '#000000';
-      ctx.textAlign = 'center';
-
-      // Line 1: "I WILL BE AT"
-      ctx.font = isSquare ? '900 12px Montserrat, sans-serif' : '900 13px Montserrat, sans-serif';
-      ctx.letterSpacing = '2.5px';
-      ctx.fillText('I WILL BE AT', W / 2, ribbonY + (isSquare ? 22 : 24));
-
-      // Line 2: "CONFLUENCE 2.0"
-      ctx.font = isSquare ? '900 16px Montserrat, sans-serif' : '900 18px Montserrat, sans-serif';
-      ctx.letterSpacing = '1.5px';
-      ctx.fillText('CONFLUENCE 2.0', W / 2, ribbonY + (isSquare ? 42 : 46));
-      ctx.letterSpacing = '0px';
-
-      // Attendee Name
-      const infoStartY = isSquare ? 730 : 1060;
-      const hasName = Boolean(name.trim());
-      const displayName = hasName ? name.trim().toUpperCase() : 'YOUR NAME';
-      ctx.fillStyle = hasName ? '#ffffff' : 'rgba(255, 255, 255, 0.4)';
-      ctx.textAlign = 'center';
-
-      let nameFontSize = isSquare ? 44 : 56;
-      if (displayName.length > 20) nameFontSize = isSquare ? 32 : 40;
-      else if (displayName.length > 14) nameFontSize = isSquare ? 38 : 48;
-
-      ctx.font = `900 ${nameFontSize}px Montserrat, sans-serif`;
-      ctx.fillText(displayName, W / 2, infoStartY);
-
-      // Attendee Role
-      const rolePillY = infoStartY + (isSquare ? 42 : 54);
-      const roleText = (activeRole.trim() || 'ATTENDEE').toUpperCase();
-      ctx.font = '800 14px Montserrat, sans-serif';
-      const roleTextWidth = ctx.measureText(roleText).width;
-      const rolePillWidth = Math.max(200, roleTextWidth + 48);
-      const rolePillHeight = 34;
-
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.07)';
-      ctx.beginPath();
-      ctx.roundRect(W / 2 - rolePillWidth / 2, rolePillY - 22, rolePillWidth, rolePillHeight, 17);
-      ctx.fill();
-
-      ctx.strokeStyle = theme.primary;
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
-
-      ctx.fillStyle = theme.primary;
-      ctx.letterSpacing = '2px';
-      ctx.fillText(roleText, W / 2, rolePillY);
-      ctx.letterSpacing = '0px';
-
-      const hasHandle = Boolean(handle.trim());
-      const cleanHandle = hasHandle ? handle.trim() : '@yourhandle';
-      const handleY = rolePillY + (isSquare ? 34 : 44);
-      ctx.fillStyle = hasHandle ? 'rgba(255, 255, 255, 0.55)' : 'rgba(255, 255, 255, 0.3)';
-      ctx.font = '600 15px Montserrat, sans-serif';
-      ctx.fillText(cleanHandle.startsWith('@') ? cleanHandle : `@${cleanHandle}`, W / 2, handleY);
-
-      // Footer
-      const footerY = isSquare ? 970 : 1720;
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.moveTo(W / 2 - 240, footerY - 45);
-      ctx.lineTo(W / 2 + 240, footerY - 45);
-      ctx.stroke();
-
-      ctx.fillStyle = '#ffffff';
-      ctx.font = '800 17px Montserrat, sans-serif';
-      ctx.letterSpacing = '1.5px';
-      ctx.fillText('NOVEMBER 12–14, 2026', W / 2, footerY - 18);
-
-      ctx.fillStyle = theme.primary;
-      ctx.font = '700 13px Montserrat, sans-serif';
-      ctx.letterSpacing = '2px';
-      ctx.fillText('THE ASSEMBLY  •  OGBOMOSO, NIGERIA', W / 2, footerY + 8);
-      ctx.letterSpacing = '0px';
-
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
-      ctx.font = '600 12px Montserrat, sans-serif';
-      ctx.letterSpacing = '1px';
-      ctx.fillText('#Confluence2026  •  confluence.blockchainlautech.club', W / 2, footerY + 34);
-      ctx.letterSpacing = '0px';
-    }
-
-  }, [name, activeRole, handle, theme, aspectRatio, template, userImage, bgImage, zoom, panX, panY]);
+  }, [name, activeRole, handle, theme, aspectRatio, userImage, bgImage, zoom, panX, panY]);
 
   // Redraw whenever parameters change
   useEffect(() => {
@@ -1002,42 +718,10 @@ export default function AvatarGeneratorPage() {
               </div>
             </div>
 
-            {/* 3. Flyer Template & Size */}
+            {/* 3. Flyer Format & Size */}
             <div className="space-y-4 pt-4 border-t border-white/10">
-              {/* Template Style Switcher */}
-              <div className="space-y-2.5">
-                <label className="text-xs font-black uppercase tracking-wider text-slate-300 flex items-center gap-2">
-                  <ImageIcon className="w-3.5 h-3.5 text-[#ccff00]" /> Flyer Template
-                </label>
-                <div className="grid grid-cols-2 gap-3">
-                  <button
-                    type="button"
-                    onClick={() => setTemplate('official')}
-                    className={`py-3 px-3 rounded-2xl border text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${
-                      template === 'official'
-                        ? 'bg-[#ccff00] text-black border-[#ccff00] shadow-[0_0_20px_rgba(204,255,0,0.3)]'
-                        : 'bg-white/5 text-slate-300 border-white/10 hover:border-white/30'
-                    }`}
-                  >
-                    Official 2026 Art
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setTemplate('cyber')}
-                    className={`py-3 px-3 rounded-2xl border text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${
-                      template === 'cyber'
-                        ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.25)]'
-                        : 'bg-white/5 text-slate-300 border-white/10 hover:border-white/30'
-                    }`}
-                  >
-                    <Layers className="w-3.5 h-3.5" />
-                    Obsidian Cyber
-                  </button>
-                </div>
-              </div>
-
               {/* Format Toggle (1:1 vs 9:16) */}
-              <div className="space-y-2.5 pt-3 border-t border-white/10">
+              <div className="space-y-2.5">
                 <label className="text-xs font-black uppercase tracking-wider text-slate-300 flex items-center gap-2">
                   <Layers className="w-3.5 h-3.5 text-[#ccff00]" /> Format / Size
                 </label>

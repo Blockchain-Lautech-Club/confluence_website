@@ -158,6 +158,24 @@ export const speakers: Speaker[] = [
     topic: "Web3 Marketing & Content Creation",
     confirmed: true,
   },
+  {
+    id: 15,
+    name: "Jeremiah Oyeniran",
+    title: ["Co-founder & CTO, FaucetDrops"],
+    image: "/jeremiah.jpg",
+    imageClass: "object-top",
+    topic: "Web3 Infrastructure & Faucet Systems",
+    confirmed: true,
+  },
+  {
+    id: 16,
+    name: "Faith M. Roberts",
+    title: ["Venture Scout at LVL UP Ventures"],
+    image: "/faithroberts.jpg",
+    imageClass: "object-center",
+    topic: "Venture Scouting & Early-Stage Startup Growth",
+    confirmed: true,
+  },
 
   // ── Mystery / TBA speakers ──
   // {
