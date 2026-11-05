@@ -21,10 +21,30 @@ import {
   MapPin,
   Twitter,
   ChevronDown,
-  AlertCircle
+  AlertCircle,
+  Gift,
+  Sparkles,
+  X,
+  Trophy,
+  ExternalLink
 } from 'lucide-react';
 
 type AspectRatio = 'square' | 'story';
+
+interface GiftRollData {
+  rolled: boolean;
+  won: boolean;
+  code?: string;
+  timestamp?: number;
+}
+
+const OFFICIAL_WINNING_CODES = [
+  'USDT-CONF-8F2X9',
+  'USDT-CONF-4M7KP',
+  'USDT-CONF-9V3TL',
+  'USDT-CONF-6R8QH',
+  'USDT-CONF-2W5NY',
+] as const;
 
 const CONFLUENCE_THEME = {
   id: 'lime',
@@ -67,6 +87,114 @@ export default function AvatarGeneratorPage() {
   const [panY, setPanY] = useState<number>(0);
   const [copied, setCopied] = useState<boolean>(false);
   const [isExporting, setIsExporting] = useState<boolean>(false);
+
+  // Lucky USDT Gift State
+  const [isGiftModalOpen, setIsGiftModalOpen] = useState<boolean>(false);
+  const [giftRoll, setGiftRoll] = useState<GiftRollData | null>(null);
+  const [isRolling, setIsRolling] = useState<boolean>(false);
+  const [bep20Address, setBep20Address] = useState<string>('');
+  const [postLink, setPostLink] = useState<string>('');
+  const [copiedClaim, setCopiedClaim] = useState<boolean>(false);
+  const [copiedCode, setCopiedCode] = useState<boolean>(false);
+
+  // Load lucky gift status from localStorage
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined') {
+        const params = new URLSearchParams(window.location.search);
+        const testWinParam = params.get('test_win');
+        if (testWinParam !== null) {
+          const codeIndex = parseInt(testWinParam, 10);
+          const chosenCode = (!isNaN(codeIndex) && codeIndex >= 1 && codeIndex <= 5)
+            ? OFFICIAL_WINNING_CODES[codeIndex - 1]
+            : OFFICIAL_WINNING_CODES[0];
+
+          setGiftRoll({
+            rolled: true,
+            won: true,
+            code: chosenCode,
+            timestamp: Date.now(),
+          });
+          return;
+        }
+      }
+      const saved = localStorage.getItem('confluence_usdt_gift_v1');
+      if (saved) {
+        setGiftRoll(JSON.parse(saved));
+      }
+    } catch {
+      // ignore
+    }
+  }, []);
+
+  const rollLuckyBox = () => {
+    if (isRolling) return;
+    setIsRolling(true);
+
+    setTimeout(() => {
+      // 5% chance (1 in 20, or debug override via ?test_win=true or ?test_win=1..5)
+      const params = typeof window !== 'undefined' ? new URLSearchParams(window.location.search) : null;
+      const isTestWin = params?.get('test_win') !== null;
+      const isLucky = isTestWin || Math.random() < 0.05;
+
+      let chosenCode: string | undefined = undefined;
+      if (isLucky) {
+        if (isTestWin && params) {
+          const codeIndex = parseInt(params.get('test_win') || '1', 10);
+          chosenCode = (!isNaN(codeIndex) && codeIndex >= 1 && codeIndex <= 5)
+            ? OFFICIAL_WINNING_CODES[codeIndex - 1]
+            : OFFICIAL_WINNING_CODES[0];
+        } else {
+          chosenCode = OFFICIAL_WINNING_CODES[Math.floor(Math.random() * OFFICIAL_WINNING_CODES.length)];
+        }
+      }
+
+      const newRoll: GiftRollData = {
+        rolled: true,
+        won: isLucky,
+        code: chosenCode,
+        timestamp: Date.now(),
+      };
+
+      try {
+        localStorage.setItem('confluence_usdt_gift_v1', JSON.stringify(newRoll));
+      } catch {
+        // ignore
+      }
+
+      setGiftRoll(newRoll);
+      setIsRolling(false);
+
+      if (isLucky) {
+        confetti({
+          particleCount: 120,
+          spread: 90,
+          origin: { y: 0.5 },
+          colors: ['#ccff00', '#22c55e', '#fbbf24', '#ffffff'],
+        });
+      }
+    }, 1800);
+  };
+
+  const getClaimMessage = () => {
+    const claimerName = name.trim() || 'Attendee';
+    const code = giftRoll?.code || 'USDT-CONF-8F2X9';
+    const wallet = bep20Address.trim() || '[Paste here]';
+    const post = postLink.trim() || '[Paste here]';
+
+    return `Hi! I just unlocked the Lucky USDT Drop on the Confluence DP Generator! 🎉\nName: ${claimerName}\nClaim Code: ${code}\nMy USDT (BEP20) Address: ${wallet}\nthis is my post link: ${post}`;
+  };
+
+  const handleClaimWhatsApp = () => {
+    const text = encodeURIComponent(getClaimMessage());
+    window.open(`https://wa.me/2349075166596?text=${text}`, '_blank');
+  };
+
+  const handleCopyClaim = () => {
+    navigator.clipboard.writeText(getClaimMessage());
+    setCopiedClaim(true);
+    setTimeout(() => setCopiedClaim(false), 2500);
+  };
 
   // Canvas Refs
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -352,6 +480,11 @@ export default function AvatarGeneratorPage() {
         origin: { y: 0.6 },
         colors: [theme.primary, theme.secondary, '#ffffff', '#fbbf24'],
       });
+
+      // Automatically invite user to check the Lucky USDT Drop!
+      setTimeout(() => {
+        setIsGiftModalOpen(true);
+      }, 1000);
     } finally {
       setIsExporting(false);
     }
@@ -515,6 +648,35 @@ export default function AvatarGeneratorPage() {
                   <Share2 className="w-3.5 h-3.5 text-emerald-400" /> WhatsApp
                 </button>
               </div>
+
+              {/* Lucky USDT Drop Teaser Card / Button */}
+              <button
+                type="button"
+                onClick={() => setIsGiftModalOpen(true)}
+                className="w-full bg-gradient-to-r from-emerald-950/70 via-black/90 to-blue-950/70 hover:from-emerald-900/90 hover:to-blue-900/90 border border-emerald-400/40 hover:border-[#ccff00] p-2.5 sm:p-3 rounded-xl sm:rounded-2xl flex items-center justify-between gap-2.5 transition-all duration-300 shadow-[0_0_20px_rgba(34,197,94,0.15)] group cursor-pointer text-left"
+              >
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <Gift className="w-4 h-4 text-[#ccff00] animate-pulse" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      <span className="text-[11px] sm:text-xs font-black uppercase tracking-wider text-white">
+                        Lucky USDT Drop
+                      </span>
+                      <span className="bg-[#ccff00]/20 text-[#ccff00] border border-[#ccff00]/40 text-[9px] font-black px-1.5 py-0.2 rounded uppercase">
+                        Mystery Drop
+                      </span>
+                    </div>
+                    <p className="text-[10px] text-slate-400 font-medium truncate">
+                      {giftRoll?.rolled
+                        ? (giftRoll.won ? '🏆 You won! Tap to view claim details' : '🎁 Post your DP anyway — surprise gifts ongoing!')
+                        : '5 Lucky winners total · Tap to open box'}
+                    </p>
+                  </div>
+                </div>
+                <Sparkles className="w-4 h-4 text-[#ccff00] flex-shrink-0 group-hover:rotate-12 transition-transform" />
+              </button>
 
               {/* Clickable single-line scroll indicator */}
               <button
@@ -780,6 +942,215 @@ export default function AvatarGeneratorPage() {
         </div>
 
       </main>
+
+      {/* ── LUCKY USDT DROP MODAL ── */}
+      {isGiftModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="relative bg-[#0c1017] border border-white/20 rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-[0_0_50px_rgba(0,0,0,0.9)] overflow-hidden">
+            
+            {/* Ambient Background Glow */}
+            <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#ccff00]/10 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Close Button */}
+            <button
+              type="button"
+              onClick={() => setIsGiftModalOpen(false)}
+              className="absolute top-4 right-4 text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 p-2 rounded-full transition-colors cursor-pointer z-10"
+              aria-label="Close modal"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            {/* Modal Content */}
+            {!giftRoll?.rolled ? (
+              // ── UNOPENED STATE ──
+              <div className="text-center space-y-5">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-[#ccff00]/20 border border-[#ccff00]/40 mx-auto flex items-center justify-center shadow-[0_0_30px_rgba(204,255,0,0.2)]">
+                  <Gift className={`w-8 h-8 text-[#ccff00] ${isRolling ? 'animate-bounce' : 'animate-pulse'}`} />
+                </div>
+
+                <div>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/60 border border-emerald-500/40 text-[10px] font-black uppercase tracking-widest text-emerald-400 mb-2">
+                    <Sparkles className="w-3 h-3 text-[#ccff00]" /> 5 Lucky Winners Total
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-black text-white uppercase tracking-tight">
+                    Lucky USDT Airdrop
+                  </h3>
+                  <p className="text-slate-400 text-xs sm:text-sm mt-1.5 leading-relaxed">
+                    Test your luck! 5 randomly selected attendees who generate their Confluence 2.0 badge win a <strong className="text-[#ccff00]">Mystery USDT Drop (BEP20)</strong>.
+                  </p>
+                </div>
+
+                <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 text-left text-xs space-y-1.5 text-slate-300">
+                  <p className="font-bold text-white flex items-center gap-1.5">
+                    <Check className="w-3.5 h-3.5 text-[#ccff00]" /> Rules to Claim if you win:
+                  </p>
+                  <p className="text-[11px] text-slate-400">• Post your DP on X or WhatsApp status with #Confluence2026</p>
+                  <p className="text-[11px] text-slate-400">• Send your unique Claim Code, BEP20 address &amp; post link</p>
+                  <p className="text-[11px] text-slate-400">• First 5 verified winners receive the USDT reward</p>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={rollLuckyBox}
+                  disabled={isRolling}
+                  className="w-full bg-[#ccff00] hover:bg-[#b5e000] text-black font-black py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2 cursor-pointer transition-all uppercase tracking-wider text-xs sm:text-sm shadow-[0_0_25px_rgba(204,255,0,0.35)] hover:scale-[1.02] active:scale-[0.99] disabled:opacity-60"
+                >
+                  <Gift className="w-4 h-4" />
+                  <span>{isRolling ? 'Opening Box...' : 'Open My Lucky Box'}</span>
+                </button>
+              </div>
+            ) : giftRoll.won ? (
+              // ── WINNER STATE ──
+              <div className="text-center space-y-4">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#ccff00]/30 to-emerald-400/30 border border-[#ccff00] mx-auto flex items-center justify-center shadow-[0_0_40px_rgba(204,255,0,0.4)] animate-pulse">
+                  <Trophy className="w-8 h-8 text-[#ccff00]" />
+                </div>
+
+                <div>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#ccff00]/20 border border-[#ccff00]/60 text-[10px] font-black uppercase tracking-widest text-[#ccff00] mb-1.5">
+                    🎉 Winner! 1 of 5 Lucky Attendees
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-black text-white uppercase tracking-tight">
+                    You Won $1 USDT!
+                  </h3>
+                  <p className="text-slate-300 text-xs mt-1">
+                    Congratulations! Post your DP and submit your claim below:
+                  </p>
+                </div>
+
+                {/* Claim Code Box */}
+                <div className="bg-black/60 border border-[#ccff00]/40 rounded-2xl p-3 flex items-center justify-between gap-2">
+                  <div className="text-left">
+                    <span className="text-[9px] uppercase font-bold text-slate-400 block tracking-wider">Your Claim Code</span>
+                    <span className="text-sm sm:text-base font-mono font-black text-[#ccff00] tracking-wider">
+                      {giftRoll.code}
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (giftRoll.code) {
+                        navigator.clipboard.writeText(giftRoll.code);
+                        setCopiedCode(true);
+                        setTimeout(() => setCopiedCode(false), 2000);
+                      }
+                    }}
+                    className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold transition-all text-white flex items-center gap-1 cursor-pointer"
+                  >
+                    {copiedCode ? <Check className="w-3.5 h-3.5 text-[#ccff00]" /> : <Copy className="w-3.5 h-3.5" />}
+                    <span className="text-[10px] uppercase">{copiedCode ? 'Copied' : 'Copy'}</span>
+                  </button>
+                </div>
+
+                {/* Optional inputs to pre-fill WhatsApp message */}
+                <div className="space-y-2 text-left">
+                  <div>
+                    <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
+                      Your USDT (BEP20) Address:
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="0x..."
+                      value={bep20Address}
+                      onChange={(e) => setBep20Address(e.target.value)}
+                      className="w-full bg-black/50 border border-white/15 focus:border-[#ccff00] focus:outline-none rounded-xl py-2 px-3 text-white text-xs font-mono transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
+                      Your Post Link (X / WhatsApp):
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="https://x.com/... or status link"
+                      value={postLink}
+                      onChange={(e) => setPostLink(e.target.value)}
+                      className="w-full bg-black/50 border border-white/15 focus:border-[#ccff00] focus:outline-none rounded-xl py-2 px-3 text-white text-xs transition-colors"
+                    />
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="space-y-2 pt-1">
+                  <button
+                    type="button"
+                    onClick={handleClaimWhatsApp}
+                    className="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-black py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 cursor-pointer transition-all uppercase tracking-wider text-xs shadow-[0_0_20px_rgba(16,185,129,0.35)]"
+                  >
+                    <Share2 className="w-4 h-4" />
+                    <span>WhatsApp to Claim</span>
+                  </button>
+                  <p className="text-[10px] text-slate-400 text-center font-medium">
+                    Direct chat with 09075166596 to receive your $1 USDT
+                  </p>
+                  <button
+                    type="button"
+                    onClick={handleCopyClaim}
+                    className="w-full bg-white/10 hover:bg-white/15 text-white font-bold py-2.5 px-4 rounded-xl flex items-center justify-center gap-1.5 cursor-pointer transition-all text-xs border border-white/10"
+                  >
+                    {copiedClaim ? <Check className="w-3.5 h-3.5 text-[#ccff00]" /> : <Copy className="w-3.5 h-3.5" />}
+                    <span>{copiedClaim ? 'Claim Message Copied!' : 'Copy Full Claim Message'}</span>
+                  </button>
+                </div>
+              </div>
+            ) : (
+              // ── NON-WINNER STATE ──
+              <div className="text-center space-y-4">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-500/20 to-[#ccff00]/20 border border-amber-400/40 mx-auto flex items-center justify-center text-3xl shadow-[0_0_30px_rgba(245,158,11,0.2)]">
+                  🎁
+                </div>
+
+                <div>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/40 text-[10px] font-black uppercase tracking-widest text-amber-300 mb-1.5">
+                    <Sparkles className="w-3 h-3 text-[#ccff00]" /> Don&apos;t Stop Here!
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-black text-white uppercase tracking-tight">
+                    Post Your DP Anyway!
+                  </h3>
+                  <p className="text-slate-300 text-xs sm:text-sm mt-1.5 leading-relaxed">
+                    Didn&apos;t unlock the instant drop? <strong className="text-[#ccff00]">You might still get rewarded!</strong> We&apos;re monitoring community posts leading up to the event.
+                  </p>
+                </div>
+
+                <div className="p-3.5 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/15 text-left text-xs space-y-2 text-slate-200">
+                  <p className="font-extrabold text-white flex items-center gap-1.5 text-xs">
+                    <Sparkles className="w-3.5 h-3.5 text-[#ccff00]" /> Surprise Rewards for Active Posters:
+                  </p>
+                  <p className="text-[11px] text-slate-300 leading-snug">
+                    Post your badge on <strong className="text-white">X (Twitter)</strong> or your <strong className="text-white">WhatsApp Status</strong> with <span className="text-[#ccff00] font-mono font-bold">#Confluence2026</span>. Random active posters will be selected for surprise perks, bounties &amp; airdrops!
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2 pt-1">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsGiftModalOpen(false);
+                      handleShareTwitter();
+                    }}
+                    className="bg-[#286cfd] hover:bg-[#1d58d8] text-white font-black py-3 px-3 rounded-xl flex items-center justify-center gap-1.5 text-xs transition-all shadow-[0_0_20px_rgba(40,108,253,0.35)] cursor-pointer uppercase tracking-wider"
+                  >
+                    <Twitter className="w-3.5 h-3.5" /> Post on X
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsGiftModalOpen(false);
+                      handleShareWhatsApp();
+                    }}
+                    className="bg-emerald-500 hover:bg-emerald-400 text-black font-black py-3 px-3 rounded-xl flex items-center justify-center gap-1.5 text-xs transition-all shadow-[0_0_20px_rgba(16,185,129,0.35)] cursor-pointer uppercase tracking-wider"
+                  >
+                    <Share2 className="w-3.5 h-3.5" /> WhatsApp Status
+                  </button>
+                </div>
+              </div>
+            )}
+
+          </div>
+        </div>
+      )}
     </div>
   );
 }
