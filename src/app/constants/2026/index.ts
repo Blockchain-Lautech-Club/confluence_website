@@ -3,7 +3,7 @@
 // ─────────────────────────────────────────────
 
 // ── Social & Community Links ─────────────────
-export const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/CIBPtotDSDyG6qSj9ymjT8?s=cl&p=i&mlu=4&ilr=4&iam=2";
+export const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/BztPn6dgt742kRfe3LmNPQ?s=cl&p=a&mlu=4&ilr=4&iam=2";
 
 // ── Speakers ─────────────────────────────────
 export interface Speaker {
